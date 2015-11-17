@@ -164,18 +164,11 @@ public class Vista_Principal extends javax.swing.JFrame {
         tbl_Tabla_Principal = new javax.swing.JTable();
         Menu_bar = new javax.swing.JMenuBar();
         Menu_Nuevo = new javax.swing.JMenu();
-        Menu_Nuevo_Articulo = new javax.swing.JMenu();
-        Menu_Nuevo_Articulo_Crear = new javax.swing.JMenuItem();
-        Menu_Nuevo_Articulo_Modificar = new javax.swing.JMenuItem();
-        Menu_Nuevo_Articulo_Eliminar = new javax.swing.JMenuItem();
-        Menu_Nuevo_Cliente = new javax.swing.JMenu();
-        Menu_Nuevo_Cliente_Crear = new javax.swing.JMenuItem();
-        Menu_Nuevo_Cliente_Modificar = new javax.swing.JMenuItem();
-        Menu_Nuevo_Cliente_Eliminar = new javax.swing.JMenuItem();
-        Menu_Nuevo_Proveedor = new javax.swing.JMenu();
-        Menu_Nuevo_Proveedor_Crear = new javax.swing.JMenuItem();
-        Menu_Nuevo_Proveedor_Modificar = new javax.swing.JMenuItem();
-        Menu_Nuevo_Proveedor_Eliminar = new javax.swing.JMenuItem();
+        Menu_Nuevo_Articulo = new javax.swing.JMenuItem();
+        Menu_Nuevo_Cliente = new javax.swing.JMenuItem();
+        Menu_Nuevo_Proveedor = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        Menu_Nuevo_Pedido = new javax.swing.JMenuItem();
         Menu_Empresa = new javax.swing.JMenu();
         Menu_Empresa_Gastos = new javax.swing.JMenuItem();
         Menu_Empresa_Cobros_Pagos = new javax.swing.JMenuItem();
@@ -1274,43 +1267,17 @@ public class Vista_Principal extends javax.swing.JFrame {
         Menu_Nuevo.setText("Nuevo");
 
         Menu_Nuevo_Articulo.setText("Articulo");
-
-        Menu_Nuevo_Articulo_Crear.setText("Crear");
-        Menu_Nuevo_Articulo.add(Menu_Nuevo_Articulo_Crear);
-
-        Menu_Nuevo_Articulo_Modificar.setText("Modificar");
-        Menu_Nuevo_Articulo.add(Menu_Nuevo_Articulo_Modificar);
-
-        Menu_Nuevo_Articulo_Eliminar.setText("Eliminar");
-        Menu_Nuevo_Articulo.add(Menu_Nuevo_Articulo_Eliminar);
-
         Menu_Nuevo.add(Menu_Nuevo_Articulo);
 
         Menu_Nuevo_Cliente.setText("Cliente");
-
-        Menu_Nuevo_Cliente_Crear.setText("Crear");
-        Menu_Nuevo_Cliente.add(Menu_Nuevo_Cliente_Crear);
-
-        Menu_Nuevo_Cliente_Modificar.setText("Modificar");
-        Menu_Nuevo_Cliente.add(Menu_Nuevo_Cliente_Modificar);
-
-        Menu_Nuevo_Cliente_Eliminar.setText("Eliminar");
-        Menu_Nuevo_Cliente.add(Menu_Nuevo_Cliente_Eliminar);
-
         Menu_Nuevo.add(Menu_Nuevo_Cliente);
 
         Menu_Nuevo_Proveedor.setText("Proveedor");
-
-        Menu_Nuevo_Proveedor_Crear.setText("Crear");
-        Menu_Nuevo_Proveedor.add(Menu_Nuevo_Proveedor_Crear);
-
-        Menu_Nuevo_Proveedor_Modificar.setText("Modificar");
-        Menu_Nuevo_Proveedor.add(Menu_Nuevo_Proveedor_Modificar);
-
-        Menu_Nuevo_Proveedor_Eliminar.setText("Eliminar");
-        Menu_Nuevo_Proveedor.add(Menu_Nuevo_Proveedor_Eliminar);
-
         Menu_Nuevo.add(Menu_Nuevo_Proveedor);
+        Menu_Nuevo.add(jSeparator1);
+
+        Menu_Nuevo_Pedido.setText("Nuevo pedido");
+        Menu_Nuevo.add(Menu_Nuevo_Pedido);
 
         Menu_bar.add(Menu_Nuevo);
 
@@ -1383,18 +1350,10 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JMenuItem Menu_Empresa_Cobros_Pagos;
     public javax.swing.JMenuItem Menu_Empresa_Gastos;
     public javax.swing.JMenu Menu_Nuevo;
-    public javax.swing.JMenu Menu_Nuevo_Articulo;
-    public javax.swing.JMenuItem Menu_Nuevo_Articulo_Crear;
-    public javax.swing.JMenuItem Menu_Nuevo_Articulo_Eliminar;
-    public javax.swing.JMenuItem Menu_Nuevo_Articulo_Modificar;
-    public javax.swing.JMenu Menu_Nuevo_Cliente;
-    public javax.swing.JMenuItem Menu_Nuevo_Cliente_Crear;
-    public javax.swing.JMenuItem Menu_Nuevo_Cliente_Eliminar;
-    public javax.swing.JMenuItem Menu_Nuevo_Cliente_Modificar;
-    public javax.swing.JMenu Menu_Nuevo_Proveedor;
-    public javax.swing.JMenuItem Menu_Nuevo_Proveedor_Crear;
-    public javax.swing.JMenuItem Menu_Nuevo_Proveedor_Eliminar;
-    public javax.swing.JMenuItem Menu_Nuevo_Proveedor_Modificar;
+    private javax.swing.JMenuItem Menu_Nuevo_Articulo;
+    private javax.swing.JMenuItem Menu_Nuevo_Cliente;
+    private javax.swing.JMenuItem Menu_Nuevo_Pedido;
+    private javax.swing.JMenuItem Menu_Nuevo_Proveedor;
     public javax.swing.JMenuBar Menu_bar;
     public javax.swing.JButton btn_Crear_Articulo;
     public javax.swing.JButton btn_Crear_Articulo_Cancelar;
@@ -1483,6 +1442,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JScrollPane jScrollPane5;
     public javax.swing.JScrollPane jScrollPane6;
     public javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     public javax.swing.JSplitPane jSplitPane1;
     public javax.swing.JPanel pnl_Crear_Articulo;
     public javax.swing.JPanel pnl_Crear_Cliente;
