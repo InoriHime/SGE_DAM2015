@@ -2266,9 +2266,9 @@
                           <Component id="btn_principal_proveedores" min="-2" pref="65" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btn_principal_pedidos" min="-2" pref="65" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btn_principal_salir" min="-2" pref="65" max="-2" attributes="0"/>
-                          <EmptySpace pref="112" max="32767" attributes="0"/>
+                          <EmptySpace pref="100" max="32767" attributes="0"/>
                           <Component id="progres_principal" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
