@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-nov-2015 17:57:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.Articulo" table="articulo" catalog="sge" optimistic-lock="version">
+        <id name="codigo" type="java.lang.Integer">
+            <column name="CODIGO" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="30" not-null="true" />
+        </property>
+        <property name="precio" type="double">
+            <column name="PRECIO" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="cantidad" type="int">
+            <column name="CANTIDAD" not-null="true" />
+        </property>
+        <set name="articuloPedidos" table="articulo_pedido" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="CODIGO_ARTICULO" not-null="true" />
+            </key>
+            <one-to-many class="Hibernate.ArticuloPedido" />
+        </set>
+    </class>
+</hibernate-mapping>

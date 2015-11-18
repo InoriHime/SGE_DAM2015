@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-nov-2015 17:57:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.Documento" table="documento" catalog="sge" optimistic-lock="version">
+        <id name="codigo" type="java.lang.Integer">
+            <column name="CODIGO" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cliente" class="Hibernate.Cliente" fetch="select">
+            <column name="DNI_CLIENTE" length="9" not-null="true" />
+        </many-to-one>
+        <property name="tipo" type="string">
+            <column name="TIPO" length="30" not-null="true" />
+        </property>
+        <property name="fechaPedido" type="string">
+            <column name="FECHA_PEDIDO" length="30" not-null="true" />
+        </property>
+        <property name="base" type="double">
+            <column name="BASE" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="iva" type="double">
+            <column name="IVA" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="total" type="double">
+            <column name="TOTAL" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="articuloPedidos" table="articulo_pedido" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="CODIGO_DOCUMENTO" not-null="true" />
+            </key>
+            <one-to-many class="Hibernate.ArticuloPedido" />
+        </set>
+        <set name="cobros" table="cobro" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="CODIGO_PEDIDO" not-null="true" />
+            </key>
+            <one-to-many class="Hibernate.Cobro" />
+        </set>
+    </class>
+</hibernate-mapping>

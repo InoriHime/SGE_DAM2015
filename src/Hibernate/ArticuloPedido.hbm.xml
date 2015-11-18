@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-nov-2015 17:57:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.ArticuloPedido" table="articulo_pedido" catalog="sge" optimistic-lock="version">
+        <composite-id name="id" class="Hibernate.ArticuloPedidoId">
+            <key-property name="codigoDocumento" type="int">
+                <column name="CODIGO_DOCUMENTO" />
+            </key-property>
+            <key-property name="codigoArticulo" type="int">
+                <column name="CODIGO_ARTICULO" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="articulo" class="Hibernate.Articulo" update="false" insert="false" fetch="select">
+            <column name="CODIGO_ARTICULO" not-null="true" />
+        </many-to-one>
+        <many-to-one name="documento" class="Hibernate.Documento" update="false" insert="false" fetch="select">
+            <column name="CODIGO_DOCUMENTO" not-null="true" />
+        </many-to-one>
+        <property name="cantidad" type="int">
+            <column name="CANTIDAD" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-nov-2015 17:57:02 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.Proveedor" table="proveedor" catalog="sge" optimistic-lock="version">
+        <id name="cif" type="string">
+            <column name="CIF" length="16" />
+            <generator class="assigned" />
+        </id>
+        <property name="denominacionSocial" type="string">
+            <column name="DENOMINACION_SOCIAL" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="TELEFONO" length="12" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="CORREO" length="20" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
