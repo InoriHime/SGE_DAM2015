@@ -193,6 +193,54 @@ public class Vista_Principal extends javax.swing.JFrame {
         eti_Pedido_Proveedor_CIF = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
         eti_Pedido_Proveedor_DSocial = new javax.swing.JLabel();
+        Frame_Gastos = new javax.swing.JFrame();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel53 = new javax.swing.JLabel();
+        cbox_Gastos_MesAno = new javax.swing.JComboBox();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        eti_Gastos_Pedidos = new javax.swing.JLabel();
+        eti_Gastos_Establecimiento = new javax.swing.JLabel();
+        eti_Gastos_Total = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        eti_Gastos_Alquiler = new javax.swing.JLabel();
+        eti_Gastos_Luz = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        eti_Gastos_Pagos = new javax.swing.JLabel();
+        btn_Gastos_Salir = new javax.swing.JButton();
+        Frame_CobrosPagos = new javax.swing.JFrame();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel60 = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        tbl_CobrosPagos = new javax.swing.JTable();
+        btn_Cobros_Pagos_Salir = new javax.swing.JButton();
+        cbox_CobrosPagos_MesAno = new javax.swing.JComboBox();
+        Frame_DatosEmpresa = new javax.swing.JFrame();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel61 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        eti_DatosEmpresa_Nombre = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        eti_DatosEmpresa_Direccion = new javax.swing.JLabel();
+        eti_DatosEmpresa_Correo = new javax.swing.JLabel();
+        eti_DatosEmpresa_Iva = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel66 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        txt_DatosEmpresa_Nombre = new javax.swing.JTextField();
+        txt_DatosEmpresa_Correo = new javax.swing.JTextField();
+        txt_DatosEmpresa_Direccion = new javax.swing.JTextField();
+        txt_DatosEmpresa_Iva = new javax.swing.JTextField();
+        btn_DatosEmpresa_Modificar = new javax.swing.JButton();
+        btn_DatosEmpresa_Salir = new javax.swing.JButton();
         pnl_contenedor = new javax.swing.JPanel();
         jSplitPane1 = new javax.swing.JSplitPane();
         pnl_principal_izquierda = new javax.swing.JPanel();
@@ -219,12 +267,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         Menu_Empresa_Cobros_Pagos = new javax.swing.JMenuItem();
         Menu_Configuracion = new javax.swing.JMenu();
         Menu_Confi_Ver = new javax.swing.JMenuItem();
-        Menu_Confi_Modificar = new javax.swing.JMenu();
-        Menu_Confi_Modificar_Correo = new javax.swing.JMenuItem();
-        Menu_Confi_Modificar_Direccion = new javax.swing.JMenuItem();
-        Menu_Confi_Modificar_Iva = new javax.swing.JMenuItem();
-        Menu_Confi_Modificar_Nombre = new javax.swing.JMenuItem();
-        Menu_Confi_Modificar_Telefono = new javax.swing.JMenuItem();
 
         Frame_Cliente.setUndecorated(true);
 
@@ -343,7 +385,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                     .addComponent(jLabel24)
                     .addComponent(txt_Crear_Cliente_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel33))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                 .addComponent(btn_Crear_Cliente)
                 .addContainerGap())
         );
@@ -521,7 +563,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                     .addComponent(btn_Eliminar_Cliente_Buscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_Eliminar_Cliente)
                 .addContainerGap())
         );
@@ -559,8 +601,8 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tabPane_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tabPane_Cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_Cliente_Cancelar)
                 .addContainerGap())
         );
@@ -569,9 +611,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         Frame_Cliente.getContentPane().setLayout(Frame_ClienteLayout);
         Frame_ClienteLayout.setHorizontalGroup(
             Frame_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Frame_ClienteLayout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Frame_ClienteLayout.setVerticalGroup(
             Frame_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1592,6 +1632,455 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addComponent(pnl_Pedido_Proveedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        Frame_Gastos.setUndecorated(true);
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel53.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel53.setText("Gastos");
+        jLabel53.setOpaque(true);
+
+        cbox_Gastos_MesAno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel54.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel54.setText("Establecimiento:");
+
+        jLabel55.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel55.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel55.setText("Pedidos:");
+
+        jLabel56.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel56.setText("TOTAL:");
+
+        eti_Gastos_Pedidos.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        eti_Gastos_Pedidos.setForeground(new java.awt.Color(255, 0, 0));
+        eti_Gastos_Pedidos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eti_Gastos_Pedidos.setText("0€");
+        eti_Gastos_Pedidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        eti_Gastos_Establecimiento.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        eti_Gastos_Establecimiento.setForeground(new java.awt.Color(255, 0, 0));
+        eti_Gastos_Establecimiento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eti_Gastos_Establecimiento.setText("0€");
+        eti_Gastos_Establecimiento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        eti_Gastos_Total.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        eti_Gastos_Total.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eti_Gastos_Total.setText("0€");
+        eti_Gastos_Total.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel57.setText("Alquiler:");
+
+        jLabel58.setText("Luz:");
+
+        eti_Gastos_Alquiler.setForeground(new java.awt.Color(255, 0, 0));
+        eti_Gastos_Alquiler.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eti_Gastos_Alquiler.setText("0€");
+        eti_Gastos_Alquiler.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        eti_Gastos_Luz.setForeground(new java.awt.Color(255, 0, 0));
+        eti_Gastos_Luz.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eti_Gastos_Luz.setText("0€");
+        eti_Gastos_Luz.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel59.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel59.setText("Pagos:");
+
+        eti_Gastos_Pagos.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        eti_Gastos_Pagos.setForeground(new java.awt.Color(0, 204, 51));
+        eti_Gastos_Pagos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eti_Gastos_Pagos.setText("0€");
+        eti_Gastos_Pagos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btn_Gastos_Salir.setText("Salir");
+        btn_Gastos_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Gastos_SalirActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(cbox_Gastos_MesAno, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel53, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel59)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(eti_Gastos_Pagos, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel56)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(eti_Gastos_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel57)
+                                    .addComponent(jLabel54)
+                                    .addComponent(jLabel58))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(eti_Gastos_Establecimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                                    .addComponent(eti_Gastos_Alquiler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(eti_Gastos_Luz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel55)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                                .addComponent(eti_Gastos_Pedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_Gastos_Salir)))
+                .addContainerGap())
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(jLabel53)
+                .addGap(18, 18, 18)
+                .addComponent(cbox_Gastos_MesAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel54)
+                    .addComponent(eti_Gastos_Establecimiento))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel57)
+                    .addComponent(eti_Gastos_Alquiler))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel58)
+                    .addComponent(eti_Gastos_Luz))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel55)
+                    .addComponent(eti_Gastos_Pedidos))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel59)
+                    .addComponent(eti_Gastos_Pagos))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel56)
+                    .addComponent(eti_Gastos_Total))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(btn_Gastos_Salir)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout Frame_GastosLayout = new javax.swing.GroupLayout(Frame_Gastos.getContentPane());
+        Frame_Gastos.getContentPane().setLayout(Frame_GastosLayout);
+        Frame_GastosLayout.setHorizontalGroup(
+            Frame_GastosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        Frame_GastosLayout.setVerticalGroup(
+            Frame_GastosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        Frame_CobrosPagos.setUndecorated(true);
+
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel60.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel60.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel60.setText("Cobros/Pagos");
+        jLabel60.setOpaque(true);
+
+        tbl_CobrosPagos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane12.setViewportView(tbl_CobrosPagos);
+
+        btn_Cobros_Pagos_Salir.setText("Salir");
+        btn_Cobros_Pagos_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Cobros_Pagos_SalirActionPerformed(evt);
+            }
+        });
+
+        cbox_CobrosPagos_MesAno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+                    .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_Cobros_Pagos_Salir)))
+                .addContainerGap())
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(267, 267, 267)
+                .addComponent(cbox_CobrosPagos_MesAno, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addComponent(jLabel60)
+                .addGap(18, 18, 18)
+                .addComponent(cbox_CobrosPagos_MesAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_Cobros_Pagos_Salir)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout Frame_CobrosPagosLayout = new javax.swing.GroupLayout(Frame_CobrosPagos.getContentPane());
+        Frame_CobrosPagos.getContentPane().setLayout(Frame_CobrosPagosLayout);
+        Frame_CobrosPagosLayout.setHorizontalGroup(
+            Frame_CobrosPagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        Frame_CobrosPagosLayout.setVerticalGroup(
+            Frame_CobrosPagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel61.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel61.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel61.setText("Datos de Empresa");
+        jLabel61.setOpaque(true);
+
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel62.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel62.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel62.setText("Nombre de Empresa:");
+
+        jLabel63.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel63.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel63.setText("Correo:");
+
+        jLabel64.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel64.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel64.setText("%IVA:");
+
+        eti_DatosEmpresa_Nombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        eti_DatosEmpresa_Nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eti_DatosEmpresa_Nombre.setText(" ");
+        eti_DatosEmpresa_Nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel65.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel65.setText("Dirección:");
+
+        eti_DatosEmpresa_Direccion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        eti_DatosEmpresa_Direccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eti_DatosEmpresa_Direccion.setText(" ");
+        eti_DatosEmpresa_Direccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        eti_DatosEmpresa_Correo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        eti_DatosEmpresa_Correo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eti_DatosEmpresa_Correo.setText(" ");
+        eti_DatosEmpresa_Correo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        eti_DatosEmpresa_Iva.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        eti_DatosEmpresa_Iva.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eti_DatosEmpresa_Iva.setText(" ");
+        eti_DatosEmpresa_Iva.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel65)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(eti_DatosEmpresa_Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel62)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addComponent(eti_DatosEmpresa_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel64)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(eti_DatosEmpresa_Iva, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel63)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(eti_DatosEmpresa_Correo, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel62)
+                    .addComponent(eti_DatosEmpresa_Nombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel63)
+                    .addComponent(eti_DatosEmpresa_Correo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel65)
+                    .addComponent(eti_DatosEmpresa_Direccion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel64)
+                    .addComponent(eti_DatosEmpresa_Iva))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Datos", jPanel12);
+
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel66.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel66.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel66.setText("Nombre de Empresa:");
+
+        jLabel67.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel67.setText("Correo:");
+
+        jLabel68.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel68.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel68.setText("%IVA:");
+
+        jLabel69.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel69.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel69.setText("Dirección:");
+
+        btn_DatosEmpresa_Modificar.setText("Modificar");
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel66)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addComponent(txt_DatosEmpresa_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel67)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txt_DatosEmpresa_Correo, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel69)
+                            .addComponent(jLabel68))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_DatosEmpresa_Iva, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                            .addComponent(txt_DatosEmpresa_Direccion)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_DatosEmpresa_Modificar)))
+                .addContainerGap())
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel66)
+                    .addComponent(txt_DatosEmpresa_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel67)
+                    .addComponent(txt_DatosEmpresa_Correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel69)
+                    .addComponent(txt_DatosEmpresa_Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel68)
+                    .addComponent(txt_DatosEmpresa_Iva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(btn_DatosEmpresa_Modificar)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Modificar", jPanel13);
+
+        btn_DatosEmpresa_Salir.setText("Salir");
+        btn_DatosEmpresa_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_DatosEmpresa_SalirActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel61, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_DatosEmpresa_Salir)))
+                .addContainerGap())
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addComponent(jLabel61)
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_DatosEmpresa_Salir)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout Frame_DatosEmpresaLayout = new javax.swing.GroupLayout(Frame_DatosEmpresa.getContentPane());
+        Frame_DatosEmpresa.getContentPane().setLayout(Frame_DatosEmpresaLayout);
+        Frame_DatosEmpresaLayout.setHorizontalGroup(
+            Frame_DatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        Frame_DatosEmpresaLayout.setVerticalGroup(
+            Frame_DatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Frame_DatosEmpresaLayout.createSequentialGroup()
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnl_contenedor.setBackground(new java.awt.Color(255, 255, 255));
@@ -1762,9 +2251,19 @@ public class Vista_Principal extends javax.swing.JFrame {
         Menu_Empresa.setText("Empresa");
 
         Menu_Empresa_Gastos.setText("Gastos de Empresa");
+        Menu_Empresa_Gastos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu_Empresa_GastosActionPerformed(evt);
+            }
+        });
         Menu_Empresa.add(Menu_Empresa_Gastos);
 
         Menu_Empresa_Cobros_Pagos.setText("Cobros y pagos");
+        Menu_Empresa_Cobros_Pagos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu_Empresa_Cobros_PagosActionPerformed(evt);
+            }
+        });
         Menu_Empresa.add(Menu_Empresa_Cobros_Pagos);
 
         Menu_bar.add(Menu_Empresa);
@@ -1772,26 +2271,12 @@ public class Vista_Principal extends javax.swing.JFrame {
         Menu_Configuracion.setText("Configuracion");
 
         Menu_Confi_Ver.setText("Ver datos");
+        Menu_Confi_Ver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu_Confi_VerActionPerformed(evt);
+            }
+        });
         Menu_Configuracion.add(Menu_Confi_Ver);
-
-        Menu_Confi_Modificar.setText("Modificar");
-
-        Menu_Confi_Modificar_Correo.setText("Correo ...");
-        Menu_Confi_Modificar.add(Menu_Confi_Modificar_Correo);
-
-        Menu_Confi_Modificar_Direccion.setText("Dirección ...");
-        Menu_Confi_Modificar.add(Menu_Confi_Modificar_Direccion);
-
-        Menu_Confi_Modificar_Iva.setText("% IVA ...");
-        Menu_Confi_Modificar.add(Menu_Confi_Modificar_Iva);
-
-        Menu_Confi_Modificar_Nombre.setText("Nombre de Empresa ...");
-        Menu_Confi_Modificar.add(Menu_Confi_Modificar_Nombre);
-
-        Menu_Confi_Modificar_Telefono.setText("Teléfono de contacto ...");
-        Menu_Confi_Modificar.add(Menu_Confi_Modificar_Telefono);
-
-        Menu_Configuracion.add(Menu_Confi_Modificar);
 
         Menu_bar.add(Menu_Configuracion);
 
@@ -1819,7 +2304,7 @@ public class Vista_Principal extends javax.swing.JFrame {
 
     private void Menu_Nuevo_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Nuevo_ClienteActionPerformed
         Frame_Cliente.setVisible(true);
-        Frame_Cliente.setSize(800,500);
+        Frame_Cliente.setSize(800,550);
         Frame_Cliente.setLocationRelativeTo(this);
     }//GEN-LAST:event_Menu_Nuevo_ClienteActionPerformed
 
@@ -1851,18 +2336,45 @@ public class Vista_Principal extends javax.swing.JFrame {
         Frame_Pedido.setVisible(false);
     }//GEN-LAST:event_btn_Pedido_CancelarActionPerformed
 
+    private void btn_Gastos_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Gastos_SalirActionPerformed
+        Frame_Gastos.setVisible(false);
+    }//GEN-LAST:event_btn_Gastos_SalirActionPerformed
+
+    private void Menu_Empresa_GastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Empresa_GastosActionPerformed
+        Frame_Gastos.setVisible(true);
+        Frame_Gastos.setSize(700,400);
+        Frame_Gastos.setLocationRelativeTo(this);
+    }//GEN-LAST:event_Menu_Empresa_GastosActionPerformed
+
+    private void Menu_Empresa_Cobros_PagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Empresa_Cobros_PagosActionPerformed
+        Frame_CobrosPagos.setVisible(true);
+        Frame_CobrosPagos.setSize(800,600);
+        Frame_CobrosPagos.setLocationRelativeTo(this);
+    }//GEN-LAST:event_Menu_Empresa_Cobros_PagosActionPerformed
+
+    private void btn_Cobros_Pagos_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Cobros_Pagos_SalirActionPerformed
+        Frame_CobrosPagos.setVisible(false);
+    }//GEN-LAST:event_btn_Cobros_Pagos_SalirActionPerformed
+
+    private void Menu_Confi_VerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Confi_VerActionPerformed
+        Frame_DatosEmpresa.setVisible(true);
+        Frame_DatosEmpresa.setSize(600,350);
+        Frame_DatosEmpresa.setLocationRelativeTo(this);
+    }//GEN-LAST:event_Menu_Confi_VerActionPerformed
+
+    private void btn_DatosEmpresa_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DatosEmpresa_SalirActionPerformed
+        Frame_DatosEmpresa.setVisible(false);
+    }//GEN-LAST:event_btn_DatosEmpresa_SalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame Frame_Articulo;
     public javax.swing.JFrame Frame_Cliente;
+    private javax.swing.JFrame Frame_CobrosPagos;
+    private javax.swing.JFrame Frame_DatosEmpresa;
+    private javax.swing.JFrame Frame_Gastos;
     private javax.swing.JFrame Frame_Pedido;
     public javax.swing.JFrame Frame_Proveedor;
-    public javax.swing.JMenu Menu_Confi_Modificar;
-    public javax.swing.JMenuItem Menu_Confi_Modificar_Correo;
-    public javax.swing.JMenuItem Menu_Confi_Modificar_Direccion;
-    public javax.swing.JMenuItem Menu_Confi_Modificar_Iva;
-    public javax.swing.JMenuItem Menu_Confi_Modificar_Nombre;
-    public javax.swing.JMenuItem Menu_Confi_Modificar_Telefono;
     public javax.swing.JMenuItem Menu_Confi_Ver;
     public javax.swing.JMenu Menu_Configuracion;
     public javax.swing.JMenu Menu_Empresa;
@@ -1876,15 +2388,19 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JMenuBar Menu_bar;
     public javax.swing.JButton btn_Articulo_Cancelar;
     public javax.swing.JButton btn_Cliente_Cancelar;
+    public javax.swing.JButton btn_Cobros_Pagos_Salir;
     public javax.swing.JButton btn_Crear_Articulo;
     public javax.swing.JButton btn_Crear_Cliente;
     public javax.swing.JButton btn_Crear_Proveedor;
+    public javax.swing.JButton btn_DatosEmpresa_Modificar;
+    public javax.swing.JButton btn_DatosEmpresa_Salir;
     public javax.swing.JButton btn_Eliminar_Articulo;
     public javax.swing.JButton btn_Eliminar_Articulo_Buscar;
     public javax.swing.JButton btn_Eliminar_Cliente;
     public javax.swing.JButton btn_Eliminar_Cliente_Buscar;
     public javax.swing.JButton btn_Eliminar_Proveedor;
     public javax.swing.JButton btn_Eliminar_Proveedor_Buscar;
+    public javax.swing.JButton btn_Gastos_Salir;
     public javax.swing.JButton btn_Modificar_Articulo;
     public javax.swing.JButton btn_Modificar_Articulo_Busqueda;
     private javax.swing.JButton btn_Modificar_Cliente;
@@ -1902,11 +2418,23 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JButton btn_principal_pedidos;
     public javax.swing.JButton btn_principal_proveedores;
     public javax.swing.JButton btn_principal_salir;
+    public javax.swing.JComboBox cbox_CobrosPagos_MesAno;
     public javax.swing.JComboBox cbox_Eliminar_Articulo_Buscar;
     public javax.swing.JComboBox cbox_Eliminar_Cliente_Buscar;
     public javax.swing.JComboBox cbox_Eliminar_Proveedor_Buscar;
+    public javax.swing.JComboBox cbox_Gastos_MesAno;
     public javax.swing.JComboBox cbox_Pedido_Cliente_Busqueda;
     public javax.swing.JComboBox cbox_Pedido_Proveedor_Busqueda1;
+    public javax.swing.JLabel eti_DatosEmpresa_Correo;
+    public javax.swing.JLabel eti_DatosEmpresa_Direccion;
+    public javax.swing.JLabel eti_DatosEmpresa_Iva;
+    public javax.swing.JLabel eti_DatosEmpresa_Nombre;
+    public javax.swing.JLabel eti_Gastos_Alquiler;
+    public javax.swing.JLabel eti_Gastos_Establecimiento;
+    public javax.swing.JLabel eti_Gastos_Luz;
+    public javax.swing.JLabel eti_Gastos_Pagos;
+    public javax.swing.JLabel eti_Gastos_Pedidos;
+    public javax.swing.JLabel eti_Gastos_Total;
     public javax.swing.JLabel eti_Pedido_Cliente_Apellidos;
     public javax.swing.JLabel eti_Pedido_Cliente_Correo;
     public javax.swing.JLabel eti_Pedido_Cliente_Dni;
@@ -1965,11 +2493,32 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel50;
     public javax.swing.JLabel jLabel51;
     public javax.swing.JLabel jLabel52;
+    public javax.swing.JLabel jLabel53;
+    public javax.swing.JLabel jLabel54;
+    public javax.swing.JLabel jLabel55;
+    public javax.swing.JLabel jLabel56;
+    public javax.swing.JLabel jLabel57;
+    public javax.swing.JLabel jLabel58;
+    public javax.swing.JLabel jLabel59;
     public javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabel60;
+    public javax.swing.JLabel jLabel61;
+    public javax.swing.JLabel jLabel62;
+    public javax.swing.JLabel jLabel63;
+    public javax.swing.JLabel jLabel64;
+    public javax.swing.JLabel jLabel65;
+    public javax.swing.JLabel jLabel66;
+    public javax.swing.JLabel jLabel67;
+    public javax.swing.JLabel jLabel68;
+    public javax.swing.JLabel jLabel69;
     public javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabel9;
     public javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel10;
+    public javax.swing.JPanel jPanel11;
+    public javax.swing.JPanel jPanel12;
+    public javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanel4;
@@ -1977,9 +2526,11 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel6;
     public javax.swing.JPanel jPanel7;
     public javax.swing.JPanel jPanel8;
+    public javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane10;
     public javax.swing.JScrollPane jScrollPane11;
+    public javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JScrollPane jScrollPane4;
@@ -1990,6 +2541,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     public javax.swing.JSplitPane jSplitPane1;
+    public javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JPanel pnl_Crear_Articulo;
     public javax.swing.JPanel pnl_Crear_Cliente;
     public javax.swing.JPanel pnl_Crear_Proveedor;
@@ -2014,6 +2566,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JTabbedPane tabPane_Articulo;
     public javax.swing.JTabbedPane tabPane_Cliente;
     public javax.swing.JTabbedPane tabPane_Proveedor;
+    public javax.swing.JTable tbl_CobrosPagos;
     public javax.swing.JTable tbl_Eliminar_Articulo;
     public javax.swing.JTable tbl_Eliminar_Cliente;
     public javax.swing.JTable tbl_Eliminar_Proveedor;
@@ -2037,6 +2590,10 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JTextField txt_Crear_Proveedor_Correo;
     public javax.swing.JTextField txt_Crear_Proveedor_DSocial;
     public javax.swing.JTextField txt_Crear_Proveedor_Telefono;
+    public javax.swing.JTextField txt_DatosEmpresa_Correo;
+    public javax.swing.JTextField txt_DatosEmpresa_Direccion;
+    public javax.swing.JTextField txt_DatosEmpresa_Iva;
+    public javax.swing.JTextField txt_DatosEmpresa_Nombre;
     public javax.swing.JTextField txt_Eliminar_Articulo_Buscar;
     public javax.swing.JTextField txt_Eliminar_Cliente_Buscar;
     public javax.swing.JTextField txt_Eliminar_Proveedor_Buscar;
