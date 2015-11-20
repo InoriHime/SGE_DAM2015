@@ -2368,12 +2368,12 @@ public class Vista_Principal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFrame Frame_Articulo;
+    public javax.swing.JFrame Frame_Articulo;
     public javax.swing.JFrame Frame_Cliente;
-    private javax.swing.JFrame Frame_CobrosPagos;
-    private javax.swing.JFrame Frame_DatosEmpresa;
-    private javax.swing.JFrame Frame_Gastos;
-    private javax.swing.JFrame Frame_Pedido;
+    public javax.swing.JFrame Frame_CobrosPagos;
+    public javax.swing.JFrame Frame_DatosEmpresa;
+    public javax.swing.JFrame Frame_Gastos;
+    public javax.swing.JFrame Frame_Pedido;
     public javax.swing.JFrame Frame_Proveedor;
     public javax.swing.JMenuItem Menu_Confi_Ver;
     public javax.swing.JMenu Menu_Configuracion;
@@ -2381,10 +2381,10 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JMenuItem Menu_Empresa_Cobros_Pagos;
     public javax.swing.JMenuItem Menu_Empresa_Gastos;
     public javax.swing.JMenu Menu_Nuevo;
-    private javax.swing.JMenuItem Menu_Nuevo_Articulo;
-    private javax.swing.JMenuItem Menu_Nuevo_Cliente;
-    private javax.swing.JMenuItem Menu_Nuevo_Pedido;
-    private javax.swing.JMenuItem Menu_Nuevo_Proveedor;
+    public javax.swing.JMenuItem Menu_Nuevo_Articulo;
+    public javax.swing.JMenuItem Menu_Nuevo_Cliente;
+    public javax.swing.JMenuItem Menu_Nuevo_Pedido;
+    public javax.swing.JMenuItem Menu_Nuevo_Proveedor;
     public javax.swing.JMenuBar Menu_bar;
     public javax.swing.JButton btn_Articulo_Cancelar;
     public javax.swing.JButton btn_Cliente_Cancelar;
@@ -2403,8 +2403,8 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JButton btn_Gastos_Salir;
     public javax.swing.JButton btn_Modificar_Articulo;
     public javax.swing.JButton btn_Modificar_Articulo_Busqueda;
-    private javax.swing.JButton btn_Modificar_Cliente;
-    private javax.swing.JButton btn_Modificar_Cliente_Busqueda;
+    public javax.swing.JButton btn_Modificar_Cliente;
+    public javax.swing.JButton btn_Modificar_Cliente_Busqueda;
     public javax.swing.JButton btn_Modificar_Proveedor;
     public javax.swing.JButton btn_Modificar_Proveedor_Busqueda;
     public javax.swing.JButton btn_Pedido_Cancelar;
@@ -2575,7 +2575,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JTable tbl_Pedido_Cliente_Busqueda;
     private javax.swing.JTable tbl_Pedido_Proveedor_Busqueda;
     public javax.swing.JTable tbl_Tabla_Modificar_Articulo;
-    private javax.swing.JTable tbl_Tabla_Modificar_Cliente;
+    public javax.swing.JTable tbl_Tabla_Modificar_Cliente;
     public javax.swing.JTable tbl_Tabla_Modificar_Proveedor;
     public javax.swing.JTable tbl_Tabla_Principal;
     public javax.swing.JTextField txt_Crear_Articulo_Nombre;
@@ -2601,7 +2601,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JTextField txt_Modificar_Articulo_Nombre;
     public javax.swing.JTextField txt_Modificar_Articulo_Precio;
     public javax.swing.JTextField txt_Modificar_Cliente_Apellidos;
-    private javax.swing.JTextField txt_Modificar_Cliente_Buscar;
+    public javax.swing.JTextField txt_Modificar_Cliente_Buscar;
     public javax.swing.JTextField txt_Modificar_Cliente_Correo;
     public javax.swing.JTextField txt_Modificar_Cliente_Dni;
     public javax.swing.JTextField txt_Modificar_Cliente_Domicilio;
