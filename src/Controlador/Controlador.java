@@ -1,4 +1,3 @@
-
 package Controlador;
 
 import Modelo.Modelo;
@@ -9,18 +8,18 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class Controlador implements ActionListener{
-    
-Vista_Principal v;
-Modelo m;
+public class Controlador implements ActionListener {
+
+    Vista_Principal v;
+    Modelo m;
+    String tablaMenuPrincipal = "articulos";
 
     public Controlador(Vista_Principal vista) {
-      this.v=vista;
+        this.v = vista;
     }
 
-    
+    public enum Acciones {
 
-    public enum Acciones{
         principalCargarTablaArticulos,
         principalCargarTablaClientes,
         principalCargarTablaProveedores,
@@ -32,17 +31,22 @@ Modelo m;
         mostrarFramePedido,
         mostrarFrameGastos,
         mostrarFrameCobrosPagos,
-        mostrarFrameConfig
+        mostrarFrameConfig,
+        cerrarFrameCliente,
+        insertarCliente
     }
-    
+
     public void iniciarMain() {
-           try {
+        try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             SwingUtilities.updateComponentTreeUI(v);
             this.v.setLocationRelativeTo(null);
             v.setVisible(true);
-        } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {}
-        
+        } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+        }
+        //Cargamos la tabla del menu principal por defecto
+        this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
+
         //Listener botones en la ventana principal
         this.v.btn_principal_articulos.setActionCommand("principalCargarTablaArticulos");
         this.v.btn_principal_articulos.addActionListener(this);
@@ -54,7 +58,7 @@ Modelo m;
         this.v.btn_principal_pedidos.addActionListener(this);
         this.v.btn_principal_buscar.setActionCommand("principalBuscarEnTablaPrincipal");
         this.v.btn_principal_buscar.addActionListener(this);
-        
+
         //Listeners en el menú
         //Menu Nuevo
         this.v.Menu_Nuevo_Articulo.setActionCommand("mostrarFrameArticulo");
@@ -73,27 +77,52 @@ Modelo m;
         //Menu configuracion
         this.v.Menu_Confi_Ver.setActionCommand("mostrarFrameConfig");
         this.v.Menu_Confi_Ver.addActionListener(this);
-        
+
+        //Listeners frame cliente
+        this.v.btn_Cliente_Cancelar.setActionCommand("cerrarFrameCliente");
+        this.v.btn_Cliente_Cancelar.addActionListener(this);
+        //Crear cliente
+        this.v.btn_Crear_Cliente.setActionCommand("insertarCliente");
+        this.v.btn_Crear_Cliente.addActionListener(this);
+
     }
-    
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        switch(Acciones.valueOf(e.getActionCommand())){
+        switch (Acciones.valueOf(e.getActionCommand())) {
             case principalCargarTablaArticulos:
+                this.tablaMenuPrincipal = "articulos";
                 this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
                 break;
             case principalCargarTablaClientes:
+                this.tablaMenuPrincipal = "clientes";
                 this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("cliente"));
                 break;
             case principalCargarTablaProveedores:
+                this.tablaMenuPrincipal = "proveedores";
                 this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("proveedor"));
                 break;
             case principalCargarTablaPedidos:
+                this.tablaMenuPrincipal = "pedidos";
                 this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo_pedido"));
                 break;
             case principalBuscarEnTablaPrincipal:
-                
+                String busqueda = this.v.txt_principal_busqueda.getText();
+                switch(tablaMenuPrincipal){
+                    case "articulos":
+                        
+                        break;
+                    case "clientes":
+                        
+                        break;
+                    case "proveedores":
+                        
+                        break;
+                    case "pedidos":
+                        
+                        break;
+                }
+
                 break;
             case mostrarFrameArticulo:
                 this.v.Frame_Articulo.setVisible(true);
@@ -116,8 +145,13 @@ Modelo m;
             case mostrarFrameConfig:
                 this.v.Frame_DatosEmpresa.setVisible(true);
                 break;
+            case cerrarFrameCliente:
+                this.v.Frame_Cliente.setVisible(false);
+                break;
+            case insertarCliente:
+                
+                break;
         }
     }
-      
-    
+
 }
