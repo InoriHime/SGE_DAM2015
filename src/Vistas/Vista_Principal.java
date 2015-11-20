@@ -2531,7 +2531,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JScrollPane jScrollPane10;
     public javax.swing.JScrollPane jScrollPane11;
     public javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JScrollPane jScrollPane4;
     public javax.swing.JScrollPane jScrollPane5;
@@ -2577,7 +2577,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JTable tbl_Tabla_Modificar_Articulo;
     private javax.swing.JTable tbl_Tabla_Modificar_Cliente;
     public javax.swing.JTable tbl_Tabla_Modificar_Proveedor;
-    private javax.swing.JTable tbl_Tabla_Principal;
+    public javax.swing.JTable tbl_Tabla_Principal;
     public javax.swing.JTextField txt_Crear_Articulo_Nombre;
     public javax.swing.JTextField txt_Crear_Articulo_Precio;
     public javax.swing.JTextField txt_Crear_Cliente_Apellidos;
