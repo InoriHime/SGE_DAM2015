@@ -71,7 +71,7 @@ Modelo m;
         this.v.Menu_Empresa_Cobros_Pagos.setActionCommand("mostrarFrameCobrosPagos");
         this.v.Menu_Empresa_Cobros_Pagos.addActionListener(this);
         //Menu configuracion
-        this.v.Menu_Confi_Ver.setActionCommand("mostrarFrameCofig");
+        this.v.Menu_Confi_Ver.setActionCommand("mostrarFrameConfig");
         this.v.Menu_Confi_Ver.addActionListener(this);
         
     }
