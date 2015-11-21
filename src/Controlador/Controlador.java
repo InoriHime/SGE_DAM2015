@@ -11,7 +11,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class Controlador implements ActionListener {
 
     Vista_Principal v;
-    Modelo m;
+    Modelo m = new Modelo();
     String tablaMenuPrincipal = "articulos";
 
     public Controlador(Vista_Principal vista) {
