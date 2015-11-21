@@ -162,6 +162,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         pnl_Pedido_ClienteProveedor = new javax.swing.JPanel();
         btn_Pedido_Cancelar = new javax.swing.JButton();
         btn_Pedido_HacerPedido = new javax.swing.JButton();
+        btn_Pedido_VerProforma = new javax.swing.JButton();
         radGroup_Pedido = new javax.swing.ButtonGroup();
         pnl_Pedido_Contenedor_Cliente = new javax.swing.JPanel();
         pnl_Pedido_Cliente = new javax.swing.JPanel();
@@ -253,7 +254,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel75 = new javax.swing.JLabel();
         jLabel76 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         Frame_Proforma = new javax.swing.JFrame();
         jPanel14 = new javax.swing.JPanel();
@@ -1345,6 +1345,8 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         btn_Pedido_HacerPedido.setText("Hacer Pedido");
 
+        btn_Pedido_VerProforma.setText("Ver Proforma");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -1357,7 +1359,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                         .addComponent(rad_Pedido_Cliente)
                         .addGap(46, 46, 46)
                         .addComponent(rad_Pedido_Proveedor)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 200, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1366,6 +1368,8 @@ public class Vista_Principal extends javax.swing.JFrame {
                         .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_Pedido_VerProforma)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_Pedido_HacerPedido)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_Pedido_Cancelar)))
@@ -1386,7 +1390,8 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Pedido_Cancelar)
-                    .addComponent(btn_Pedido_HacerPedido))
+                    .addComponent(btn_Pedido_HacerPedido)
+                    .addComponent(btn_Pedido_VerProforma))
                 .addContainerGap())
         );
 
@@ -2129,8 +2134,6 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jButton3.setText("Confirmar Factura");
 
-        jButton4.setText("Proforma");
-
         jButton5.setText("Cancelar");
 
         javax.swing.GroupLayout pnl_FacturaLayout = new javax.swing.GroupLayout(pnl_Factura);
@@ -2158,8 +2161,6 @@ public class Vista_Principal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnl_FacturaLayout.createSequentialGroup()
-                                .addComponent(jButton4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton5)))))
@@ -2182,7 +2183,6 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
-                    .addComponent(jButton4)
                     .addComponent(jButton5))
                 .addContainerGap())
         );
@@ -2639,6 +2639,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JButton btn_Pedido_Cliente_Buscar;
     public javax.swing.JButton btn_Pedido_HacerPedido;
     public javax.swing.JButton btn_Pedido_Proveedor_Buscar;
+    public javax.swing.JButton btn_Pedido_VerProforma;
     public javax.swing.JButton btn_Proforma_Salir;
     public javax.swing.JButton btn_Proveedor_Cancelar;
     public javax.swing.JButton btn_principal_articulos;
@@ -2682,7 +2683,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
     public javax.swing.JButton jButton3;
-    public javax.swing.JButton jButton4;
     public javax.swing.JButton jButton5;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
