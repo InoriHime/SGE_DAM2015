@@ -5,6 +5,7 @@ import Vistas.Vista_Principal;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -53,7 +54,11 @@ public class Controlador implements ActionListener {
         eliminarArticulo,
         cerrarFramePedido,
         radioPedidoCliente,
-        radioPedidoProveedor
+        radioPedidoProveedor,
+        cerrarFrameGastos,
+        cerrarFrameCobrosPagos,
+        cerrarConfig,
+        Salir
     }
 
     public void iniciarMain() {
@@ -99,7 +104,9 @@ public class Controlador implements ActionListener {
         //Menu configuracion
         this.v.Menu_Confi_Ver.setActionCommand("mostrarFrameConfig");
         this.v.Menu_Confi_Ver.addActionListener(this);
-
+        //Menu sesion
+        this.v.Menu_Sesion_Salir.setActionCommand("Salir");
+        this.v.Menu_Sesion_Salir.addActionListener(this);
         //Listeners frame cliente
         this.v.btn_Cliente_Cancelar.setActionCommand("cerrarFrameCliente");
         this.v.btn_Cliente_Cancelar.addActionListener(this);
@@ -158,7 +165,20 @@ public class Controlador implements ActionListener {
         this.v.rad_Pedido_Cliente.addActionListener(this);
         this.v.rad_Pedido_Proveedor.setActionCommand("radioPedidoProveedor");
         this.v.rad_Pedido_Proveedor.addActionListener(this);
-
+        
+        //Listeners frame Gastos
+        this.v.btn_Gastos_Salir.setActionCommand("cerrarFrameGastos");
+        this.v.btn_Gastos_Salir.addActionListener(this);
+        
+        //Listeners frame CobrosPagos
+        this.v.btn_Cobros_Pagos_Salir.setActionCommand("cerrarFrameCobrosPagos");
+        this.v.btn_Cobros_Pagos_Salir.addActionListener(this);
+        
+        //Listeners Frame Config
+        this.v.btn_DatosEmpresa_Salir.setActionCommand("cerrarConfig");
+        this.v.btn_DatosEmpresa_Salir.addActionListener(this);
+        this.v.btn_DatosEmpresa_Modificar.setActionCommand("modificarConfig");
+        this.v.btn_DatosEmpresa_Modificar.addActionListener(this);
     }
 
     @Override
@@ -200,24 +220,38 @@ public class Controlador implements ActionListener {
                 break;
             case mostrarFrameArticulo:
                 this.v.Frame_Articulo.setVisible(true);
+                this.v.Frame_Articulo.setSize(700,354);
+                this.v.Frame_Articulo.setLocationRelativeTo(v);
                 break;
             case mostrarFrameCliente:
                 this.v.Frame_Cliente.setVisible(true);
+                this.v.Frame_Cliente.setSize(700, 525);
+                this.v.Frame_Cliente.setLocationRelativeTo(v);
                 break;
             case mostrarFrameProveedor:
                 this.v.Frame_Proveedor.setVisible(true);
+                this.v.Frame_Proveedor.setSize(787,487);
+                this.v.Frame_Proveedor.setLocationRelativeTo(v);
                 break;
             case mostrarFramePedido:
                 this.v.Frame_Pedido.setVisible(true);
+                this.v.Frame_Pedido.setSize(700,600);
+                this.v.Frame_Pedido.setLocationRelativeTo(v);
                 break;
             case mostrarFrameGastos:
                 this.v.Frame_Gastos.setVisible(true);
+                this.v.Frame_Gastos.setSize(600,330);
+                this.v.Frame_Gastos.setLocationRelativeTo(v);
                 break;
             case mostrarFrameCobrosPagos:
                 this.v.Frame_CobrosPagos.setVisible(true);
+                this.v.Frame_CobrosPagos.setSize(700,400);
+                this.v.Frame_CobrosPagos.setLocationRelativeTo(v);
                 break;
             case mostrarFrameConfig:
                 this.v.Frame_DatosEmpresa.setVisible(true);
+                this.v.Frame_DatosEmpresa.setSize(700,350);
+                this.v.Frame_DatosEmpresa.setLocationRelativeTo(v);
                 break;
             case cerrarFrameCliente:
                 this.v.Frame_Cliente.setVisible(false);
@@ -287,6 +321,18 @@ public class Controlador implements ActionListener {
                 this.v.pnl_Pedido_ClienteProveedor.add(this.v.pnl_Pedido_Contenedor_Proveedor, BorderLayout.CENTER);
                 this.v.pnl_Pedido_ClienteProveedor.revalidate();
                 this.v.pnl_Pedido_ClienteProveedor.repaint();
+                break;
+            case cerrarFrameGastos:
+                this.v.Frame_Gastos.setVisible(false);
+                break;
+            case cerrarFrameCobrosPagos:
+                this.v.Frame_CobrosPagos.setVisible(false);
+                break;
+            case cerrarConfig:
+                this.v.Frame_DatosEmpresa.setVisible(false);
+                break;
+            case Salir:
+                System.exit(WIDTH);
                 break;
         }
     }

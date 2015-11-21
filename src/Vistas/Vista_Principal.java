@@ -248,7 +248,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         btn_principal_clientes = new javax.swing.JButton();
         btn_principal_proveedores = new javax.swing.JButton();
         btn_principal_pedidos = new javax.swing.JButton();
-        btn_principal_salir = new javax.swing.JButton();
         progres_principal = new javax.swing.JProgressBar();
         pnl_principal_derecha = new javax.swing.JPanel();
         txt_principal_busqueda = new javax.swing.JTextField();
@@ -267,6 +266,8 @@ public class Vista_Principal extends javax.swing.JFrame {
         Menu_Empresa_Cobros_Pagos = new javax.swing.JMenuItem();
         Menu_Configuracion = new javax.swing.JMenu();
         Menu_Confi_Ver = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        Menu_Sesion_Salir = new javax.swing.JMenuItem();
 
         Frame_Cliente.setUndecorated(true);
 
@@ -576,11 +577,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel1.setOpaque(true);
 
         btn_Cliente_Cancelar.setText("Cancelar");
-        btn_Cliente_Cancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Cliente_CancelarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -898,11 +894,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         tabPane_Proveedor.addTab("Eliminar ...", pnl_Eliminar_Proveedor);
 
         btn_Proveedor_Cancelar.setText("Cancelar");
-        btn_Proveedor_Cancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Proveedor_CancelarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1176,11 +1167,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         tabPane_Articulo.addTab("Eliminar ...", pnl_Eliminar_Articulo);
 
         btn_Articulo_Cancelar.setText("Cancelar");
-        btn_Articulo_Cancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Articulo_CancelarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1318,11 +1304,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         pnl_Pedido_ClienteProveedor.setLayout(new java.awt.BorderLayout());
 
         btn_Pedido_Cancelar.setText("Cancelar");
-        btn_Pedido_Cancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Pedido_CancelarActionPerformed(evt);
-            }
-        });
 
         btn_Pedido_HacerPedido.setText("Hacer Pedido");
 
@@ -1690,11 +1671,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         eti_Gastos_Pagos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btn_Gastos_Salir.setText("Salir");
-        btn_Gastos_Salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Gastos_SalirActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -1809,11 +1785,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         jScrollPane12.setViewportView(tbl_CobrosPagos);
 
         btn_Cobros_Pagos_Salir.setText("Salir");
-        btn_Cobros_Pagos_Salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Cobros_Pagos_SalirActionPerformed(evt);
-            }
-        });
 
         cbox_CobrosPagos_MesAno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -1858,6 +1829,8 @@ public class Vista_Principal extends javax.swing.JFrame {
             Frame_CobrosPagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        Frame_DatosEmpresa.setUndecorated(true);
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -2029,11 +2002,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         jTabbedPane1.addTab("Modificar", jPanel13);
 
         btn_DatosEmpresa_Salir.setText("Salir");
-        btn_DatosEmpresa_Salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_DatosEmpresa_SalirActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -2092,8 +2060,6 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         btn_principal_pedidos.setText("Pedidos");
 
-        btn_principal_salir.setText("Salir");
-
         javax.swing.GroupLayout pnl_principal_izquierdaLayout = new javax.swing.GroupLayout(pnl_principal_izquierda);
         pnl_principal_izquierda.setLayout(pnl_principal_izquierdaLayout);
         pnl_principal_izquierdaLayout.setHorizontalGroup(
@@ -2102,7 +2068,6 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addComponent(btn_principal_clientes, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
             .addComponent(btn_principal_proveedores, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
             .addComponent(btn_principal_pedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-            .addComponent(btn_principal_salir, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
             .addComponent(progres_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnl_principal_izquierdaLayout.setVerticalGroup(
@@ -2116,9 +2081,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addComponent(btn_principal_proveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_principal_pedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_principal_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
                 .addComponent(progres_principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -2206,36 +2169,16 @@ public class Vista_Principal extends javax.swing.JFrame {
         Menu_Nuevo.setText("Nuevo");
 
         Menu_Nuevo_Articulo.setText("Articulo");
-        Menu_Nuevo_Articulo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Menu_Nuevo_ArticuloActionPerformed(evt);
-            }
-        });
         Menu_Nuevo.add(Menu_Nuevo_Articulo);
 
         Menu_Nuevo_Cliente.setText("Cliente");
-        Menu_Nuevo_Cliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Menu_Nuevo_ClienteActionPerformed(evt);
-            }
-        });
         Menu_Nuevo.add(Menu_Nuevo_Cliente);
 
         Menu_Nuevo_Proveedor.setText("Proveedor");
-        Menu_Nuevo_Proveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Menu_Nuevo_ProveedorActionPerformed(evt);
-            }
-        });
         Menu_Nuevo.add(Menu_Nuevo_Proveedor);
         Menu_Nuevo.add(jSeparator1);
 
         Menu_Nuevo_Pedido.setText("Nuevo pedido");
-        Menu_Nuevo_Pedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Menu_Nuevo_PedidoActionPerformed(evt);
-            }
-        });
         Menu_Nuevo.add(Menu_Nuevo_Pedido);
 
         Menu_bar.add(Menu_Nuevo);
@@ -2243,19 +2186,9 @@ public class Vista_Principal extends javax.swing.JFrame {
         Menu_Empresa.setText("Empresa");
 
         Menu_Empresa_Gastos.setText("Gastos de Empresa");
-        Menu_Empresa_Gastos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Menu_Empresa_GastosActionPerformed(evt);
-            }
-        });
         Menu_Empresa.add(Menu_Empresa_Gastos);
 
         Menu_Empresa_Cobros_Pagos.setText("Cobros y pagos");
-        Menu_Empresa_Cobros_Pagos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Menu_Empresa_Cobros_PagosActionPerformed(evt);
-            }
-        });
         Menu_Empresa.add(Menu_Empresa_Cobros_Pagos);
 
         Menu_bar.add(Menu_Empresa);
@@ -2263,14 +2196,16 @@ public class Vista_Principal extends javax.swing.JFrame {
         Menu_Configuracion.setText("Configuracion");
 
         Menu_Confi_Ver.setText("Ver datos");
-        Menu_Confi_Ver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Menu_Confi_VerActionPerformed(evt);
-            }
-        });
         Menu_Configuracion.add(Menu_Confi_Ver);
 
         Menu_bar.add(Menu_Configuracion);
+
+        jMenu1.setText("Sesion");
+
+        Menu_Sesion_Salir.setText("Salir");
+        jMenu1.add(Menu_Sesion_Salir);
+
+        Menu_bar.add(jMenu1);
 
         setJMenuBar(Menu_bar);
 
@@ -2287,76 +2222,6 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Menu_Nuevo_ArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Nuevo_ArticuloActionPerformed
-        Frame_Articulo.setVisible(true);
-        Frame_Articulo.setSize(800, 500);
-        Frame_Articulo.setLocationRelativeTo(this);
-    }//GEN-LAST:event_Menu_Nuevo_ArticuloActionPerformed
-
-    private void Menu_Nuevo_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Nuevo_ClienteActionPerformed
-        Frame_Cliente.setVisible(true);
-        Frame_Cliente.setSize(800,550);
-        Frame_Cliente.setLocationRelativeTo(this);
-    }//GEN-LAST:event_Menu_Nuevo_ClienteActionPerformed
-
-    private void Menu_Nuevo_ProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Nuevo_ProveedorActionPerformed
-        Frame_Proveedor.setVisible(true);
-        Frame_Proveedor.setSize(800,500);
-        Frame_Proveedor.setLocationRelativeTo(this);
-    }//GEN-LAST:event_Menu_Nuevo_ProveedorActionPerformed
-
-    private void btn_Cliente_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Cliente_CancelarActionPerformed
-        Frame_Cliente.setVisible(false);
-    }//GEN-LAST:event_btn_Cliente_CancelarActionPerformed
-
-    private void btn_Proveedor_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Proveedor_CancelarActionPerformed
-        Frame_Proveedor.setVisible(false);
-    }//GEN-LAST:event_btn_Proveedor_CancelarActionPerformed
-
-    private void btn_Articulo_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Articulo_CancelarActionPerformed
-        Frame_Articulo.setVisible(false);
-    }//GEN-LAST:event_btn_Articulo_CancelarActionPerformed
-
-    private void Menu_Nuevo_PedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Nuevo_PedidoActionPerformed
-        Frame_Pedido.setVisible(true);
-        Frame_Pedido.setSize(800, 650);
-        Frame_Pedido.setLocationRelativeTo(this);
-    }//GEN-LAST:event_Menu_Nuevo_PedidoActionPerformed
-
-    private void btn_Pedido_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Pedido_CancelarActionPerformed
-        Frame_Pedido.setVisible(false);
-    }//GEN-LAST:event_btn_Pedido_CancelarActionPerformed
-
-    private void btn_Gastos_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Gastos_SalirActionPerformed
-        Frame_Gastos.setVisible(false);
-    }//GEN-LAST:event_btn_Gastos_SalirActionPerformed
-
-    private void Menu_Empresa_GastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Empresa_GastosActionPerformed
-        Frame_Gastos.setVisible(true);
-        Frame_Gastos.setSize(700,400);
-        Frame_Gastos.setLocationRelativeTo(this);
-    }//GEN-LAST:event_Menu_Empresa_GastosActionPerformed
-
-    private void Menu_Empresa_Cobros_PagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Empresa_Cobros_PagosActionPerformed
-        Frame_CobrosPagos.setVisible(true);
-        Frame_CobrosPagos.setSize(800,600);
-        Frame_CobrosPagos.setLocationRelativeTo(this);
-    }//GEN-LAST:event_Menu_Empresa_Cobros_PagosActionPerformed
-
-    private void btn_Cobros_Pagos_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Cobros_Pagos_SalirActionPerformed
-        Frame_CobrosPagos.setVisible(false);
-    }//GEN-LAST:event_btn_Cobros_Pagos_SalirActionPerformed
-
-    private void Menu_Confi_VerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Confi_VerActionPerformed
-        Frame_DatosEmpresa.setVisible(true);
-        Frame_DatosEmpresa.setSize(600,350);
-        Frame_DatosEmpresa.setLocationRelativeTo(this);
-    }//GEN-LAST:event_Menu_Confi_VerActionPerformed
-
-    private void btn_DatosEmpresa_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DatosEmpresa_SalirActionPerformed
-        Frame_DatosEmpresa.setVisible(false);
-    }//GEN-LAST:event_btn_DatosEmpresa_SalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2377,6 +2242,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JMenuItem Menu_Nuevo_Cliente;
     public javax.swing.JMenuItem Menu_Nuevo_Pedido;
     public javax.swing.JMenuItem Menu_Nuevo_Proveedor;
+    public javax.swing.JMenuItem Menu_Sesion_Salir;
     public javax.swing.JMenuBar Menu_bar;
     public javax.swing.JButton btn_Articulo_Cancelar;
     public javax.swing.JButton btn_Cliente_Cancelar;
@@ -2409,7 +2275,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JButton btn_principal_clientes;
     public javax.swing.JButton btn_principal_pedidos;
     public javax.swing.JButton btn_principal_proveedores;
-    public javax.swing.JButton btn_principal_salir;
     public javax.swing.JComboBox cbox_CobrosPagos_MesAno;
     public javax.swing.JComboBox cbox_Eliminar_Articulo_Buscar;
     public javax.swing.JComboBox cbox_Eliminar_Cliente_Buscar;
@@ -2506,6 +2371,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
     public javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel10;
     public javax.swing.JPanel jPanel11;
