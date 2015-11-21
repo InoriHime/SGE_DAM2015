@@ -241,6 +241,44 @@ public class Vista_Principal extends javax.swing.JFrame {
         txt_DatosEmpresa_Iva = new javax.swing.JTextField();
         btn_DatosEmpresa_Modificar = new javax.swing.JButton();
         btn_DatosEmpresa_Salir = new javax.swing.JButton();
+        Frame_Factura = new javax.swing.JFrame();
+        pnl_Factura = new javax.swing.JPanel();
+        jLabel70 = new javax.swing.JLabel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        jLabel73 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
+        jLabel75 = new javax.swing.JLabel();
+        jLabel76 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        Frame_Proforma = new javax.swing.JFrame();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel77 = new javax.swing.JLabel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        tbl_Proforma = new javax.swing.JTable();
+        btn_Proforma_Salir = new javax.swing.JButton();
+        pnl_Factura_Cliente = new javax.swing.JPanel();
+        jLabel78 = new javax.swing.JLabel();
+        eti_Factura_Cliente_Nombre = new javax.swing.JLabel();
+        jLabel79 = new javax.swing.JLabel();
+        jLabel80 = new javax.swing.JLabel();
+        jLabel81 = new javax.swing.JLabel();
+        jLabel82 = new javax.swing.JLabel();
+        jLabel83 = new javax.swing.JLabel();
+        eti_Factura_Cliente_Domicilio = new javax.swing.JLabel();
+        eti_Factura_Cliente_Correo = new javax.swing.JLabel();
+        eti_Factura_Cliente_Dni = new javax.swing.JLabel();
+        eti_Factura_Cliente_Telefono = new javax.swing.JLabel();
+        eti_Factura_Cliente_Apellidos = new javax.swing.JLabel();
+        pnl_Factura_Proveedor = new javax.swing.JPanel();
+        jLabel84 = new javax.swing.JLabel();
+        jLabel85 = new javax.swing.JLabel();
+        eti_Factura_Proveedor_Cif = new javax.swing.JLabel();
+        eti_Factura_Proveedor_DSocial = new javax.swing.JLabel();
         pnl_contenedor = new javax.swing.JPanel();
         jSplitPane1 = new javax.swing.JSplitPane();
         pnl_principal_izquierda = new javax.swing.JPanel();
@@ -2041,6 +2079,336 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        pnl_Factura.setBackground(new java.awt.Color(255, 255, 255));
+        pnl_Factura.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel70.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel70.setText("Factura");
+        jLabel70.setOpaque(true);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane13.setViewportView(jTable1);
+
+        jLabel71.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel71.setText("Base:");
+
+        jLabel72.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel72.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel72.setText(" ");
+        jLabel72.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel73.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel73.setText("IVA:");
+
+        jLabel74.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel74.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel74.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel74.setText(" ");
+        jLabel74.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel75.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel75.setText("Total:");
+
+        jLabel76.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel76.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel76.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel76.setText(" ");
+        jLabel76.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jButton3.setText("Confirmar Factura");
+
+        jButton4.setText("Proforma");
+
+        jButton5.setText("Cancelar");
+
+        javax.swing.GroupLayout pnl_FacturaLayout = new javax.swing.GroupLayout(pnl_Factura);
+        pnl_Factura.setLayout(pnl_FacturaLayout);
+        pnl_FacturaLayout.setHorizontalGroup(
+            pnl_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_FacturaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnl_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel70, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_FacturaLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pnl_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnl_FacturaLayout.createSequentialGroup()
+                                .addComponent(jLabel71)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel73)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel75)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnl_FacturaLayout.createSequentialGroup()
+                                .addComponent(jButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton5)))))
+                .addContainerGap())
+        );
+        pnl_FacturaLayout.setVerticalGroup(
+            pnl_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_FacturaLayout.createSequentialGroup()
+                .addComponent(jLabel70)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(pnl_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel71)
+                    .addComponent(jLabel72)
+                    .addComponent(jLabel73)
+                    .addComponent(jLabel74)
+                    .addComponent(jLabel75)
+                    .addComponent(jLabel76))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout Frame_FacturaLayout = new javax.swing.GroupLayout(Frame_Factura.getContentPane());
+        Frame_Factura.getContentPane().setLayout(Frame_FacturaLayout);
+        Frame_FacturaLayout.setHorizontalGroup(
+            Frame_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Frame_FacturaLayout.createSequentialGroup()
+                .addComponent(pnl_Factura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        Frame_FacturaLayout.setVerticalGroup(
+            Frame_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Frame_FacturaLayout.createSequentialGroup()
+                .addComponent(pnl_Factura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel77.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel77.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel77.setText("Proforma");
+        jLabel77.setOpaque(true);
+
+        tbl_Proforma.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane14.setViewportView(tbl_Proforma);
+
+        btn_Proforma_Salir.setText("Salir");
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_Proforma_Salir)))
+                .addContainerGap())
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addComponent(jLabel77)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_Proforma_Salir)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout Frame_ProformaLayout = new javax.swing.GroupLayout(Frame_Proforma.getContentPane());
+        Frame_Proforma.getContentPane().setLayout(Frame_ProformaLayout);
+        Frame_ProformaLayout.setHorizontalGroup(
+            Frame_ProformaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        Frame_ProformaLayout.setVerticalGroup(
+            Frame_ProformaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pnl_Factura_Cliente.setBackground(new java.awt.Color(255, 255, 255));
+        pnl_Factura_Cliente.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
+
+        jLabel78.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel78.setText("Nombre:");
+
+        eti_Factura_Cliente_Nombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        eti_Factura_Cliente_Nombre.setText(" ");
+        eti_Factura_Cliente_Nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel79.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel79.setText("Apellidos:");
+
+        jLabel80.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel80.setText("Domicilio:");
+
+        jLabel81.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel81.setText("Correo:");
+
+        jLabel82.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel82.setText("Dni:");
+
+        jLabel83.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel83.setText("Teléfono:");
+
+        eti_Factura_Cliente_Domicilio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        eti_Factura_Cliente_Domicilio.setText(" ");
+        eti_Factura_Cliente_Domicilio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        eti_Factura_Cliente_Correo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        eti_Factura_Cliente_Correo.setText(" ");
+        eti_Factura_Cliente_Correo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        eti_Factura_Cliente_Dni.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        eti_Factura_Cliente_Dni.setText(" ");
+        eti_Factura_Cliente_Dni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        eti_Factura_Cliente_Telefono.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        eti_Factura_Cliente_Telefono.setText(" ");
+        eti_Factura_Cliente_Telefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        eti_Factura_Cliente_Apellidos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        eti_Factura_Cliente_Apellidos.setText(" ");
+        eti_Factura_Cliente_Apellidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout pnl_Factura_ClienteLayout = new javax.swing.GroupLayout(pnl_Factura_Cliente);
+        pnl_Factura_Cliente.setLayout(pnl_Factura_ClienteLayout);
+        pnl_Factura_ClienteLayout.setHorizontalGroup(
+            pnl_Factura_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_Factura_ClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnl_Factura_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel82, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel81, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel80, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel78, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl_Factura_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_Factura_ClienteLayout.createSequentialGroup()
+                        .addComponent(eti_Factura_Cliente_Dni, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel83, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(eti_Factura_Cliente_Telefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(eti_Factura_Cliente_Correo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_Factura_ClienteLayout.createSequentialGroup()
+                        .addComponent(eti_Factura_Cliente_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel79)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(eti_Factura_Cliente_Apellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(eti_Factura_Cliente_Domicilio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
+        );
+        pnl_Factura_ClienteLayout.setVerticalGroup(
+            pnl_Factura_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_Factura_ClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnl_Factura_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel78)
+                    .addComponent(eti_Factura_Cliente_Nombre)
+                    .addComponent(jLabel79)
+                    .addComponent(eti_Factura_Cliente_Apellidos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnl_Factura_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel80)
+                    .addComponent(eti_Factura_Cliente_Domicilio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnl_Factura_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel81)
+                    .addComponent(eti_Factura_Cliente_Correo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnl_Factura_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel82)
+                    .addComponent(jLabel83)
+                    .addComponent(eti_Factura_Cliente_Dni)
+                    .addComponent(eti_Factura_Cliente_Telefono))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        pnl_Factura_Proveedor.setBackground(new java.awt.Color(255, 255, 255));
+        pnl_Factura_Proveedor.setBorder(javax.swing.BorderFactory.createTitledBorder("Proveedor"));
+        pnl_Factura_Proveedor.setPreferredSize(new java.awt.Dimension(428, 147));
+
+        jLabel84.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel84.setText("CIF:");
+
+        jLabel85.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel85.setText("Denominación Social:");
+
+        eti_Factura_Proveedor_Cif.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        eti_Factura_Proveedor_Cif.setText(" ");
+        eti_Factura_Proveedor_Cif.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        eti_Factura_Proveedor_DSocial.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        eti_Factura_Proveedor_DSocial.setText(" ");
+        eti_Factura_Proveedor_DSocial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout pnl_Factura_ProveedorLayout = new javax.swing.GroupLayout(pnl_Factura_Proveedor);
+        pnl_Factura_Proveedor.setLayout(pnl_Factura_ProveedorLayout);
+        pnl_Factura_ProveedorLayout.setHorizontalGroup(
+            pnl_Factura_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_Factura_ProveedorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnl_Factura_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_Factura_ProveedorLayout.createSequentialGroup()
+                        .addComponent(jLabel84)
+                        .addGap(119, 119, 119)
+                        .addComponent(eti_Factura_Proveedor_Cif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnl_Factura_ProveedorLayout.createSequentialGroup()
+                        .addComponent(jLabel85)
+                        .addGap(21, 21, 21)
+                        .addComponent(eti_Factura_Proveedor_DSocial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        pnl_Factura_ProveedorLayout.setVerticalGroup(
+            pnl_Factura_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_Factura_ProveedorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnl_Factura_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel84)
+                    .addComponent(eti_Factura_Proveedor_Cif))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnl_Factura_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel85)
+                    .addComponent(eti_Factura_Proveedor_DSocial))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnl_contenedor.setBackground(new java.awt.Color(255, 255, 255));
@@ -2229,8 +2597,10 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JFrame Frame_Cliente;
     public javax.swing.JFrame Frame_CobrosPagos;
     public javax.swing.JFrame Frame_DatosEmpresa;
+    private javax.swing.JFrame Frame_Factura;
     public javax.swing.JFrame Frame_Gastos;
     public javax.swing.JFrame Frame_Pedido;
+    private javax.swing.JFrame Frame_Proforma;
     public javax.swing.JFrame Frame_Proveedor;
     public javax.swing.JMenuItem Menu_Confi_Ver;
     public javax.swing.JMenu Menu_Configuracion;
@@ -2269,6 +2639,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JButton btn_Pedido_Cliente_Buscar;
     public javax.swing.JButton btn_Pedido_HacerPedido;
     public javax.swing.JButton btn_Pedido_Proveedor_Buscar;
+    public javax.swing.JButton btn_Proforma_Salir;
     public javax.swing.JButton btn_Proveedor_Cancelar;
     public javax.swing.JButton btn_principal_articulos;
     public javax.swing.JButton btn_principal_buscar;
@@ -2286,6 +2657,14 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel eti_DatosEmpresa_Direccion;
     public javax.swing.JLabel eti_DatosEmpresa_Iva;
     public javax.swing.JLabel eti_DatosEmpresa_Nombre;
+    public javax.swing.JLabel eti_Factura_Cliente_Apellidos;
+    public javax.swing.JLabel eti_Factura_Cliente_Correo;
+    public javax.swing.JLabel eti_Factura_Cliente_Dni;
+    public javax.swing.JLabel eti_Factura_Cliente_Domicilio;
+    public javax.swing.JLabel eti_Factura_Cliente_Nombre;
+    public javax.swing.JLabel eti_Factura_Cliente_Telefono;
+    public javax.swing.JLabel eti_Factura_Proveedor_Cif;
+    public javax.swing.JLabel eti_Factura_Proveedor_DSocial;
     public javax.swing.JLabel eti_Gastos_Alquiler;
     public javax.swing.JLabel eti_Gastos_Establecimiento;
     public javax.swing.JLabel eti_Gastos_Luz;
@@ -2302,6 +2681,9 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel eti_Pedido_Proveedor_DSocial;
     public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton3;
+    public javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton5;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
@@ -2369,7 +2751,23 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel68;
     public javax.swing.JLabel jLabel69;
     public javax.swing.JLabel jLabel7;
+    public javax.swing.JLabel jLabel70;
+    public javax.swing.JLabel jLabel71;
+    public javax.swing.JLabel jLabel72;
+    public javax.swing.JLabel jLabel73;
+    public javax.swing.JLabel jLabel74;
+    public javax.swing.JLabel jLabel75;
+    public javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    public javax.swing.JLabel jLabel78;
+    public javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    public javax.swing.JLabel jLabel80;
+    public javax.swing.JLabel jLabel81;
+    public javax.swing.JLabel jLabel82;
+    public javax.swing.JLabel jLabel83;
+    public javax.swing.JLabel jLabel84;
+    public javax.swing.JLabel jLabel85;
     public javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     public javax.swing.JPanel jPanel1;
@@ -2377,6 +2775,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel11;
     public javax.swing.JPanel jPanel12;
     public javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanel4;
@@ -2389,6 +2788,8 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JScrollPane jScrollPane10;
     public javax.swing.JScrollPane jScrollPane11;
     public javax.swing.JScrollPane jScrollPane12;
+    public javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     public javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JScrollPane jScrollPane4;
@@ -2400,12 +2801,16 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     public javax.swing.JSplitPane jSplitPane1;
     public javax.swing.JTabbedPane jTabbedPane1;
+    public javax.swing.JTable jTable1;
     public javax.swing.JPanel pnl_Crear_Articulo;
     public javax.swing.JPanel pnl_Crear_Cliente;
     public javax.swing.JPanel pnl_Crear_Proveedor;
     public javax.swing.JPanel pnl_Eliminar_Articulo;
     public javax.swing.JPanel pnl_Eliminar_Cliente;
     public javax.swing.JPanel pnl_Eliminar_Proveedor;
+    public javax.swing.JPanel pnl_Factura;
+    public javax.swing.JPanel pnl_Factura_Cliente;
+    private javax.swing.JPanel pnl_Factura_Proveedor;
     public javax.swing.JPanel pnl_Modificar_Articulo;
     public javax.swing.JPanel pnl_Modificar_Cliente;
     public javax.swing.JPanel pnl_Modificar_Proveedor;
@@ -2432,6 +2837,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JTable tbl_Pedido_ArticulosPedidos;
     public javax.swing.JTable tbl_Pedido_Cliente_Busqueda;
     private javax.swing.JTable tbl_Pedido_Proveedor_Busqueda;
+    public javax.swing.JTable tbl_Proforma;
     public javax.swing.JTable tbl_Tabla_Modificar_Articulo;
     public javax.swing.JTable tbl_Tabla_Modificar_Cliente;
     public javax.swing.JTable tbl_Tabla_Modificar_Proveedor;
