@@ -601,7 +601,7 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tabPane_Cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
+                .addComponent(tabPane_Cliente)
                 .addGap(18, 18, 18)
                 .addComponent(btn_Cliente_Cancelar)
                 .addContainerGap())
@@ -1230,6 +1230,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel16.setOpaque(true);
 
         radGroup_Pedido.add(rad_Pedido_Cliente);
+        rad_Pedido_Cliente.setSelected(true);
         rad_Pedido_Cliente.setText("Cliente");
 
         radGroup_Pedido.add(rad_Pedido_Proveedor);
@@ -1314,16 +1315,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout pnl_Pedido_ClienteProveedorLayout = new javax.swing.GroupLayout(pnl_Pedido_ClienteProveedor);
-        pnl_Pedido_ClienteProveedor.setLayout(pnl_Pedido_ClienteProveedorLayout);
-        pnl_Pedido_ClienteProveedorLayout.setHorizontalGroup(
-            pnl_Pedido_ClienteProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
-        );
-        pnl_Pedido_ClienteProveedorLayout.setVerticalGroup(
-            pnl_Pedido_ClienteProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 282, Short.MAX_VALUE)
-        );
+        pnl_Pedido_ClienteProveedor.setLayout(new java.awt.BorderLayout());
 
         btn_Pedido_Cancelar.setText("Cancelar");
         btn_Pedido_Cancelar.addActionListener(new java.awt.event.ActionListener() {

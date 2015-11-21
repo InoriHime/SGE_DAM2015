@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.Modelo;
 import Vistas.Vista_Principal;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
@@ -33,7 +34,26 @@ public class Controlador implements ActionListener {
         mostrarFrameCobrosPagos,
         mostrarFrameConfig,
         cerrarFrameCliente,
-        insertarCliente
+        insertarCliente,
+        buscarTablaModificarCliente,
+        modificarCliente,
+        buscarTablaEliminarCliente,
+        eliminarCliente,
+        cerrarFrameProveedor,
+        insertarProveedor,
+        buscarTablaModificarProveedor,
+        modificarProveedor,
+        buscarTablaEliminarProveedor,
+        eliminarProveedor,
+        cerrarFrameArticulo,
+        insertarArticulo,
+        buscarTablaModificarArticulo,
+        modificarArticulo,
+        buscarTablaEliminarArticulo,
+        eliminarArticulo,
+        cerrarFramePedido,
+        radioPedidoCliente,
+        radioPedidoProveedor
     }
 
     public void iniciarMain() {
@@ -46,6 +66,8 @@ public class Controlador implements ActionListener {
         }
         //Cargamos la tabla del menu principal por defecto
         this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
+        //Cargamos el pane por defecto en el frame de pedidos
+        this.v.pnl_Pedido_ClienteProveedor.add(this.v.pnl_Pedido_Contenedor_Cliente, BorderLayout.CENTER);
 
         //Listener botones en la ventana principal
         this.v.btn_principal_articulos.setActionCommand("principalCargarTablaArticulos");
@@ -84,6 +106,58 @@ public class Controlador implements ActionListener {
         //Crear cliente
         this.v.btn_Crear_Cliente.setActionCommand("insertarCliente");
         this.v.btn_Crear_Cliente.addActionListener(this);
+        //Modificar cliente
+        this.v.btn_Modificar_Cliente_Busqueda.setActionCommand("buscarTablaModificarCliente");
+        this.v.btn_Modificar_Cliente_Busqueda.addActionListener(this);
+        this.v.btn_Modificar_Cliente.setActionCommand("modificarCliente");
+        this.v.btn_Modificar_Cliente.addActionListener(this);
+        //Eliminar cliente
+        this.v.btn_Eliminar_Cliente_Buscar.setActionCommand("buscarTablaEliminarCliente");
+        this.v.btn_Eliminar_Cliente_Buscar.addActionListener(this);
+        this.v.btn_Eliminar_Cliente.setActionCommand("eliminarCliente");
+        this.v.btn_Eliminar_Cliente.addActionListener(this);
+        
+        //Listeners frame proveedor
+        this.v.btn_Proveedor_Cancelar.setActionCommand("cerrarFrameProveedor");
+        this.v.btn_Proveedor_Cancelar.addActionListener(this);
+        //Crear proveedor
+        this.v.btn_Crear_Proveedor.setActionCommand("insertarProveedor");
+        this.v.btn_Crear_Proveedor.addActionListener(this);
+        //Modificar proveedor
+        this.v.btn_Modificar_Proveedor_Busqueda.setActionCommand("buscarTablaModificarProveedor");
+        this.v.btn_Modificar_Proveedor_Busqueda.addActionListener(this);
+        this.v.btn_Modificar_Proveedor.setActionCommand("modificarProveedor");
+        this.v.btn_Modificar_Proveedor.addActionListener(this);
+        //Eliminar proveedor
+        this.v.btn_Eliminar_Proveedor_Buscar.setActionCommand("buscarTablaEliminarProveedor");
+        this.v.btn_Eliminar_Proveedor_Buscar.addActionListener(this);
+        this.v.btn_Eliminar_Proveedor.setActionCommand("eliminarProveedor");
+        this.v.btn_Eliminar_Proveedor.addActionListener(this);
+        
+        //Listeners frame articulo
+        this.v.btn_Articulo_Cancelar.setActionCommand("cerrarFrameArticulo");
+        this.v.btn_Articulo_Cancelar.addActionListener(this);
+        //Crear articulo
+        this.v.btn_Crear_Articulo.setActionCommand("insertarArticulo");
+        this.v.btn_Crear_Articulo.addActionListener(this);
+        //Modificar articulo
+        this.v.btn_Modificar_Articulo_Busqueda.setActionCommand("buscarTablaModificarArticulo");
+        this.v.btn_Modificar_Articulo_Busqueda.addActionListener(this);
+        this.v.btn_Modificar_Articulo.setActionCommand("modificarArticulo");
+        this.v.btn_Modificar_Articulo.addActionListener(this);
+        //Eliminar articulo
+        this.v.btn_Eliminar_Articulo_Buscar.setActionCommand("buscarTablaEliminarArticulo");
+        this.v.btn_Eliminar_Articulo_Buscar.addActionListener(this);
+        this.v.btn_Eliminar_Articulo.setActionCommand("eliminarArticulo");
+        this.v.btn_Eliminar_Articulo.addActionListener(this);
+        
+        //Listeners frame pedido
+        this.v.btn_Pedido_Cancelar.setActionCommand("cerrarFramePedido");
+        this.v.btn_Pedido_Cancelar.addActionListener(this);
+        this.v.rad_Pedido_Cliente.setActionCommand("radioPedidoCliente");
+        this.v.rad_Pedido_Cliente.addActionListener(this);
+        this.v.rad_Pedido_Proveedor.setActionCommand("radioPedidoProveedor");
+        this.v.rad_Pedido_Proveedor.addActionListener(this);
 
     }
 
@@ -150,6 +224,69 @@ public class Controlador implements ActionListener {
                 break;
             case insertarCliente:
                 
+                break;
+            case buscarTablaModificarCliente:
+                
+                break;
+            case modificarCliente:
+                
+                break;
+            case buscarTablaEliminarCliente:
+                
+                break;
+            case eliminarCliente:
+                
+                break;
+            case cerrarFrameProveedor:
+                this.v.Frame_Proveedor.setVisible(false);
+                break;
+            case insertarProveedor:
+                
+                break;
+            case buscarTablaModificarProveedor:
+                
+                break;
+            case modificarProveedor:
+                
+                break;
+            case buscarTablaEliminarProveedor:
+                
+                break;
+            case eliminarProveedor:
+                
+                break;
+            case cerrarFrameArticulo:
+                this.v.Frame_Articulo.setVisible(false);
+                break;
+            case insertarArticulo:
+                
+                break;
+            case buscarTablaModificarArticulo:
+                
+                break;
+            case modificarArticulo:
+                
+                break;
+            case buscarTablaEliminarArticulo:
+                
+                break;
+            case eliminarArticulo:
+                
+                break;
+            case cerrarFramePedido:
+                this.v.Frame_Pedido.setVisible(false);
+                break;
+            case radioPedidoCliente:
+                this.v.pnl_Pedido_ClienteProveedor.removeAll();
+                this.v.pnl_Pedido_ClienteProveedor.add(this.v.pnl_Pedido_Contenedor_Cliente, BorderLayout.CENTER);
+                this.v.pnl_Pedido_ClienteProveedor.revalidate();
+                this.v.pnl_Pedido_ClienteProveedor.repaint();
+                break;
+            case radioPedidoProveedor:
+                this.v.pnl_Pedido_ClienteProveedor.removeAll();
+                this.v.pnl_Pedido_ClienteProveedor.add(this.v.pnl_Pedido_Contenedor_Proveedor, BorderLayout.CENTER);
+                this.v.pnl_Pedido_ClienteProveedor.revalidate();
+                this.v.pnl_Pedido_ClienteProveedor.repaint();
                 break;
         }
     }
