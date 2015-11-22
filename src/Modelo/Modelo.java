@@ -22,6 +22,7 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import org.hibernate.Query;
 import org.hibernate.Transaction;
 import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
 import org.hibernate.engine.spi.SessionFactoryImplementor;
@@ -78,6 +79,13 @@ public class Modelo extends Conexion {
     public Cliente getClienteByDni(String dni)
     {
         return (Cliente) getSession().get(Cliente.class, dni);
+    }
+    
+    public ArrayList<Cliente> getClientesByQuestion(String question)
+    {
+        Query query=getSession().createQuery("from Cliente c where c.dni like :consulta OR c.nombre like :consulta OR c.apellidos like :consulta OR c.domicilio like :consulta OR c.correo like :consulta OR c.telefono like :consulta");
+        ArrayList<Cliente> list=(ArrayList<Cliente>) query.setParameter("consulta", "%"+question+"%").list();
+        return list;
     }
     
     public ArrayList<Cliente> getClientes()
@@ -153,6 +161,13 @@ public class Modelo extends Conexion {
         return (Proveedor) getSession().get(Proveedor.class, cif);
     }
     
+    public ArrayList<Proveedor> getProveedoresByQuestion(String question)
+    {
+        Query query=getSession().createQuery("from Proveedor p where p.cif like :consulta OR p.denominacionSocial like :consulta OR p.telefono like :consulta OR p.correo like :consulta");
+        ArrayList<Proveedor> list=(ArrayList<Proveedor>) query.setParameter("consulta", "%"+question+"%").list();
+        return list;
+    }
+    
     public ArrayList<Proveedor> getProveedores()
     {
         return (ArrayList<Proveedor>) getSession().createQuery("from Proveedor").list();
@@ -222,6 +237,13 @@ public class Modelo extends Conexion {
     public Articulo getArticuloByCodigo(int codigo)
     {
         return (Articulo) getSession().get(Articulo.class, codigo);
+    }
+    
+    public ArrayList<Articulo> getArticulosByQuestion(String question)
+    {
+        Query query=getSession().createQuery("from Articulo a where a.nombre like :consulta");
+        ArrayList<Articulo> list=(ArrayList<Articulo>) query.setParameter("consulta", "%"+question+"%").list();
+        return list;
     }
     
     public ArrayList<Articulo> getArticulos()
@@ -676,6 +698,89 @@ public class Modelo extends Conexion {
             Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        return dtm;
+    }
+    
+    public DefaultTableModel getTableModelByArrayList(ArrayList arrayList)
+    {
+        DefaultTableModel dtm=null;
+        Vector columns=new Vector();
+        Vector row;
+        try 
+        {
+            switch(arrayList.getClass().toString())
+            {
+                case "Cliente":
+                    rs=dbmd.getColumns(null, null, "cliente", null);
+                    while(rs.next())
+                    {
+                        columns.add(rs.getString(4));
+                    }
+                    dtm.setColumnIdentifiers(columns);
+                    
+                    it=arrayList.iterator();
+                    while(it.hasNext())
+                    {
+                        Cliente c=(Cliente) it.next();
+                        row=new Vector();
+                        
+                        row.add(c.getDni());
+                        row.add(c.getNombre());
+                        row.add(c.getApellidos());
+                        row.add(c.getDomicilio());
+                        row.add(c.getCorreo());
+                        row.add(c.getTelefono());
+                        dtm.addRow(row);
+                    }
+                    break;
+                case "Proveedor":
+                    rs=dbmd.getColumns(null, null, "proveedor", null);
+                    while(rs.next())
+                    {
+                        columns.add(rs.getString(4));
+                    }
+                    dtm.setColumnIdentifiers(columns);
+                    
+                    it=arrayList.iterator();
+                    while(it.hasNext())
+                    {
+                        Proveedor p=(Proveedor) it.next();
+                        row=new Vector();
+                        
+                        row.add(p.getCif());
+                        row.add(p.getDenominacionSocial());
+                        row.add(p.getTelefono());
+                        row.add(p.getCorreo());
+                        dtm.addRow(row);
+                    }
+                    break;
+                case "Articulo":
+                    rs=dbmd.getColumns(null, null, "articulo", null);
+                    while(rs.next())
+                    {
+                        columns.add(rs.getString(4));
+                    }
+                    dtm.setColumnIdentifiers(columns);
+                    
+                    it=arrayList.iterator();
+                    while(it.hasNext())
+                    {
+                        Articulo a=(Articulo) it.next();
+                        row=new Vector();
+                        
+                        row.add(a.getCodigo());
+                        row.add(a.getNombre());
+                        row.add(a.getPrecio());
+                        row.add(a.getCantidad());
+                        dtm.addRow(row);
+                    }
+                    break;
+            }
+        }
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return dtm;
     }
     

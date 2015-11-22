@@ -126,6 +126,8 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         btn_Crear_Articulo = new javax.swing.JButton();
+        spinner_Crear_Articulo_Cantidad = new javax.swing.JSpinner();
+        jLabel86 = new javax.swing.JLabel();
         pnl_Modificar_Articulo = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         txt_Modificar_Articulo_Nombre = new javax.swing.JTextField();
@@ -1006,6 +1008,8 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         btn_Crear_Articulo.setText("Crear");
 
+        jLabel86.setText("Cantidad:");
+
         javax.swing.GroupLayout pnl_Crear_ArticuloLayout = new javax.swing.GroupLayout(pnl_Crear_Articulo);
         pnl_Crear_Articulo.setLayout(pnl_Crear_ArticuloLayout);
         pnl_Crear_ArticuloLayout.setHorizontalGroup(
@@ -1029,7 +1033,13 @@ public class Vista_Principal extends javax.swing.JFrame {
                                 .addGap(15, 15, 15)
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_Crear_Articulo_Precio)))
+                                .addGroup(pnl_Crear_ArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_Crear_Articulo_Precio)
+                                    .addGroup(pnl_Crear_ArticuloLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jLabel86)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(spinner_Crear_Articulo_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel44))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_Crear_ArticuloLayout.createSequentialGroup()
@@ -1052,7 +1062,11 @@ public class Vista_Principal extends javax.swing.JFrame {
                     .addComponent(txt_Crear_Articulo_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel43)
                     .addComponent(jLabel44))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnl_Crear_ArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(spinner_Crear_Articulo_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel86))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(btn_Crear_Articulo)
                 .addContainerGap())
         );
@@ -2768,6 +2782,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel83;
     public javax.swing.JLabel jLabel84;
     public javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
     public javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     public javax.swing.JPanel jPanel1;
@@ -2826,6 +2841,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.ButtonGroup radGroup_Pedido;
     public javax.swing.JRadioButton rad_Pedido_Cliente;
     public javax.swing.JRadioButton rad_Pedido_Proveedor;
+    public javax.swing.JSpinner spinner_Crear_Articulo_Cantidad;
     public javax.swing.JTabbedPane tabPane_Articulo;
     public javax.swing.JTabbedPane tabPane_Cliente;
     public javax.swing.JTabbedPane tabPane_Proveedor;

@@ -204,13 +204,13 @@ public class Controlador implements ActionListener {
                 String busqueda = this.v.txt_principal_busqueda.getText();
                 switch(tablaMenuPrincipal){
                     case "articulos":
-                        
+                        this.v.tbl_Tabla_Principal.setModel(m.getTableModelByArrayList(m.getArticulosByQuestion(this.v.txt_Modificar_Articulo_Buscar.getText())));
                         break;
                     case "clientes":
-                        
+                        this.v.tbl_Tabla_Principal.setModel(m.getTableModelByArrayList(m.getClientesByQuestion(this.v.txt_Modificar_Cliente_Buscar.getText())));
                         break;
                     case "proveedores":
-                        
+                        this.v.tbl_Tabla_Principal.setModel(m.getTableModelByArrayList(m.getProveedoresByQuestion(this.v.txt_Modificar_Proveedor_Buscar.getText())));
                         break;
                     case "pedidos":
                         
@@ -257,16 +257,18 @@ public class Controlador implements ActionListener {
                 this.v.Frame_Cliente.setVisible(false);
                 break;
             case insertarCliente:
-                
+                m.insertCliente(this.v.txt_Crear_Cliente_Dni.getText(), this.v.txt_Crear_Cliente_Nombre.getText(), this.v.txt_Crear_Cliente_Apellidos.getText(), this.v.txt_Crear_Cliente_Domicilio.getText(), this.v.txt_Crear_Cliente_Correo.getText(), this.v.txt_Crear_Cliente_Telefono.getText());
+                this.tablaMenuPrincipal = "clientes";
+                this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("cliente"));
                 break;
             case buscarTablaModificarCliente:
-                
+                this.v.tbl_Tabla_Modificar_Cliente.setModel(m.getTableModelByArrayList(m.getClientesByQuestion(this.v.txt_Modificar_Cliente_Buscar.getText())));
                 break;
             case modificarCliente:
                 
                 break;
             case buscarTablaEliminarCliente:
-                
+                this.v.tbl_Eliminar_Cliente.setModel(m.getTableModelByArrayList(m.getClientesByQuestion(this.v.txt_Modificar_Cliente_Buscar.getText())));
                 break;
             case eliminarCliente:
                 
@@ -275,16 +277,18 @@ public class Controlador implements ActionListener {
                 this.v.Frame_Proveedor.setVisible(false);
                 break;
             case insertarProveedor:
-                
+                m.insertProveedor(this.v.txt_Crear_Proveedor_Cif.getText(), this.v.txt_Crear_Proveedor_DSocial.getText(), this.v.txt_Crear_Proveedor_Telefono.getText(), this.v.txt_Crear_Proveedor_Correo.getText());
+                this.tablaMenuPrincipal = "proveedores";
+                this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("proveedor"));
                 break;
             case buscarTablaModificarProveedor:
-                
+                this.v.tbl_Tabla_Modificar_Proveedor.setModel(m.getTableModelByArrayList(m.getProveedoresByQuestion(this.v.txt_Modificar_Proveedor_Buscar.getText())));
                 break;
             case modificarProveedor:
                 
                 break;
             case buscarTablaEliminarProveedor:
-                
+                this.v.tbl_Eliminar_Proveedor.setModel(m.getTableModelByArrayList(m.getProveedoresByQuestion(this.v.txt_Modificar_Proveedor_Buscar.getText())));
                 break;
             case eliminarProveedor:
                 
@@ -293,16 +297,18 @@ public class Controlador implements ActionListener {
                 this.v.Frame_Articulo.setVisible(false);
                 break;
             case insertarArticulo:
-                
+                m.insertArticulo(this.v.txt_Crear_Articulo_Nombre.getText(), Double.parseDouble(this.v.txt_Crear_Articulo_Precio.getText()), Integer.parseInt(this.v.spinner_Crear_Articulo_Cantidad.getValue().toString()));
+                this.tablaMenuPrincipal = "articulos";
+                this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
                 break;
             case buscarTablaModificarArticulo:
-                
+                this.v.tbl_Tabla_Modificar_Articulo.setModel(m.getTableModelByArrayList(m.getArticulosByQuestion(this.v.txt_Modificar_Articulo_Buscar.getText())));
                 break;
             case modificarArticulo:
                 
                 break;
             case buscarTablaEliminarArticulo:
-                
+                this.v.tbl_Eliminar_Articulo.setModel(m.getTableModelByArrayList(m.getArticulosByQuestion(this.v.txt_Modificar_Articulo_Buscar.getText())));
                 break;
             case eliminarArticulo:
                 
