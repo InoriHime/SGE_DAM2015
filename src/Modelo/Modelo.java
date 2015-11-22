@@ -12,6 +12,7 @@ import Hibernate.Cliente;
 import Hibernate.Cobro;
 import Hibernate.Documento;
 import Hibernate.Proveedor;
+import Vistas.Vista_Principal;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
@@ -21,6 +22,7 @@ import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.hibernate.Query;
 import org.hibernate.Transaction;
@@ -43,6 +45,7 @@ public class Modelo extends Conexion {
     SessionFactoryImplementor sfi;
     ConnectionProvider cp;
     
+    Vista_Principal v;
     /**
     - Si en alguna parte de la vista se hace una inserccion temporal habría
     que crear sus respectivos metodos de insertar y eliminar. Por ejemplo:
@@ -102,10 +105,10 @@ public class Modelo extends Conexion {
         tx.commit();
     }
     
-    public void modifyCliente(String dniNuevo, String dniAntiguio, String nombre, String apellidos, String domicilio, String correo, String telefono)
+    public void modifyCliente(String dniAntiguio, String nombre, String apellidos, String domicilio, String correo, String telefono)
     {
         Cliente c=getClienteByDni(dniAntiguio);
-        c.setDni(dniNuevo);
+        
         c.setNombre(nombre);
         c.setApellidos(apellidos);
         c.setDomicilio(domicilio);
@@ -115,6 +118,7 @@ public class Modelo extends Conexion {
         getSession().update(c);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
+        JOptionPane.showMessageDialog(this.v, "Se ha modificado: "+dniAntiguio+". Satisfactoriamente.");
     }
     
     public void deleteCliente(String dni)
@@ -182,10 +186,10 @@ public class Modelo extends Conexion {
         tx.commit();
     }
     
-    public void modifyProveedor(String cifAntiguo, String cifNuevo, String denominacion_social, String telefono, String correo)
+    public void modifyProveedor(String cifAntiguo, String denominacion_social, String telefono, String correo)
     {
         Proveedor p=getProveedorByCif(cifAntiguo);
-        p.setCif(cifNuevo);
+        
         p.setDenominacionSocial(denominacion_social);
         p.setTelefono(telefono);
         p.setCorreo(correo);
@@ -193,6 +197,7 @@ public class Modelo extends Conexion {
         getSession().update(p);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
+        JOptionPane.showMessageDialog(this.v, "Se ha modificado: "+cifAntiguo+". Satisfactoriamente.");
     }
     
     public void deleteProveedor(String cif)
@@ -254,16 +259,14 @@ public class Modelo extends Conexion {
     public void insertArticulo(String nombre, double precio, int cantidad)
     {
         Articulo a=new Articulo(nombre, precio, cantidad);
-        
         getSession().save(a);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
     }
     
-    public void modifyArticulo(int codigoAntiguo, int codigoNuevo, String nombre, double precio, int cantidad)
+    public void modifyArticulo(int codigoAntiguo, String nombre, double precio, int cantidad)
     {
         Articulo a=getArticuloByCodigo(codigoAntiguo);
-        a.setCodigo(codigoNuevo);
         a.setNombre(nombre);
         a.setPrecio(precio);
         a.setCantidad(cantidad);
@@ -271,6 +274,7 @@ public class Modelo extends Conexion {
         getSession().update(a);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
+        JOptionPane.showMessageDialog(this.v, "Se ha modificado: "+nombre+". Satisfactoriamente.");
     }
     
     public void deleteArticulo(int codigo)
@@ -708,33 +712,33 @@ public class Modelo extends Conexion {
         Vector row;
         try 
         {
-            switch(arrayList.getClass().toString())
+            it=arrayList.iterator();
+            dtm = new DefaultTableModel();
+            if(it.next() instanceof Cliente)
             {
-                case "Cliente":
-                    rs=dbmd.getColumns(null, null, "cliente", null);
-                    while(rs.next())
-                    {
-                        columns.add(rs.getString(4));
-                    }
-                    dtm.setColumnIdentifiers(columns);
-                    
-                    it=arrayList.iterator();
-                    while(it.hasNext())
-                    {
-                        Cliente c=(Cliente) it.next();
-                        row=new Vector();
-                        
-                        row.add(c.getDni());
-                        row.add(c.getNombre());
-                        row.add(c.getApellidos());
-                        row.add(c.getDomicilio());
-                        row.add(c.getCorreo());
-                        row.add(c.getTelefono());
-                        dtm.addRow(row);
-                    }
-                    break;
-                case "Proveedor":
-                    rs=dbmd.getColumns(null, null, "proveedor", null);
+                rs=dbmd.getColumns(null, null, "cliente", null);
+                while(rs.next())
+                {
+                    columns.add(rs.getString(4));
+                }
+                dtm.setColumnIdentifiers(columns);
+
+                it=arrayList.iterator();
+                while(it.hasNext())
+                {
+                    Cliente c=(Cliente) it.next();
+                    row=new Vector();
+
+                    row.add(c.getDni());
+                    row.add(c.getNombre());
+                    row.add(c.getApellidos());
+                    row.add(c.getDomicilio());
+                    row.add(c.getCorreo());
+                    row.add(c.getTelefono());
+                    dtm.addRow(row);
+                }
+            }else if(it.next() instanceof Proveedor){
+                rs=dbmd.getColumns(null, null, "proveedor", null);
                     while(rs.next())
                     {
                         columns.add(rs.getString(4));
@@ -753,9 +757,8 @@ public class Modelo extends Conexion {
                         row.add(p.getCorreo());
                         dtm.addRow(row);
                     }
-                    break;
-                case "Articulo":
-                    rs=dbmd.getColumns(null, null, "articulo", null);
+            }else if(it.next() instanceof Articulo){
+                rs=dbmd.getColumns(null, null, "articulo", null);
                     while(rs.next())
                     {
                         columns.add(rs.getString(4));
@@ -774,8 +777,8 @@ public class Modelo extends Conexion {
                         row.add(a.getCantidad());
                         dtm.addRow(row);
                     }
-                    break;
             }
+            
         }
         catch (SQLException ex) 
         {

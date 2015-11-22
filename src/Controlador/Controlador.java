@@ -5,16 +5,21 @@ import Vistas.Vista_Principal;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class Controlador implements ActionListener {
+public class Controlador implements ActionListener, MouseListener {
 
     Vista_Principal v;
     Modelo m = new Modelo();
     String tablaMenuPrincipal = "articulos";
+    int fila_Articulo;
+    int fila_Cliente;
+    int fila_Proveedor;
 
     public Controlador(Vista_Principal vista) {
         this.v = vista;
@@ -179,6 +184,12 @@ public class Controlador implements ActionListener {
         this.v.btn_DatosEmpresa_Salir.addActionListener(this);
         this.v.btn_DatosEmpresa_Modificar.setActionCommand("modificarConfig");
         this.v.btn_DatosEmpresa_Modificar.addActionListener(this);
+        
+        
+        //Mouse Listeners Tablas
+        this.v.tbl_Tabla_Modificar_Articulo.addMouseListener(this);
+        this.v.tbl_Tabla_Modificar_Cliente.addMouseListener(this);
+        this.v.tbl_Tabla_Modificar_Proveedor.addMouseListener(this);
     }
 
     @Override
@@ -204,13 +215,13 @@ public class Controlador implements ActionListener {
                 String busqueda = this.v.txt_principal_busqueda.getText();
                 switch(tablaMenuPrincipal){
                     case "articulos":
-                        this.v.tbl_Tabla_Principal.setModel(m.getTableModelByArrayList(m.getArticulosByQuestion(this.v.txt_Modificar_Articulo_Buscar.getText())));
+                        this.v.tbl_Tabla_Principal.setModel(m.getTableModelByArrayList(m.getArticulosByQuestion((busqueda))));
                         break;
                     case "clientes":
-                        this.v.tbl_Tabla_Principal.setModel(m.getTableModelByArrayList(m.getClientesByQuestion(this.v.txt_Modificar_Cliente_Buscar.getText())));
+                        this.v.tbl_Tabla_Principal.setModel(m.getTableModelByArrayList(m.getClientesByQuestion(busqueda)));
                         break;
                     case "proveedores":
-                        this.v.tbl_Tabla_Principal.setModel(m.getTableModelByArrayList(m.getProveedoresByQuestion(this.v.txt_Modificar_Proveedor_Buscar.getText())));
+                        this.v.tbl_Tabla_Principal.setModel(m.getTableModelByArrayList(m.getProveedoresByQuestion(busqueda)));
                         break;
                     case "pedidos":
                         
@@ -222,16 +233,19 @@ public class Controlador implements ActionListener {
                 this.v.Frame_Articulo.setVisible(true);
                 this.v.Frame_Articulo.setSize(700,354);
                 this.v.Frame_Articulo.setLocationRelativeTo(v);
+                this.v.tbl_Tabla_Modificar_Articulo.setModel(this.m.getTableModel("articulo"));
                 break;
             case mostrarFrameCliente:
                 this.v.Frame_Cliente.setVisible(true);
                 this.v.Frame_Cliente.setSize(700, 525);
                 this.v.Frame_Cliente.setLocationRelativeTo(v);
+                this.v.tbl_Tabla_Modificar_Cliente.setModel(this.m.getTableModel("cliente"));
                 break;
             case mostrarFrameProveedor:
                 this.v.Frame_Proveedor.setVisible(true);
                 this.v.Frame_Proveedor.setSize(787,487);
                 this.v.Frame_Proveedor.setLocationRelativeTo(v);
+                this.v.tbl_Tabla_Modificar_Proveedor.setModel(this.m.getTableModel("proveedor"));
                 break;
             case mostrarFramePedido:
                 this.v.Frame_Pedido.setVisible(true);
@@ -265,7 +279,9 @@ public class Controlador implements ActionListener {
                 this.v.tbl_Tabla_Modificar_Cliente.setModel(m.getTableModelByArrayList(m.getClientesByQuestion(this.v.txt_Modificar_Cliente_Buscar.getText())));
                 break;
             case modificarCliente:
-                
+                m.modifyCliente(this.v.eti_Modificar_Cliente_Dni_antiguo.getText() , this.v.txt_Modificar_Cliente_Nombre.getText(), this.v.txt_Modificar_Cliente_Apellidos.getText(), this.v.txt_Modificar_Cliente_Domicilio.getText(), this.v.txt_Modificar_Cliente_Correo.getText(), this.v.txt_Modificar_Cliente_Telefono.getText());
+                this.tablaMenuPrincipal = "clientes";
+                this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("cliente"));
                 break;
             case buscarTablaEliminarCliente:
                 this.v.tbl_Eliminar_Cliente.setModel(m.getTableModelByArrayList(m.getClientesByQuestion(this.v.txt_Modificar_Cliente_Buscar.getText())));
@@ -285,30 +301,39 @@ public class Controlador implements ActionListener {
                 this.v.tbl_Tabla_Modificar_Proveedor.setModel(m.getTableModelByArrayList(m.getProveedoresByQuestion(this.v.txt_Modificar_Proveedor_Buscar.getText())));
                 break;
             case modificarProveedor:
-                
+                m.modifyProveedor(this.v.eti_Modificar_Proveedor_CIF.getText(), this.v.txt_Modificar_Proveedor_DSocial.getText(), this.v.txt_Modificar_Proveedor_Telefono.getText(), this.v.txt_Modificar_Proveedor_Correo.getText());
+                this.tablaMenuPrincipal = "proveedores";
+                this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("proveedor"));
                 break;
             case buscarTablaEliminarProveedor:
                 this.v.tbl_Eliminar_Proveedor.setModel(m.getTableModelByArrayList(m.getProveedoresByQuestion(this.v.txt_Modificar_Proveedor_Buscar.getText())));
                 break;
             case eliminarProveedor:
-                
+              
                 break;
             case cerrarFrameArticulo:
                 this.v.Frame_Articulo.setVisible(false);
                 break;
             case insertarArticulo:
-                m.insertArticulo(this.v.txt_Crear_Articulo_Nombre.getText(), Double.parseDouble(this.v.txt_Crear_Articulo_Precio.getText()), Integer.parseInt(this.v.spinner_Crear_Articulo_Cantidad.getValue().toString()));
-                this.tablaMenuPrincipal = "articulos";
-                this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
+               
+                    m.insertArticulo(this.v.txt_Crear_Articulo_Nombre.getText(), Double.parseDouble(this.v.txt_Crear_Articulo_Precio.getText()), Integer.parseInt(this.v.spinner_Crear_Articulo_Cantidad.getValue().toString()));
+                    this.tablaMenuPrincipal = "articulos";
+                    this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
+                
                 break;
             case buscarTablaModificarArticulo:
                 this.v.tbl_Tabla_Modificar_Articulo.setModel(m.getTableModelByArrayList(m.getArticulosByQuestion(this.v.txt_Modificar_Articulo_Buscar.getText())));
                 break;
             case modificarArticulo:
-                
+                double decimal = Double.parseDouble(String.valueOf(this.v.txt_Modificar_Articulo_Precio.getText()));
+                int value = (Integer) this.v.sp_Modificar_Articulo_Spinner.getValue();
+                int id = Integer.parseInt(String.valueOf(this.v.eti_Modificar_Articulo_ID.getText()));
+                m.modifyArticulo(id, this.v.txt_Modificar_Articulo_Nombre.getText(), decimal, value);
+                this.tablaMenuPrincipal = "articulos";
+                this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
                 break;
             case buscarTablaEliminarArticulo:
-                this.v.tbl_Eliminar_Articulo.setModel(m.getTableModelByArrayList(m.getArticulosByQuestion(this.v.txt_Modificar_Articulo_Buscar.getText())));
+                this.v.tbl_Eliminar_Articulo.setModel(m.getTableModelByArrayList(m.getArticulosByQuestion(this.v.txt_Modificar_Articulo_Buscar.getText().toString())));
                 break;
             case eliminarArticulo:
                 
@@ -340,7 +365,43 @@ public class Controlador implements ActionListener {
             case Salir:
                 System.exit(WIDTH);
                 break;
+                //Updates:  
+            
         }
     }
-
+@Override
+    public void mouseClicked(MouseEvent e) {
+    
+           fila_Articulo = this.v.tbl_Tabla_Modificar_Articulo.getSelectedRow();
+           fila_Cliente = this.v.tbl_Tabla_Modificar_Cliente.getSelectedRow();
+           fila_Proveedor = this.v.tbl_Tabla_Modificar_Proveedor.getSelectedRow();
+           
+           if(fila_Articulo>=0){
+               System.out.println("Estas en Tab ==Modificar Articulo");
+           this.v.eti_Modificar_Articulo_ID.setText(""+v.tbl_Tabla_Modificar_Articulo.getValueAt(fila_Articulo, 0));
+           this.v.txt_Modificar_Articulo_Nombre.setText(""+v.tbl_Tabla_Modificar_Articulo.getValueAt(fila_Articulo, 1));
+           this.v.txt_Modificar_Articulo_Precio.setText(""+v.tbl_Tabla_Modificar_Articulo.getValueAt(fila_Articulo, 2));
+           this.v.sp_Modificar_Articulo_Spinner.setValue(v.tbl_Tabla_Modificar_Articulo.getValueAt(fila_Articulo, 3));
+           }
+           if(fila_Cliente>=0){
+               System.out.println("Estas en Tab ==Modificar Cliene");
+           this.v.eti_Modificar_Cliente_Dni_antiguo.setText(""+v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 0));
+           this.v.txt_Modificar_Cliente_Nombre.setText(""+v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 1));
+           this.v.txt_Modificar_Cliente_Apellidos.setText(""+v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 2));
+           this.v.txt_Modificar_Cliente_Domicilio.setText(""+v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 3));
+           this.v.txt_Modificar_Cliente_Correo.setText(""+v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 4));
+           this.v.txt_Modificar_Cliente_Telefono.setText(""+v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 5));
+           }
+           if(fila_Proveedor>=0){
+               System.out.println("Estas en Tab ==Modificar Cliene");
+               this.v.eti_Modificar_Proveedor_CIF.setText(""+v.tbl_Tabla_Modificar_Proveedor.getValueAt(fila_Proveedor, 0));
+               this.v.txt_Modificar_Proveedor_DSocial.setText(""+v.tbl_Tabla_Modificar_Proveedor.getValueAt(fila_Proveedor, 1));
+               this.v.txt_Modificar_Proveedor_Telefono.setText(""+v.tbl_Tabla_Modificar_Proveedor.getValueAt(fila_Proveedor, 2));
+               this.v.txt_Modificar_Proveedor_Correo.setText(""+v.tbl_Tabla_Modificar_Proveedor.getValueAt(fila_Proveedor, 3));
+           }
+    }
+    public void mousePressed(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {}
+    public void mouseEntered(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {}
 }

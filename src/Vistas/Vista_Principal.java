@@ -52,8 +52,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        txt_Modificar_Cliente_Dni = new javax.swing.JTextField();
         txt_Modificar_Cliente_Correo = new javax.swing.JTextField();
         txt_Modificar_Cliente_Domicilio = new javax.swing.JTextField();
         txt_Modificar_Cliente_Nombre = new javax.swing.JTextField();
@@ -61,6 +59,8 @@ public class Vista_Principal extends javax.swing.JFrame {
         txt_Modificar_Cliente_Apellidos = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         txt_Modificar_Cliente_Telefono = new javax.swing.JTextField();
+        jLabel89 = new javax.swing.JLabel();
+        eti_Modificar_Cliente_Dni_antiguo = new javax.swing.JLabel();
         pnl_Eliminar_Cliente = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbl_Eliminar_Cliente = new javax.swing.JTable();
@@ -97,13 +97,13 @@ public class Vista_Principal extends javax.swing.JFrame {
         btn_Modificar_Proveedor_Busqueda = new javax.swing.JButton();
         btn_Modificar_Proveedor = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        txt_Modificar_Proveedor_Cif = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txt_Modificar_Proveedor_DSocial = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txt_Modificar_Proveedor_Telefono = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txt_Modificar_Proveedor_Correo = new javax.swing.JTextField();
+        eti_Modificar_Proveedor_CIF = new javax.swing.JLabel();
         pnl_Eliminar_Proveedor = new javax.swing.JPanel();
         cbox_Eliminar_Proveedor_Buscar = new javax.swing.JComboBox();
         txt_Eliminar_Proveedor_Buscar = new javax.swing.JTextField();
@@ -139,6 +139,9 @@ public class Vista_Principal extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         tbl_Tabla_Modificar_Articulo = new javax.swing.JTable();
         btn_Modificar_Articulo = new javax.swing.JButton();
+        sp_Modificar_Articulo_Spinner = new javax.swing.JSpinner();
+        jLabel87 = new javax.swing.JLabel();
+        eti_Modificar_Articulo_ID = new javax.swing.JLabel();
         pnl_Eliminar_Articulo = new javax.swing.JPanel();
         cbox_Eliminar_Articulo_Buscar = new javax.swing.JComboBox();
         txt_Eliminar_Articulo_Buscar = new javax.swing.JTextField();
@@ -471,7 +474,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_Modificar_Cliente_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Modificar_Cliente_Busqueda))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -484,11 +487,13 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jLabel27.setText("Correo");
 
-        jLabel28.setText("DNI:");
-
         jLabel29.setText("Apellidos:");
 
         jLabel30.setText("Teléfono:");
+
+        jLabel89.setText("DNI:");
+
+        eti_Modificar_Cliente_Dni_antiguo.setText(" ");
 
         javax.swing.GroupLayout pnl_Modificar_ClienteLayout = new javax.swing.GroupLayout(pnl_Modificar_Cliente);
         pnl_Modificar_Cliente.setLayout(pnl_Modificar_ClienteLayout);
@@ -499,8 +504,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGroup(pnl_Modificar_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel25)
                     .addComponent(jLabel26)
-                    .addComponent(jLabel27)
-                    .addComponent(jLabel28))
+                    .addComponent(jLabel27))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_Modificar_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl_Modificar_ClienteLayout.createSequentialGroup()
@@ -510,17 +514,19 @@ public class Vista_Principal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_Modificar_Cliente_Apellidos))
                     .addComponent(txt_Modificar_Cliente_Domicilio)
-                    .addComponent(txt_Modificar_Cliente_Correo)
-                    .addGroup(pnl_Modificar_ClienteLayout.createSequentialGroup()
-                        .addComponent(txt_Modificar_Cliente_Dni, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel30)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_Modificar_Cliente_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(txt_Modificar_Cliente_Correo)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_Modificar_ClienteLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_Modificar_Cliente)
                 .addContainerGap())
+            .addGroup(pnl_Modificar_ClienteLayout.createSequentialGroup()
+                .addComponent(jLabel89)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(eti_Modificar_Cliente_Dni_antiguo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_Modificar_Cliente_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnl_Modificar_ClienteLayout.setVerticalGroup(
             pnl_Modificar_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -541,12 +547,12 @@ public class Vista_Principal extends javax.swing.JFrame {
                     .addComponent(jLabel27))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_Modificar_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(txt_Modificar_Cliente_Dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel30)
-                    .addComponent(txt_Modificar_Cliente_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Modificar_Cliente_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel89)
+                    .addComponent(eti_Modificar_Cliente_Dni_antiguo))
+                .addGap(86, 86, 86)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Modificar_Cliente)
                 .addContainerGap())
@@ -806,7 +812,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_Modificar_Proveedor_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Modificar_Proveedor_Busqueda))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -821,6 +827,8 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jLabel10.setText("Correo:");
 
+        eti_Modificar_Proveedor_CIF.setText(" ");
+
         javax.swing.GroupLayout pnl_Modificar_ProveedorLayout = new javax.swing.GroupLayout(pnl_Modificar_Proveedor);
         pnl_Modificar_Proveedor.setLayout(pnl_Modificar_ProveedorLayout);
         pnl_Modificar_ProveedorLayout.setHorizontalGroup(
@@ -831,8 +839,8 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGroup(pnl_Modificar_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl_Modificar_ProveedorLayout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_Modificar_Proveedor_Cif))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(eti_Modificar_Proveedor_CIF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnl_Modificar_ProveedorLayout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -856,7 +864,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnl_Modificar_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txt_Modificar_Proveedor_Cif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(eti_Modificar_Proveedor_CIF))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_Modificar_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -1122,6 +1130,10 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         btn_Modificar_Articulo.setText("Modificar");
 
+        jLabel87.setText("ID:");
+
+        eti_Modificar_Articulo_ID.setText(" ");
+
         javax.swing.GroupLayout pnl_Modificar_ArticuloLayout = new javax.swing.GroupLayout(pnl_Modificar_Articulo);
         pnl_Modificar_Articulo.setLayout(pnl_Modificar_ArticuloLayout);
         pnl_Modificar_ArticuloLayout.setHorizontalGroup(
@@ -1131,13 +1143,19 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGroup(pnl_Modificar_ArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_Modificar_ArticuloLayout.createSequentialGroup()
+                        .addComponent(jLabel87)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(eti_Modificar_Articulo_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_Modificar_Articulo_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_Modificar_Articulo_Precio))
+                        .addComponent(txt_Modificar_Articulo_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sp_Modificar_Articulo_Spinner))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_Modificar_ArticuloLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_Modificar_Articulo)))
@@ -1151,7 +1169,10 @@ public class Vista_Principal extends javax.swing.JFrame {
                     .addComponent(jLabel14)
                     .addComponent(txt_Modificar_Articulo_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
-                    .addComponent(txt_Modificar_Articulo_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_Modificar_Articulo_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sp_Modificar_Articulo_Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel87)
+                    .addComponent(eti_Modificar_Articulo_ID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2686,6 +2707,9 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel eti_Gastos_Pagos;
     public javax.swing.JLabel eti_Gastos_Pedidos;
     public javax.swing.JLabel eti_Gastos_Total;
+    public javax.swing.JLabel eti_Modificar_Articulo_ID;
+    public javax.swing.JLabel eti_Modificar_Cliente_Dni_antiguo;
+    public javax.swing.JLabel eti_Modificar_Proveedor_CIF;
     public javax.swing.JLabel eti_Pedido_Cliente_Apellidos;
     public javax.swing.JLabel eti_Pedido_Cliente_Correo;
     public javax.swing.JLabel eti_Pedido_Cliente_Dni;
@@ -2718,7 +2742,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel25;
     public javax.swing.JLabel jLabel26;
     public javax.swing.JLabel jLabel27;
-    public javax.swing.JLabel jLabel28;
     public javax.swing.JLabel jLabel29;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel30;
@@ -2783,6 +2806,8 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel84;
     public javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel89;
     public javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     public javax.swing.JPanel jPanel1;
@@ -2841,6 +2866,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.ButtonGroup radGroup_Pedido;
     public javax.swing.JRadioButton rad_Pedido_Cliente;
     public javax.swing.JRadioButton rad_Pedido_Proveedor;
+    public javax.swing.JSpinner sp_Modificar_Articulo_Spinner;
     public javax.swing.JSpinner spinner_Crear_Articulo_Cantidad;
     public javax.swing.JTabbedPane tabPane_Articulo;
     public javax.swing.JTabbedPane tabPane_Cliente;
@@ -2883,12 +2909,10 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JTextField txt_Modificar_Cliente_Apellidos;
     public javax.swing.JTextField txt_Modificar_Cliente_Buscar;
     public javax.swing.JTextField txt_Modificar_Cliente_Correo;
-    public javax.swing.JTextField txt_Modificar_Cliente_Dni;
     public javax.swing.JTextField txt_Modificar_Cliente_Domicilio;
     public javax.swing.JTextField txt_Modificar_Cliente_Nombre;
     public javax.swing.JTextField txt_Modificar_Cliente_Telefono;
     public javax.swing.JTextField txt_Modificar_Proveedor_Buscar;
-    public javax.swing.JTextField txt_Modificar_Proveedor_Cif;
     public javax.swing.JTextField txt_Modificar_Proveedor_Correo;
     public javax.swing.JTextField txt_Modificar_Proveedor_DSocial;
     public javax.swing.JTextField txt_Modificar_Proveedor_Telefono;
