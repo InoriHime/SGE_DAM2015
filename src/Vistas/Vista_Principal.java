@@ -64,7 +64,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         pnl_Eliminar_Cliente = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbl_Eliminar_Cliente = new javax.swing.JTable();
-        cbox_Eliminar_Cliente_Buscar = new javax.swing.JComboBox();
         txt_Eliminar_Cliente_Buscar = new javax.swing.JTextField();
         btn_Eliminar_Cliente_Buscar = new javax.swing.JButton();
         btn_Eliminar_Cliente = new javax.swing.JButton();
@@ -105,7 +104,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         txt_Modificar_Proveedor_Correo = new javax.swing.JTextField();
         eti_Modificar_Proveedor_CIF = new javax.swing.JLabel();
         pnl_Eliminar_Proveedor = new javax.swing.JPanel();
-        cbox_Eliminar_Proveedor_Buscar = new javax.swing.JComboBox();
         txt_Eliminar_Proveedor_Buscar = new javax.swing.JTextField();
         btn_Eliminar_Proveedor_Buscar = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -143,7 +141,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel87 = new javax.swing.JLabel();
         eti_Modificar_Articulo_ID = new javax.swing.JLabel();
         pnl_Eliminar_Articulo = new javax.swing.JPanel();
-        cbox_Eliminar_Articulo_Buscar = new javax.swing.JComboBox();
         txt_Eliminar_Articulo_Buscar = new javax.swing.JTextField();
         btn_Eliminar_Articulo_Buscar = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -171,7 +168,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         radGroup_Pedido = new javax.swing.ButtonGroup();
         pnl_Pedido_Contenedor_Cliente = new javax.swing.JPanel();
         pnl_Pedido_Cliente = new javax.swing.JPanel();
-        cbox_Pedido_Cliente_Busqueda = new javax.swing.JComboBox();
         txt_Pedido_Cliente_Buscar = new javax.swing.JTextField();
         btn_Pedido_Cliente_Buscar = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -190,7 +186,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         eti_Pedido_Cliente_Telefono = new javax.swing.JLabel();
         pnl_Pedido_Contenedor_Proveedor = new javax.swing.JPanel();
         pnl_Pedido_Proveedor = new javax.swing.JPanel();
-        cbox_Pedido_Proveedor_Busqueda1 = new javax.swing.JComboBox();
         txt_Pedido_Proveedor_Buscar = new javax.swing.JTextField();
         btn_Pedido_Proveedor_Buscar = new javax.swing.JButton();
         jScrollPane11 = new javax.swing.JScrollPane();
@@ -575,8 +570,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tbl_Eliminar_Cliente);
 
-        cbox_Eliminar_Cliente_Buscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dni", "Nombre", "Apellidos", "Correo", "Telefono" }));
-
         btn_Eliminar_Cliente_Buscar.setText("Buscar");
 
         btn_Eliminar_Cliente.setText("Eliminar");
@@ -590,9 +583,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGroup(pnl_Eliminar_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3)
                     .addGroup(pnl_Eliminar_ClienteLayout.createSequentialGroup()
-                        .addComponent(cbox_Eliminar_Cliente_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_Eliminar_Cliente_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_Eliminar_Cliente_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_Eliminar_Cliente_Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_Eliminar_ClienteLayout.createSequentialGroup()
@@ -605,12 +596,11 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addGroup(pnl_Eliminar_ClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_Eliminar_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbox_Eliminar_Cliente_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_Eliminar_Cliente_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Eliminar_Cliente_Buscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(btn_Eliminar_Cliente)
                 .addContainerGap())
         );
@@ -622,7 +612,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel1.setText("Cliente");
         jLabel1.setOpaque(true);
 
-        btn_Cliente_Cancelar.setText("Cancelar");
+        btn_Cliente_Cancelar.setText("Salir");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -886,8 +876,6 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         pnl_Eliminar_Proveedor.setBackground(new java.awt.Color(255, 255, 255));
 
-        cbox_Eliminar_Proveedor_Buscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CIF", "Denominacion Social", "Telefono", "Correo" }));
-
         btn_Eliminar_Proveedor_Buscar.setText("Buscar");
 
         tbl_Eliminar_Proveedor.setModel(new javax.swing.table.DefaultTableModel(
@@ -914,9 +902,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGroup(pnl_Eliminar_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5)
                     .addGroup(pnl_Eliminar_ProveedorLayout.createSequentialGroup()
-                        .addComponent(cbox_Eliminar_Proveedor_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_Eliminar_Proveedor_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_Eliminar_Proveedor_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_Eliminar_Proveedor_Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_Eliminar_ProveedorLayout.createSequentialGroup()
@@ -929,7 +915,6 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addGroup(pnl_Eliminar_ProveedorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_Eliminar_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbox_Eliminar_Proveedor_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_Eliminar_Proveedor_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Eliminar_Proveedor_Buscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -941,7 +926,7 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         tabPane_Proveedor.addTab("Eliminar ...", pnl_Eliminar_Proveedor);
 
-        btn_Proveedor_Cancelar.setText("Cancelar");
+        btn_Proveedor_Cancelar.setText("Salir");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1184,8 +1169,6 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         pnl_Eliminar_Articulo.setBackground(new java.awt.Color(255, 255, 255));
 
-        cbox_Eliminar_Articulo_Buscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CIF", "Denominacion Social", "Telefono", "Correo" }));
-
         btn_Eliminar_Articulo_Buscar.setText("Buscar");
 
         tbl_Eliminar_Articulo.setModel(new javax.swing.table.DefaultTableModel(
@@ -1212,9 +1195,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGroup(pnl_Eliminar_ArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane7)
                     .addGroup(pnl_Eliminar_ArticuloLayout.createSequentialGroup()
-                        .addComponent(cbox_Eliminar_Articulo_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_Eliminar_Articulo_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_Eliminar_Articulo_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_Eliminar_Articulo_Buscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_Eliminar_ArticuloLayout.createSequentialGroup()
@@ -1227,7 +1208,6 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addGroup(pnl_Eliminar_ArticuloLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_Eliminar_ArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbox_Eliminar_Articulo_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_Eliminar_Articulo_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Eliminar_Articulo_Buscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1239,7 +1219,7 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         tabPane_Articulo.addTab("Eliminar ...", pnl_Eliminar_Articulo);
 
-        btn_Articulo_Cancelar.setText("Cancelar");
+        btn_Articulo_Cancelar.setText("Salir");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1446,8 +1426,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         pnl_Pedido_Cliente.setBackground(new java.awt.Color(255, 255, 255));
         pnl_Pedido_Cliente.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
 
-        cbox_Pedido_Cliente_Busqueda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dni", "Nombre", "Apellidos" }));
-
         btn_Pedido_Cliente_Buscar.setText("Buscar");
 
         tbl_Pedido_Cliente_Busqueda.setModel(new javax.swing.table.DefaultTableModel(
@@ -1514,8 +1492,6 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGroup(pnl_Pedido_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane10)
                     .addGroup(pnl_Pedido_ClienteLayout.createSequentialGroup()
-                        .addComponent(cbox_Pedido_Cliente_Busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_Pedido_Cliente_Buscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_Pedido_Cliente_Buscar))
@@ -1548,7 +1524,6 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addGroup(pnl_Pedido_ClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_Pedido_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbox_Pedido_Cliente_Busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_Pedido_Cliente_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Pedido_Cliente_Buscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1592,8 +1567,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         pnl_Pedido_Proveedor.setBackground(new java.awt.Color(255, 255, 255));
         pnl_Pedido_Proveedor.setBorder(javax.swing.BorderFactory.createTitledBorder("Proveedor"));
 
-        cbox_Pedido_Proveedor_Busqueda1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CIF", "Denominacion Social" }));
-
         btn_Pedido_Proveedor_Buscar.setText("Buscar");
 
         tbl_Pedido_Proveedor_Busqueda.setModel(new javax.swing.table.DefaultTableModel(
@@ -1632,8 +1605,6 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGroup(pnl_Pedido_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
                     .addGroup(pnl_Pedido_ProveedorLayout.createSequentialGroup()
-                        .addComponent(cbox_Pedido_Proveedor_Busqueda1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_Pedido_Proveedor_Buscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_Pedido_Proveedor_Buscar))
@@ -1652,7 +1623,6 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addGroup(pnl_Pedido_ProveedorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_Pedido_ProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbox_Pedido_Proveedor_Busqueda1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_Pedido_Proveedor_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Pedido_Proveedor_Buscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2683,12 +2653,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JButton btn_principal_pedidos;
     public javax.swing.JButton btn_principal_proveedores;
     public javax.swing.JComboBox cbox_CobrosPagos_MesAno;
-    public javax.swing.JComboBox cbox_Eliminar_Articulo_Buscar;
-    public javax.swing.JComboBox cbox_Eliminar_Cliente_Buscar;
-    public javax.swing.JComboBox cbox_Eliminar_Proveedor_Buscar;
     public javax.swing.JComboBox cbox_Gastos_MesAno;
-    public javax.swing.JComboBox cbox_Pedido_Cliente_Busqueda;
-    public javax.swing.JComboBox cbox_Pedido_Proveedor_Busqueda1;
     public javax.swing.JLabel eti_DatosEmpresa_Correo;
     public javax.swing.JLabel eti_DatosEmpresa_Direccion;
     public javax.swing.JLabel eti_DatosEmpresa_Iva;
