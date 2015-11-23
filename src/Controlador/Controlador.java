@@ -287,7 +287,9 @@ public class Controlador implements ActionListener, MouseListener {
                 this.v.tbl_Eliminar_Cliente.setModel(m.getTableModelByArrayList(m.getClientesByQuestion(this.v.txt_Modificar_Cliente_Buscar.getText())));
                 break;
             case eliminarCliente:
-                
+                m.deleteCliente(this.v.tbl_Eliminar_Cliente.getValueAt(this.v.tbl_Eliminar_Cliente.getSelectedRow(), 0).toString());
+                this.tablaMenuPrincipal = "clientes";
+                this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("cliente"));
                 break;
             case cerrarFrameProveedor:
                 this.v.Frame_Proveedor.setVisible(false);
@@ -309,17 +311,17 @@ public class Controlador implements ActionListener, MouseListener {
                 this.v.tbl_Eliminar_Proveedor.setModel(m.getTableModelByArrayList(m.getProveedoresByQuestion(this.v.txt_Modificar_Proveedor_Buscar.getText())));
                 break;
             case eliminarProveedor:
-              
+                m.deleteProveedor(this.v.tbl_Eliminar_Proveedor.getValueAt(this.v.tbl_Eliminar_Proveedor.getSelectedRow(), 0).toString());
+                this.tablaMenuPrincipal = "proveedores";
+                this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("proveedor"));
                 break;
             case cerrarFrameArticulo:
                 this.v.Frame_Articulo.setVisible(false);
                 break;
             case insertarArticulo:
-               
-                    m.insertArticulo(this.v.txt_Crear_Articulo_Nombre.getText(), Double.parseDouble(this.v.txt_Crear_Articulo_Precio.getText()), Integer.parseInt(this.v.spinner_Crear_Articulo_Cantidad.getValue().toString()));
-                    this.tablaMenuPrincipal = "articulos";
-                    this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
-                
+                m.insertArticulo(this.v.txt_Crear_Articulo_Nombre.getText(), Double.parseDouble(this.v.txt_Crear_Articulo_Precio.getText()), Integer.parseInt(this.v.spinner_Crear_Articulo_Cantidad.getValue().toString()));
+                this.tablaMenuPrincipal = "articulos";
+                this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
                 break;
             case buscarTablaModificarArticulo:
                 this.v.tbl_Tabla_Modificar_Articulo.setModel(m.getTableModelByArrayList(m.getArticulosByQuestion(this.v.txt_Modificar_Articulo_Buscar.getText())));
@@ -336,7 +338,9 @@ public class Controlador implements ActionListener, MouseListener {
                 this.v.tbl_Eliminar_Articulo.setModel(m.getTableModelByArrayList(m.getArticulosByQuestion(this.v.txt_Modificar_Articulo_Buscar.getText().toString())));
                 break;
             case eliminarArticulo:
-                
+                m.deleteArticulo(Integer.parseInt(this.v.tbl_Eliminar_Articulo.getValueAt(this.v.tbl_Eliminar_Articulo.getSelectedRow(), 0).toString()));
+                this.tablaMenuPrincipal = "articulos";
+                this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
                 break;
             case cerrarFramePedido:
                 this.v.Frame_Pedido.setVisible(false);
