@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.LectorProperties;
 import Modelo.Modelo;
+import Modelo.generatePDF;
 import Vistas.Vista_Principal;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -59,6 +60,7 @@ public class Controlador implements ActionListener, MouseListener {
         buscarTablaEliminarArticulo,
         eliminarArticulo,
         cerrarFramePedido,
+        hacerPedido,
         radioPedidoCliente,
         radioPedidoProveedor,
         cerrarFrameGastos,
@@ -171,6 +173,8 @@ public class Controlador implements ActionListener, MouseListener {
         this.v.rad_Pedido_Cliente.addActionListener(this);
         this.v.rad_Pedido_Proveedor.setActionCommand("radioPedidoProveedor");
         this.v.rad_Pedido_Proveedor.addActionListener(this);
+        this.v.btn_Pedido_HacerPedido.setActionCommand("hacerPedido");
+        this.v.btn_Pedido_HacerPedido.addActionListener(this);
 
         //Listeners frame Gastos
         this.v.btn_Gastos_Salir.setActionCommand("cerrarFrameGastos");
@@ -381,6 +385,16 @@ public class Controlador implements ActionListener, MouseListener {
                 break;
             case cerrarFramePedido:
                 this.v.Frame_Pedido.setVisible(false);
+                break;
+            case hacerPedido:
+                int result=this.v.jFileChooser.showSaveDialog(this.v.jFileChooser);
+                if(result==this.v.jFileChooser.APPROVE_OPTION)
+                {
+                    generatePDF g=new generatePDF();
+                    //Pasar en el segundo parámetro el objeto de tipo cliente o proveedor, segun y caso y como tercer parámetro un arrayList de los articulos que
+                    //se están pidiendo
+                    g.generatePDFFactura(this.v.jFileChooser.getSelectedFile().getAbsolutePath(), null, null);
+                }
                 break;
             case radioPedidoCliente:
                 this.v.pnl_Pedido_ClienteProveedor.removeAll();

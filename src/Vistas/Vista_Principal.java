@@ -279,6 +279,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel85 = new javax.swing.JLabel();
         eti_Factura_Proveedor_Cif = new javax.swing.JLabel();
         eti_Factura_Proveedor_DSocial = new javax.swing.JLabel();
+        jFileChooser = new javax.swing.JFileChooser();
         pnl_contenedor = new javax.swing.JPanel();
         jSplitPane1 = new javax.swing.JSplitPane();
         pnl_principal_izquierda = new javax.swing.JPanel();
@@ -2690,6 +2691,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JButton jButton2;
     public javax.swing.JButton jButton3;
     public javax.swing.JButton jButton5;
+    public javax.swing.JFileChooser jFileChooser;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
