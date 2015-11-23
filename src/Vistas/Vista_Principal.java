@@ -2846,7 +2846,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JTable tbl_Pedido_Articulos;
     public javax.swing.JTable tbl_Pedido_ArticulosPedidos;
     public javax.swing.JTable tbl_Pedido_Cliente_Busqueda;
-    private javax.swing.JTable tbl_Pedido_Proveedor_Busqueda;
+    public javax.swing.JTable tbl_Pedido_Proveedor_Busqueda;
     public javax.swing.JTable tbl_Proforma;
     public javax.swing.JTable tbl_Tabla_Modificar_Articulo;
     public javax.swing.JTable tbl_Tabla_Modificar_Cliente;
