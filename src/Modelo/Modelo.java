@@ -167,7 +167,7 @@ public class Modelo extends Conexion {
     
     public ArrayList<Proveedor> getProveedoresByQuestion(String question)
     {
-        Query query=getSession().createQuery("from Proveedor p where p.cif like :consulta OR p.denominacionSocial like :consulta OR p.telefono like :consulta OR p.correo like :consulta");
+        Query query=getSession().createQuery("from Proveedor p where p.cif like :consulta OR p.denominacionsocial like :consulta OR p.telefono like :consulta OR p.correo like :consulta");
         ArrayList<Proveedor> list=(ArrayList<Proveedor>) query.setParameter("consulta", "%"+question+"%").list();
         return list;
     }
@@ -705,16 +705,25 @@ public class Modelo extends Conexion {
         return dtm;
     }
     
-    public DefaultTableModel getTableModelByArrayList(ArrayList arrayList)
+    public DefaultTableModel getTableModelByArrayList(ArrayList arrayList, String tipo)
     {
         DefaultTableModel dtm=null;
         Vector columns=new Vector();
         Vector row;
         try 
         {
+            
+//            articulos
+//            clientes
+//            proveedores
+//            pedidos
+//            articulo_pedido
+            
+            
+            
             it=arrayList.iterator();
             dtm = new DefaultTableModel();
-            if(it.next() instanceof Cliente)
+            if(tipo.equals("clientes"))
             {
                 rs=dbmd.getColumns(null, null, "cliente", null);
                 while(rs.next())
@@ -737,7 +746,7 @@ public class Modelo extends Conexion {
                     row.add(c.getTelefono());
                     dtm.addRow(row);
                 }
-            }else if(it.next() instanceof Proveedor){
+            }else if(tipo.equals("proveedores")){
                 rs=dbmd.getColumns(null, null, "proveedor", null);
                     while(rs.next())
                     {
@@ -757,7 +766,7 @@ public class Modelo extends Conexion {
                         row.add(p.getCorreo());
                         dtm.addRow(row);
                     }
-            }else if(it.next() instanceof Articulo){
+            }else if(tipo.equals("articulos")){
                 rs=dbmd.getColumns(null, null, "articulo", null);
                     while(rs.next())
                     {
