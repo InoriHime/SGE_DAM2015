@@ -254,7 +254,7 @@ public class Controlador implements ActionListener, MouseListener {
                 break;
             case mostrarFrameGastos:
                 this.v.Frame_Gastos.setVisible(true);
-                this.v.Frame_Gastos.setSize(600,330);
+                this.v.Frame_Gastos.setSize(600,350);
                 this.v.Frame_Gastos.setLocationRelativeTo(v);
                 break;
             case mostrarFrameCobrosPagos:

@@ -630,9 +630,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane3" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="cbox_Eliminar_Cliente_Buscar" min="-2" pref="131" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txt_Eliminar_Cliente_Buscar" min="-2" pref="405" max="-2" attributes="0"/>
+                                      <Component id="txt_Eliminar_Cliente_Buscar" min="-2" pref="542" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btn_Eliminar_Cliente_Buscar" pref="108" max="32767" attributes="0"/>
                                   </Group>
@@ -650,13 +648,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="cbox_Eliminar_Cliente_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txt_Eliminar_Cliente_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btn_Eliminar_Cliente_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane3" min="-2" pref="301" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="19" max="32767" attributes="0"/>
                               <Component id="btn_Eliminar_Cliente" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -689,22 +686,6 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JComboBox" name="cbox_Eliminar_Cliente_Buscar">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="5">
-                            <StringItem index="0" value="Dni"/>
-                            <StringItem index="1" value="Nombre"/>
-                            <StringItem index="2" value="Apellidos"/>
-                            <StringItem index="3" value="Correo"/>
-                            <StringItem index="4" value="Telefono"/>
-                          </StringArray>
-                        </Property>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                      </AuxValues>
-                    </Component>
                     <Component class="javax.swing.JTextField" name="txt_Eliminar_Cliente_Buscar">
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -745,7 +726,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btn_Cliente_Cancelar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
+                <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1323,9 +1304,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane5" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="cbox_Eliminar_Proveedor_Buscar" min="-2" pref="131" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txt_Eliminar_Proveedor_Buscar" min="-2" pref="405" max="-2" attributes="0"/>
+                                      <Component id="txt_Eliminar_Proveedor_Buscar" min="-2" pref="542" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btn_Eliminar_Proveedor_Buscar" pref="122" max="32767" attributes="0"/>
                                   </Group>
@@ -1343,7 +1322,6 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="cbox_Eliminar_Proveedor_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txt_Eliminar_Proveedor_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btn_Eliminar_Proveedor_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -1357,21 +1335,6 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JComboBox" name="cbox_Eliminar_Proveedor_Buscar">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="CIF"/>
-                            <StringItem index="1" value="Denominacion Social"/>
-                            <StringItem index="2" value="Telefono"/>
-                            <StringItem index="3" value="Correo"/>
-                          </StringArray>
-                        </Property>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                      </AuxValues>
-                    </Component>
                     <Component class="javax.swing.JTextField" name="txt_Eliminar_Proveedor_Buscar">
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1424,7 +1387,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="btn_Proveedor_Cancelar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
+                <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1939,9 +1902,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane7" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="cbox_Eliminar_Articulo_Buscar" min="-2" pref="131" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txt_Eliminar_Articulo_Buscar" min="-2" pref="405" max="-2" attributes="0"/>
+                                      <Component id="txt_Eliminar_Articulo_Buscar" min="-2" pref="542" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btn_Eliminar_Articulo_Buscar" max="32767" attributes="0"/>
                                   </Group>
@@ -1959,7 +1920,6 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="cbox_Eliminar_Articulo_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txt_Eliminar_Articulo_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btn_Eliminar_Articulo_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -1973,21 +1933,6 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JComboBox" name="cbox_Eliminar_Articulo_Buscar">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="CIF"/>
-                            <StringItem index="1" value="Denominacion Social"/>
-                            <StringItem index="2" value="Telefono"/>
-                            <StringItem index="3" value="Correo"/>
-                          </StringArray>
-                        </Property>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                      </AuxValues>
-                    </Component>
                     <Component class="javax.swing.JTextField" name="txt_Eliminar_Articulo_Buscar">
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2040,7 +1985,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="btn_Articulo_Cancelar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
+                <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2421,8 +2366,6 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane10" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="cbox_Pedido_Cliente_Busqueda" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="txt_Pedido_Cliente_Buscar" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btn_Pedido_Cliente_Buscar" min="-2" max="-2" attributes="0"/>
@@ -2464,7 +2407,6 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cbox_Pedido_Cliente_Busqueda" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txt_Pedido_Cliente_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_Pedido_Cliente_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -2500,20 +2442,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JComboBox" name="cbox_Pedido_Cliente_Busqueda">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
-                    <StringItem index="0" value="Dni"/>
-                    <StringItem index="1" value="Nombre"/>
-                    <StringItem index="2" value="Apellidos"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
             <Component class="javax.swing.JTextField" name="txt_Pedido_Cliente_Buscar">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2758,8 +2686,6 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane11" alignment="0" pref="600" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="cbox_Pedido_Proveedor_Busqueda1" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="txt_Pedido_Proveedor_Buscar" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btn_Pedido_Proveedor_Buscar" min="-2" max="-2" attributes="0"/>
@@ -2785,7 +2711,6 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cbox_Pedido_Proveedor_Busqueda1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txt_Pedido_Proveedor_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_Pedido_Proveedor_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -2807,19 +2732,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JComboBox" name="cbox_Pedido_Proveedor_Busqueda1">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
-                    <StringItem index="0" value="CIF"/>
-                    <StringItem index="1" value="Denominacion Social"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
             <Component class="javax.swing.JTextField" name="txt_Pedido_Proveedor_Buscar">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
