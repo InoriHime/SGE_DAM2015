@@ -2160,6 +2160,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btn_Añadir_Articulo_Pedido" alignment="0" max="32767" attributes="0"/>
                               <Component id="btn_Quitar_Articulo_Pedido" alignment="0" max="32767" attributes="0"/>
+                              <Component id="sp_Pedido_SpinnerCantidad" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -2176,7 +2177,9 @@
                           <Component id="btn_Añadir_Articulo_Pedido" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btn_Quitar_Articulo_Pedido" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="94" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="sp_Pedido_SpinnerCantidad" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="63" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
@@ -2281,6 +2284,11 @@
                     <Property name="text" type="java.lang.String" value="Articulos Pedidos"/>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JSpinner" name="sp_Pedido_SpinnerCantidad">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>

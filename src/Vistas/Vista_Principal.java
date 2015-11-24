@@ -161,6 +161,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         tbl_Pedido_Articulos = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        sp_Pedido_SpinnerCantidad = new javax.swing.JSpinner();
         pnl_Pedido_ClienteProveedor = new javax.swing.JPanel();
         btn_Pedido_Cancelar = new javax.swing.JButton();
         btn_Pedido_HacerPedido = new javax.swing.JButton();
@@ -1337,7 +1338,8 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_Añadir_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_Quitar_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_Quitar_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sp_Pedido_SpinnerCantidad))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1350,7 +1352,9 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addComponent(btn_Añadir_Articulo_Pedido)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Quitar_Articulo_Pedido)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sp_Pedido_SpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2842,6 +2846,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JRadioButton rad_Pedido_Cliente;
     public javax.swing.JRadioButton rad_Pedido_Proveedor;
     public javax.swing.JSpinner sp_Modificar_Articulo_Spinner;
+    public javax.swing.JSpinner sp_Pedido_SpinnerCantidad;
     public javax.swing.JSpinner spinner_Crear_Articulo_Cantidad;
     public javax.swing.JTabbedPane tabPane_Articulo;
     public javax.swing.JTabbedPane tabPane_Cliente;
