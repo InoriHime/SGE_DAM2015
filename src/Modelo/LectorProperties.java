@@ -29,7 +29,7 @@ public class LectorProperties {
         }
     }
     
-    public static void setPropiedad(String name, String valor) {
+    public static void setPropiedad(String Nombre, String Correo,String Direccion,String IVA) {
         FileInputStream fis = null;
         FileOutputStream fos = null;
         try {
@@ -38,7 +38,10 @@ public class LectorProperties {
             fos = new FileOutputStream("src/Modelo/datosempresa.properties");
             Properties props = new Properties();
             props.load(fis);            
-            props.setProperty(name, valor);
+            props.setProperty("NOMBRE", Nombre);
+            props.setProperty("CORREO", Correo);
+            props.setProperty("DIRECCION", Direccion);
+            props.setProperty("IVA", IVA);
             props.store(fos, "");
         } catch (Exception ex) {
             ex.printStackTrace();

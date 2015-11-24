@@ -10,9 +10,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import static java.awt.image.ImageObserver.WIDTH;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import Atxy2k.CustomTextField.RestrictedTextField;
+import java.awt.Toolkit;
+import javax.swing.JSpinner;
+import javax.swing.JSpinner.DefaultEditor;
 
 public class Controlador implements ActionListener, MouseListener {
 
@@ -66,6 +71,7 @@ public class Controlador implements ActionListener, MouseListener {
         cerrarFrameGastos,
         cerrarFrameCobrosPagos,
         cerrarConfig,
+        modificarConfig,
         Salir
     }
 
@@ -77,6 +83,8 @@ public class Controlador implements ActionListener, MouseListener {
             v.setVisible(true);
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
         }
+         this.v.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/img/stk.jpg")));
+        restriccionesTextFields();
         //Cargamos la tabla del menu principal por defecto
         this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
         //Cargamos el pane por defecto en el frame de pedidos
@@ -417,6 +425,24 @@ public class Controlador implements ActionListener, MouseListener {
             case cerrarConfig:
                 this.v.Frame_DatosEmpresa.setVisible(false);
                 break;
+            case modificarConfig:
+                int resul = JOptionPane.showConfirmDialog(this.v.Frame_DatosEmpresa, "¿Desea modificarlos siguientes campos? \n"
+                                             + "Nombre: "+this.v.txt_DatosEmpresa_Nombre.getText()+"\n"
+                                             + "Correo: "+this.v.txt_DatosEmpresa_Correo.getText()+"\n"
+                                             + "Direccion: "+this.v.txt_DatosEmpresa_Direccion.getText()+"\n"
+                                             + "IVA: "+this.v.txt_DatosEmpresa_Iva.getText());
+                if(resul==0){
+                    LectorProperties.setPropiedad(this.v.txt_DatosEmpresa_Nombre.getText(),
+                                                    this.v.txt_DatosEmpresa_Correo.getText(),
+                                                    this.v.txt_DatosEmpresa_Direccion.getText(),
+                                                    this.v.txt_DatosEmpresa_Iva.getText());
+                this.v.eti_DatosEmpresa_Nombre.setText(LectorProperties.getPropiedad("NOMBRE"));
+		this.v.eti_DatosEmpresa_Correo.setText(LectorProperties.getPropiedad("CORREO"));
+		this.v.eti_DatosEmpresa_Direccion.setText(LectorProperties.getPropiedad("DIRECCION"));
+		this.v.eti_DatosEmpresa_Iva.setText(LectorProperties.getPropiedad("IVA"));
+                   
+                }
+                break;
             case Salir:
                 System.exit(WIDTH);
                 break;
@@ -515,5 +541,53 @@ public class Controlador implements ActionListener, MouseListener {
         this.v.txt_Modificar_Proveedor_Telefono.setText("");
         //limpiar eliminar proveedor
         this.v.txt_Eliminar_Proveedor_Buscar.setText("");
+    //Limpiar DatosEmpresa
+        //limpiar cambos Modificar Config
+        this.v.txt_DatosEmpresa_Correo.setText("");
+        this.v.txt_DatosEmpresa_Nombre.setText("");
+        this.v.txt_DatosEmpresa_Direccion.setText("");
+        this.v.txt_DatosEmpresa_Iva.setText("");
+    }
+    public void restriccionesTextFields(){
+        //Restricciones Frame Articulo
+            //Crear
+       RestrictedTextField resCrearArticuloPrecio = new RestrictedTextField(this.v.txt_Crear_Articulo_Precio);
+       resCrearArticuloPrecio.setOnlyNums(true);
+            //Modificar
+       RestrictedTextField resModificarArticuloPrecio = new RestrictedTextField(this.v.txt_Modificar_Articulo_Precio);
+       resModificarArticuloPrecio.setOnlyNums(true);
+       
+       //Restricciones Frame Cliente
+            //Crear
+       RestrictedTextField resCrearClienteNombre = new RestrictedTextField(this.v.txt_Crear_Cliente_Nombre);
+       resCrearClienteNombre.setOnlyText(true);
+       RestrictedTextField resCrearClienteApellidos = new RestrictedTextField(this.v.txt_Crear_Cliente_Apellidos);
+       resCrearClienteApellidos.setOnlyText(true);
+       RestrictedTextField resCrearClienteDni = new RestrictedTextField(this.v.txt_Crear_Cliente_Dni);
+       resCrearClienteDni.setLimit(9);
+       RestrictedTextField resCrearClienteTelefono = new RestrictedTextField(this.v.txt_Crear_Cliente_Telefono);
+       resCrearClienteTelefono.setOnlyNums(true);
+       resCrearClienteTelefono.setLimit(9);
+            //Modificar
+       RestrictedTextField resModificarClienteNombre = new RestrictedTextField(this.v.txt_Modificar_Cliente_Nombre);
+       resModificarClienteNombre.setOnlyText(true);
+       RestrictedTextField resModificarClienteApellidos = new RestrictedTextField(this.v.txt_Modificar_Cliente_Apellidos);
+       resModificarClienteApellidos.setOnlyText(true);
+       RestrictedTextField resModificarClienteTelefono = new RestrictedTextField(this.v.txt_Modificar_Cliente_Telefono);
+       resModificarClienteTelefono.setOnlyNums(true);
+       resModificarClienteTelefono.setLimit(9);
+       
+       //Restricciones Frame Proveedor
+       RestrictedTextField resCrearProveedorTelefono = new RestrictedTextField(this.v.txt_Crear_Proveedor_Telefono);
+       resCrearProveedorTelefono.setLimit(9);
+       resCrearProveedorTelefono.setOnlyNums(true);
+       RestrictedTextField resModificarProveedorTelefono = new RestrictedTextField(this.v.txt_Modificar_Proveedor_Telefono);
+       resModificarProveedorTelefono.setLimit(9);
+       resModificarProveedorTelefono.setOnlyNums(true);
+       //Restricciones Frame Configuracion
+       RestrictedTextField resConfigIVA = new RestrictedTextField(this.v.txt_DatosEmpresa_Iva);
+       resConfigIVA.setOnlyNums(true);
+       resConfigIVA.setLimit(2);
+      
     }
 }

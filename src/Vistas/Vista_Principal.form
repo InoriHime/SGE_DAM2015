@@ -4663,6 +4663,12 @@
           <Properties>
             <Property name="dividerLocation" type="int" value="200"/>
             <Property name="dividerSize" type="int" value="15"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor Por defecto"/>
+            </Property>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="Form"/>
+            </Property>
             <Property name="oneTouchExpandable" type="boolean" value="true"/>
           </Properties>
           <AuxValues>
@@ -4696,7 +4702,6 @@
                       <Component id="btn_principal_clientes" pref="200" max="32767" attributes="0"/>
                       <Component id="btn_principal_proveedores" alignment="0" pref="199" max="32767" attributes="0"/>
                       <Component id="btn_principal_pedidos" alignment="0" pref="200" max="32767" attributes="0"/>
-                      <Component id="progres_principal" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -4710,8 +4715,7 @@
                           <Component id="btn_principal_proveedores" min="-2" pref="65" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btn_principal_pedidos" min="-2" pref="65" max="-2" attributes="0"/>
-                          <EmptySpace pref="183" max="32767" attributes="0"/>
-                          <Component id="progres_principal" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="197" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -4745,11 +4749,6 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Pedidos"/>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JProgressBar" name="progres_principal">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>

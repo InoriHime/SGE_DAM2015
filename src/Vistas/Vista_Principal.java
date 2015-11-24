@@ -287,7 +287,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         btn_principal_clientes = new javax.swing.JButton();
         btn_principal_proveedores = new javax.swing.JButton();
         btn_principal_pedidos = new javax.swing.JButton();
-        progres_principal = new javax.swing.JProgressBar();
         pnl_principal_derecha = new javax.swing.JPanel();
         txt_principal_busqueda = new javax.swing.JTextField();
         btn_principal_buscar = new javax.swing.JButton();
@@ -2424,6 +2423,8 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jSplitPane1.setDividerLocation(200);
         jSplitPane1.setDividerSize(15);
+        jSplitPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jSplitPane1.setNextFocusableComponent(this);
         jSplitPane1.setOneTouchExpandable(true);
 
         pnl_principal_izquierda.setBackground(new java.awt.Color(255, 255, 255));
@@ -2445,7 +2446,6 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addComponent(btn_principal_clientes, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
             .addComponent(btn_principal_proveedores, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
             .addComponent(btn_principal_pedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-            .addComponent(progres_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnl_principal_izquierdaLayout.setVerticalGroup(
             pnl_principal_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2458,8 +2458,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addComponent(btn_principal_proveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_principal_pedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
-                .addComponent(progres_principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(pnl_principal_izquierda);
@@ -2832,7 +2831,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JPanel pnl_contenedor;
     public javax.swing.JPanel pnl_principal_derecha;
     public javax.swing.JPanel pnl_principal_izquierda;
-    public javax.swing.JProgressBar progres_principal;
     public javax.swing.ButtonGroup radGroup_Pedido;
     public javax.swing.JRadioButton rad_Pedido_Cliente;
     public javax.swing.JRadioButton rad_Pedido_Proveedor;
