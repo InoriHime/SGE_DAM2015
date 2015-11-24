@@ -4,7 +4,7 @@ import java.awt.BorderLayout;
 
 /**
  *
- * @author MrDrulix
+ * @author Noneking, Inno, MrDrulix
  */
 public class Vista_Principal extends javax.swing.JFrame {
 
@@ -154,7 +154,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         rad_Pedido_Proveedor = new javax.swing.JRadioButton();
         jPanel8 = new javax.swing.JPanel();
         btn_Añadir_Articulo_Pedido = new javax.swing.JButton();
-        btn_Quitar_Articulo_Pedido = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
         tbl_Pedido_ArticulosPedidos = new javax.swing.JTable();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -162,6 +161,9 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         sp_Pedido_SpinnerCantidad = new javax.swing.JSpinner();
+        btn_Quitar_Articulo_Pedido = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
+        eti_Presupuesto = new javax.swing.JLabel();
         pnl_Pedido_ClienteProveedor = new javax.swing.JPanel();
         btn_Pedido_Cancelar = new javax.swing.JButton();
         btn_Pedido_HacerPedido = new javax.swing.JButton();
@@ -247,21 +249,24 @@ public class Vista_Principal extends javax.swing.JFrame {
         pnl_Factura = new javax.swing.JPanel();
         jLabel70 = new javax.swing.JLabel();
         jScrollPane13 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_Factura = new javax.swing.JTable();
         jLabel71 = new javax.swing.JLabel();
-        jLabel72 = new javax.swing.JLabel();
+        eti_Factura_Base = new javax.swing.JLabel();
         jLabel73 = new javax.swing.JLabel();
-        jLabel74 = new javax.swing.JLabel();
+        eti_Factura_IVA = new javax.swing.JLabel();
         jLabel75 = new javax.swing.JLabel();
-        jLabel76 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        eti_Factura_Total = new javax.swing.JLabel();
+        btn_Factura_ConfirmarFactura = new javax.swing.JButton();
+        btn_Factura_Cancelar = new javax.swing.JButton();
+        pnl_Factura_ClienteProveedor = new javax.swing.JPanel();
         Frame_Proforma = new javax.swing.JFrame();
         jPanel14 = new javax.swing.JPanel();
         jLabel77 = new javax.swing.JLabel();
         jScrollPane14 = new javax.swing.JScrollPane();
         tbl_Proforma = new javax.swing.JTable();
         btn_Proforma_Salir = new javax.swing.JButton();
+        jLabel88 = new javax.swing.JLabel();
+        eti_Proforma_TOTAL = new javax.swing.JLabel();
         pnl_Factura_Cliente = new javax.swing.JPanel();
         jLabel78 = new javax.swing.JLabel();
         eti_Factura_Cliente_Nombre = new javax.swing.JLabel();
@@ -1284,8 +1289,6 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         btn_Añadir_Articulo_Pedido.setText(">>");
 
-        btn_Quitar_Articulo_Pedido.setText("<<");
-
         tbl_Pedido_ArticulosPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1327,6 +1330,18 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel18.setText("Articulos Pedidos");
         jLabel18.setOpaque(true);
 
+        btn_Quitar_Articulo_Pedido.setText("Limpiar");
+
+        jLabel28.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("Presupuesto");
+
+        eti_Presupuesto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        eti_Presupuesto.setForeground(new java.awt.Color(255, 0, 0));
+        eti_Presupuesto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eti_Presupuesto.setText("0");
+        eti_Presupuesto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -1338,8 +1353,10 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_Añadir_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_Quitar_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sp_Pedido_SpinnerCantidad))
+                    .addComponent(sp_Pedido_SpinnerCantidad)
+                    .addComponent(btn_Quitar_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(eti_Presupuesto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1352,9 +1369,13 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addComponent(btn_Añadir_Articulo_Pedido)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Quitar_Articulo_Pedido)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(11, 11, 11)
                 .addComponent(sp_Pedido_SpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(eti_Presupuesto)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1386,7 +1407,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                         .addComponent(rad_Pedido_Cliente)
                         .addGap(46, 46, 46)
                         .addComponent(rad_Pedido_Proveedor)
-                        .addGap(0, 200, Short.MAX_VALUE))
+                        .addGap(0, 224, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1414,7 +1435,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addComponent(pnl_Pedido_ClienteProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Pedido_Cancelar)
                     .addComponent(btn_Pedido_HacerPedido)
@@ -2101,57 +2122,59 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        Frame_Factura.setUndecorated(true);
+
         pnl_Factura.setBackground(new java.awt.Color(255, 255, 255));
         pnl_Factura.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnl_Factura.setPreferredSize(new java.awt.Dimension(705, 500));
 
         jLabel70.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel70.setText("Factura");
         jLabel70.setOpaque(true);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_Factura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Producto", "Precio Base", "Cantidad", "Precio Total", "IVA", "Total"
             }
         ));
-        jScrollPane13.setViewportView(jTable1);
+        jScrollPane13.setViewportView(tbl_Factura);
 
         jLabel71.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel71.setText("Base:");
 
-        jLabel72.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel72.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel72.setText(" ");
-        jLabel72.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        eti_Factura_Base.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        eti_Factura_Base.setForeground(new java.awt.Color(0, 0, 255));
+        eti_Factura_Base.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eti_Factura_Base.setText(" ");
+        eti_Factura_Base.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel73.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel73.setText("IVA:");
 
-        jLabel74.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel74.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel74.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel74.setText(" ");
-        jLabel74.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        eti_Factura_IVA.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        eti_Factura_IVA.setForeground(new java.awt.Color(0, 0, 255));
+        eti_Factura_IVA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eti_Factura_IVA.setText(" ");
+        eti_Factura_IVA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel75.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel75.setText("Total:");
 
-        jLabel76.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel76.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel76.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel76.setText(" ");
-        jLabel76.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        eti_Factura_Total.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        eti_Factura_Total.setForeground(new java.awt.Color(0, 0, 255));
+        eti_Factura_Total.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        eti_Factura_Total.setText(" ");
+        eti_Factura_Total.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton3.setText("Confirmar Factura");
+        btn_Factura_ConfirmarFactura.setText("Confirmar Factura");
 
-        jButton5.setText("Cancelar");
+        btn_Factura_Cancelar.setText("Cancelar");
+
+        pnl_Factura_ClienteProveedor.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout pnl_FacturaLayout = new javax.swing.GroupLayout(pnl_Factura);
         pnl_Factura.setLayout(pnl_FacturaLayout);
@@ -2160,27 +2183,28 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addGroup(pnl_FacturaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnl_Factura_ClienteProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel70, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_FacturaLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(pnl_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(pnl_FacturaLayout.createSequentialGroup()
                                 .addComponent(jLabel71)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(eti_Factura_Base, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel73)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(eti_Factura_IVA, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel75)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(eti_Factura_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnl_FacturaLayout.createSequentialGroup()
-                                .addComponent(jButton3)
+                                .addComponent(btn_Factura_ConfirmarFactura)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton5)))))
+                                .addComponent(btn_Factura_Cancelar))))
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnl_FacturaLayout.setVerticalGroup(
@@ -2188,19 +2212,21 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addGroup(pnl_FacturaLayout.createSequentialGroup()
                 .addComponent(jLabel70)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                .addComponent(pnl_Factura_ClienteProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(pnl_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel71)
-                    .addComponent(jLabel72)
+                    .addComponent(eti_Factura_Base)
                     .addComponent(jLabel73)
-                    .addComponent(jLabel74)
+                    .addComponent(eti_Factura_IVA)
                     .addComponent(jLabel75)
-                    .addComponent(jLabel76))
+                    .addComponent(eti_Factura_Total))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton5))
+                    .addComponent(btn_Factura_ConfirmarFactura)
+                    .addComponent(btn_Factura_Cancelar))
                 .addContainerGap())
         );
 
@@ -2208,9 +2234,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         Frame_Factura.getContentPane().setLayout(Frame_FacturaLayout);
         Frame_FacturaLayout.setHorizontalGroup(
             Frame_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Frame_FacturaLayout.createSequentialGroup()
-                .addComponent(pnl_Factura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(pnl_Factura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         Frame_FacturaLayout.setVerticalGroup(
             Frame_FacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2230,18 +2254,29 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         tbl_Proforma.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Producto", "Precio Base", "Cantidad", "Precio Total", "IVA", "TOTAL"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane14.setViewportView(tbl_Proforma);
 
         btn_Proforma_Salir.setText("Salir");
+
+        jLabel88.setText("TOTAL:");
+
+        eti_Proforma_TOTAL.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        eti_Proforma_TOTAL.setText("0");
+        eti_Proforma_TOTAL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -2254,7 +2289,12 @@ public class Vista_Principal extends javax.swing.JFrame {
                     .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_Proforma_Salir)))
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_Proforma_Salir, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                                .addComponent(jLabel88)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(eti_Proforma_TOTAL, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel14Layout.setVerticalGroup(
@@ -2262,7 +2302,11 @@ public class Vista_Principal extends javax.swing.JFrame {
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addComponent(jLabel77)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel88)
+                    .addComponent(eti_Proforma_TOTAL))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Proforma_Salir)
                 .addContainerGap())
@@ -2435,6 +2479,8 @@ public class Vista_Principal extends javax.swing.JFrame {
         jSplitPane1.setDividerLocation(200);
         jSplitPane1.setDividerSize(15);
         jSplitPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jSplitPane1.setInheritsPopupMenu(true);
+        jSplitPane1.setMaximumSize(new java.awt.Dimension(891, 488));
         jSplitPane1.setNextFocusableComponent(this);
         jSplitPane1.setOneTouchExpandable(true);
 
@@ -2546,11 +2592,11 @@ public class Vista_Principal extends javax.swing.JFrame {
         pnl_contenedor.setLayout(pnl_contenedorLayout);
         pnl_contenedorLayout.setHorizontalGroup(
             pnl_contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnl_contenedorLayout.setVerticalGroup(
             pnl_contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         Menu_Nuevo.setText("Nuevo");
@@ -2648,6 +2694,8 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JButton btn_Eliminar_Cliente_Buscar;
     public javax.swing.JButton btn_Eliminar_Proveedor;
     public javax.swing.JButton btn_Eliminar_Proveedor_Buscar;
+    public javax.swing.JButton btn_Factura_Cancelar;
+    public javax.swing.JButton btn_Factura_ConfirmarFactura;
     public javax.swing.JButton btn_Gastos_Salir;
     public javax.swing.JButton btn_Modificar_Articulo;
     public javax.swing.JButton btn_Modificar_Articulo_Busqueda;
@@ -2674,14 +2722,17 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel eti_DatosEmpresa_Direccion;
     public javax.swing.JLabel eti_DatosEmpresa_Iva;
     public javax.swing.JLabel eti_DatosEmpresa_Nombre;
+    public javax.swing.JLabel eti_Factura_Base;
     public javax.swing.JLabel eti_Factura_Cliente_Apellidos;
     public javax.swing.JLabel eti_Factura_Cliente_Correo;
     public javax.swing.JLabel eti_Factura_Cliente_Dni;
     public javax.swing.JLabel eti_Factura_Cliente_Domicilio;
     public javax.swing.JLabel eti_Factura_Cliente_Nombre;
     public javax.swing.JLabel eti_Factura_Cliente_Telefono;
+    public javax.swing.JLabel eti_Factura_IVA;
     public javax.swing.JLabel eti_Factura_Proveedor_Cif;
     public javax.swing.JLabel eti_Factura_Proveedor_DSocial;
+    public javax.swing.JLabel eti_Factura_Total;
     public javax.swing.JLabel eti_Gastos_Alquiler;
     public javax.swing.JLabel eti_Gastos_Establecimiento;
     public javax.swing.JLabel eti_Gastos_Luz;
@@ -2699,8 +2750,8 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel eti_Pedido_Cliente_Telefono;
     public javax.swing.JLabel eti_Pedido_Proveedor_CIF;
     public javax.swing.JLabel eti_Pedido_Proveedor_DSocial;
-    public javax.swing.JButton jButton3;
-    public javax.swing.JButton jButton5;
+    public javax.swing.JLabel eti_Presupuesto;
+    public javax.swing.JLabel eti_Proforma_TOTAL;
     public javax.swing.JFileChooser jFileChooser;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
@@ -2722,6 +2773,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel25;
     public javax.swing.JLabel jLabel26;
     public javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     public javax.swing.JLabel jLabel29;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel30;
@@ -2770,11 +2822,8 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel7;
     public javax.swing.JLabel jLabel70;
     public javax.swing.JLabel jLabel71;
-    public javax.swing.JLabel jLabel72;
     public javax.swing.JLabel jLabel73;
-    public javax.swing.JLabel jLabel74;
     public javax.swing.JLabel jLabel75;
-    public javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
     public javax.swing.JLabel jLabel78;
     public javax.swing.JLabel jLabel79;
@@ -2787,6 +2836,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel89;
     public javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
@@ -2821,7 +2871,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     public javax.swing.JSplitPane jSplitPane1;
     public javax.swing.JTabbedPane jTabbedPane1;
-    public javax.swing.JTable jTable1;
     public javax.swing.JPanel pnl_Crear_Articulo;
     public javax.swing.JPanel pnl_Crear_Cliente;
     public javax.swing.JPanel pnl_Crear_Proveedor;
@@ -2830,7 +2879,8 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JPanel pnl_Eliminar_Proveedor;
     public javax.swing.JPanel pnl_Factura;
     public javax.swing.JPanel pnl_Factura_Cliente;
-    private javax.swing.JPanel pnl_Factura_Proveedor;
+    public javax.swing.JPanel pnl_Factura_ClienteProveedor;
+    public javax.swing.JPanel pnl_Factura_Proveedor;
     public javax.swing.JPanel pnl_Modificar_Articulo;
     public javax.swing.JPanel pnl_Modificar_Cliente;
     public javax.swing.JPanel pnl_Modificar_Proveedor;
@@ -2855,6 +2905,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JTable tbl_Eliminar_Articulo;
     public javax.swing.JTable tbl_Eliminar_Cliente;
     public javax.swing.JTable tbl_Eliminar_Proveedor;
+    public javax.swing.JTable tbl_Factura;
     public javax.swing.JTable tbl_Pedido_Articulos;
     public javax.swing.JTable tbl_Pedido_ArticulosPedidos;
     public javax.swing.JTable tbl_Pedido_Cliente_Busqueda;

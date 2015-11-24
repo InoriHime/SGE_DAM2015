@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modelo;
 
 import Hibernate.Articulo;
@@ -31,7 +26,7 @@ import org.hibernate.engine.spi.SessionFactoryImplementor;
 
 /**
  *
- * @author MrDrulix
+ * @author Noneking, Inno, MrDrulix
  */
 public class Modelo extends Conexion {
     
@@ -46,6 +41,8 @@ public class Modelo extends Conexion {
     ConnectionProvider cp;
     
     Vista_Principal v;
+    
+    double sumaPresupuesto=0;
     /**
     - Si en alguna parte de la vista se hace una inserccion temporal habría
     que crear sus respectivos metodos de insertar y eliminar. Por ejemplo:
@@ -103,6 +100,7 @@ public class Modelo extends Conexion {
         getSession().save(c);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
+        JOptionPane.showMessageDialog(null, "Cliente Introducido");
     }
     
     public void modifyCliente(String dniAntiguio, String nombre, String apellidos, String domicilio, String correo, String telefono)
@@ -118,7 +116,7 @@ public class Modelo extends Conexion {
         getSession().update(c);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
-        JOptionPane.showMessageDialog(this.v, "Se ha modificado: "+dniAntiguio+". Satisfactoriamente.");
+        JOptionPane.showMessageDialog(null, "Se ha modificado: "+dniAntiguio+". Satisfactoriamente.");
     }
     
     public void deleteCliente(String dni)
@@ -128,6 +126,7 @@ public class Modelo extends Conexion {
         getSession().delete(c);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
+        JOptionPane.showMessageDialog(null, "Se ha eliminado "+dni+" satisfactoriamente.");
     }
     
     public void deleteClientes()
@@ -184,6 +183,7 @@ public class Modelo extends Conexion {
         getSession().save(p);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
+        JOptionPane.showMessageDialog(null, "Se ha introducido el Proveedor: "+cif);
     }
     
     public void modifyProveedor(String cifAntiguo, String denominacion_social, String telefono, String correo)
@@ -197,16 +197,17 @@ public class Modelo extends Conexion {
         getSession().update(p);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
-        JOptionPane.showMessageDialog(this.v, "Se ha modificado: "+cifAntiguo+". Satisfactoriamente.");
+        JOptionPane.showMessageDialog(null, "Se ha modificado: "+cifAntiguo+". Satisfactoriamente.");
     }
     
     public void deleteProveedor(String cif)
     {
         Proveedor p=getProveedorByCif(cif);
         
-        getSession().delete(c);
+        getSession().delete(p);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
+        JOptionPane.showMessageDialog(null, "Se ha eliminado el Proveedor: "+cif);
     }
     
     public void deleteProveedores()
@@ -262,6 +263,7 @@ public class Modelo extends Conexion {
         getSession().save(a);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
+        JOptionPane.showMessageDialog(null, "Se ha introducido el Articulo: "+nombre);
     }
     
     public void modifyArticulo(int codigoAntiguo, String nombre, double precio, int cantidad)
@@ -274,7 +276,7 @@ public class Modelo extends Conexion {
         getSession().update(a);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
-        JOptionPane.showMessageDialog(this.v, "Se ha modificado: "+nombre+". Satisfactoriamente.");
+        JOptionPane.showMessageDialog(null, "Se ha modificado: "+nombre+". Satisfactoriamente.");
     }
     
     public void deleteArticulo(int codigo)
@@ -284,6 +286,7 @@ public class Modelo extends Conexion {
         getSession().delete(a);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
+        JOptionPane.showMessageDialog(null, "Se ha eliminado el Articulo: "+codigo);
     }
     
     public void deleteArticulos()
@@ -795,45 +798,100 @@ public class Modelo extends Conexion {
         }
         return dtm;
     }
-    
-    public DefaultTableModel insertarRow(int codigo,String nombre, double precio, int cantidad, DefaultTableModel t){
-        
-         //Sección 1 
+
+    public DefaultTableModel insertarRow(int codigo, String nombre, double precio, int cantidad, int cantidadTotal, DefaultTableModel t) {
+
+        //Sección 1 
         //DefaultTableModel modelo=(DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel(); 
- 
-        //Sección 2
-        Object [] fila=new Object[6]; 
- 
-        //Sección 3
-        fila[0]= codigo; 
-        fila[1]=nombre; 
-        fila[2]=precio; 
-        fila[3]=cantidad; 
- 
-         //Sección 4
-         t.addRow(fila); 
-  
+        if (cantidad > cantidadTotal) {
+            JOptionPane.showMessageDialog(null, "Has seleccionado demasiados articulos de " + nombre);
+        } else {
+            //Sección 2
+            Object[] fila = new Object[6];
+
+            //Sección 3
+            fila[0] = codigo;
+            fila[1] = nombre;
+            fila[2] = precio;
+            fila[3] = cantidad;
+            
+            sumaPresupuesto = sumaPresupuesto+(precio*cantidad);
+            //Sección 4
+            t.addRow(fila);
+        }
         return t;
+
     }
     
-    public DefaultTableModel borrarRow(DefaultTableModel t, int selectedRow){
+    public DefaultTableModel borrarRow(DefaultTableModel t, int selectedRow, int cantidad,int cantTotal){
          
  
          //Sección 2
           int a = selectedRow; 
- 
+          
          //Sección 3
           if (a<0){ 
  
                 JOptionPane.showMessageDialog(null, 
                 "Debe seleccionar una fila de la tabla" ); 
  
-         }else {
+         }
+          if(cantTotal<=cantidad) {
                    t.removeRow(a); 
 
-            }
+            }else{
+              t.setValueAt((cantTotal-cantidad), a, 3);
+          }
         
         return t;
+    }
+    public double getSumaPresupuesto(){
+        return this.sumaPresupuesto;
+    }
+    public void setSumaPresupuesto(int presupuesto){
+        this.sumaPresupuesto = presupuesto;
+    }
+    public DefaultTableModel rellenarProforma(DefaultTableModel tablaProforma, DefaultTableModel tablaArticulos){
+        Object[] fila = new Object[6];
+        for(int i=0;i<tablaArticulos.getRowCount();i++){
+            double primero=Double.parseDouble(String.valueOf(tablaArticulos.getValueAt(i, 2)));
+            double segundo=Double.parseDouble(String.valueOf(tablaArticulos.getValueAt(i, 3)));
+            fila[0]= tablaArticulos.getValueAt(i, 1);
+            fila[1]= tablaArticulos.getValueAt(i, 2);
+            fila[2]= tablaArticulos.getValueAt(i, 3);
+            double total = primero*segundo;
+            fila[3]= total;
+            fila[4]= total*0.21;
+            fila[5]= total+(total*0.21);
+            
+            tablaProforma.addRow(fila);
+        }
+        
+        return tablaProforma;
+    }
+    public double getSumaBase(DefaultTableModel t){
+        double suma =0;
+        for(int i=0; i<t.getRowCount();i++){
+            suma = suma +((double)t.getValueAt(i, 1));
+        }
+        
+        return suma;
+    }
+    public double getSumaIva(DefaultTableModel t){
+        double suma =0;
+        for(int i=0; i<t.getRowCount();i++){
+            suma = suma +((double)t.getValueAt(i, 4));
+        }
+        
+        return suma;
+    }
+    public double getSumaTotal(DefaultTableModel t){
+        double suma =0;
+        for(int i=0; i<t.getRowCount();i++){
+            suma = suma +((double)t.getValueAt(i, 5));
+        }
+        
+        return suma;
     }
     
 }

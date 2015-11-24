@@ -10,7 +10,7 @@ import org.hibernate.Session;
 
 /**
  *
- * @author nonek
+ * @author Noneking, Inno, MrDrulix
  */
 public class Conexion {
     

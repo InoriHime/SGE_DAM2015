@@ -4,7 +4,10 @@ package Modelo;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Properties;
-
+/**
+ *
+ * @author Noneking, Inno, MrDrulix
+ */
 public class LectorProperties {
     public static String getPropiedad(String name) {
         FileInputStream fis = null;
