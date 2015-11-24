@@ -796,4 +796,44 @@ public class Modelo extends Conexion {
         return dtm;
     }
     
+    public DefaultTableModel insertarRow(int codigo,String nombre, double precio, int cantidad, DefaultTableModel t){
+        
+         //Sección 1 
+        //DefaultTableModel modelo=(DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel(); 
+ 
+        //Sección 2
+        Object [] fila=new Object[6]; 
+ 
+        //Sección 3
+        fila[0]= codigo; 
+        fila[1]=nombre; 
+        fila[2]=precio; 
+        fila[3]=cantidad; 
+ 
+         //Sección 4
+         t.addRow(fila); 
+  
+        return t;
+    }
+    
+    public DefaultTableModel borrarRow(DefaultTableModel t, int selectedRow){
+         
+ 
+         //Sección 2
+          int a = selectedRow; 
+ 
+         //Sección 3
+          if (a<0){ 
+ 
+                JOptionPane.showMessageDialog(null, 
+                "Debe seleccionar una fila de la tabla" ); 
+ 
+         }else {
+                   t.removeRow(a); 
+
+            }
+        
+        return t;
+    }
+    
 }

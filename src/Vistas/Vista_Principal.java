@@ -153,8 +153,8 @@ public class Vista_Principal extends javax.swing.JFrame {
         rad_Pedido_Cliente = new javax.swing.JRadioButton();
         rad_Pedido_Proveedor = new javax.swing.JRadioButton();
         jPanel8 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_Añadir_Articulo_Pedido = new javax.swing.JButton();
+        btn_Quitar_Articulo_Pedido = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
         tbl_Pedido_ArticulosPedidos = new javax.swing.JTable();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -1281,21 +1281,26 @@ public class Vista_Principal extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Articulos"));
 
-        jButton1.setText(">>");
+        btn_Añadir_Articulo_Pedido.setText(">>");
 
-        jButton2.setText("<<");
+        btn_Quitar_Articulo_Pedido.setText("<<");
 
         tbl_Pedido_ArticulosPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "CODIGO", "NOMBRE", "PRECIO", "CANTIDAD"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane8.setViewportView(tbl_Pedido_ArticulosPedidos);
 
         tbl_Pedido_Articulos.setModel(new javax.swing.table.DefaultTableModel(
@@ -1331,8 +1336,8 @@ public class Vista_Principal extends javax.swing.JFrame {
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_Añadir_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Quitar_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1342,9 +1347,9 @@ public class Vista_Principal extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(jButton1)
+                .addComponent(btn_Añadir_Articulo_Pedido)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(btn_Quitar_Articulo_Pedido)
                 .addContainerGap(94, Short.MAX_VALUE))
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addComponent(jLabel17)
@@ -2210,6 +2215,8 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        Frame_Proforma.setSize(new java.awt.Dimension(700, 400));
+
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel77.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -2605,10 +2612,10 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JFrame Frame_Cliente;
     public javax.swing.JFrame Frame_CobrosPagos;
     public javax.swing.JFrame Frame_DatosEmpresa;
-    private javax.swing.JFrame Frame_Factura;
+    public javax.swing.JFrame Frame_Factura;
     public javax.swing.JFrame Frame_Gastos;
     public javax.swing.JFrame Frame_Pedido;
-    private javax.swing.JFrame Frame_Proforma;
+    public javax.swing.JFrame Frame_Proforma;
     public javax.swing.JFrame Frame_Proveedor;
     public javax.swing.JMenuItem Menu_Confi_Ver;
     public javax.swing.JMenu Menu_Configuracion;
@@ -2623,6 +2630,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JMenuItem Menu_Sesion_Salir;
     public javax.swing.JMenuBar Menu_bar;
     public javax.swing.JButton btn_Articulo_Cancelar;
+    public javax.swing.JButton btn_Añadir_Articulo_Pedido;
     public javax.swing.JButton btn_Cliente_Cancelar;
     public javax.swing.JButton btn_Cobros_Pagos_Salir;
     public javax.swing.JButton btn_Crear_Articulo;
@@ -2650,6 +2658,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JButton btn_Pedido_VerProforma;
     public javax.swing.JButton btn_Proforma_Salir;
     public javax.swing.JButton btn_Proveedor_Cancelar;
+    public javax.swing.JButton btn_Quitar_Articulo_Pedido;
     public javax.swing.JButton btn_principal_articulos;
     public javax.swing.JButton btn_principal_buscar;
     public javax.swing.JButton btn_principal_clientes;
@@ -2686,8 +2695,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel eti_Pedido_Cliente_Telefono;
     public javax.swing.JLabel eti_Pedido_Proveedor_CIF;
     public javax.swing.JLabel eti_Pedido_Proveedor_DSocial;
-    public javax.swing.JButton jButton1;
-    public javax.swing.JButton jButton2;
     public javax.swing.JButton jButton3;
     public javax.swing.JButton jButton5;
     public javax.swing.JFileChooser jFileChooser;

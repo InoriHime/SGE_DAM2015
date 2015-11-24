@@ -18,6 +18,7 @@ import Atxy2k.CustomTextField.RestrictedTextField;
 import java.awt.Toolkit;
 import javax.swing.JSpinner;
 import javax.swing.JSpinner.DefaultEditor;
+import javax.swing.table.DefaultTableModel;
 
 public class Controlador implements ActionListener, MouseListener {
 
@@ -27,6 +28,16 @@ public class Controlador implements ActionListener, MouseListener {
     int fila_Articulo;
     int fila_Cliente;
     int fila_Proveedor;
+    int fila_Cliente_Pedido;
+    int fila_Proveedor_Pedido;
+    
+    
+    int fila_Articulos;
+    int fila_ArticulosPedidos;
+    int art_Codigo;
+    String art_Nombre;
+    double art_Precio;
+    int art_Cantidad;
 
     public Controlador(Vista_Principal vista) {
         this.v = vista;
@@ -72,7 +83,10 @@ public class Controlador implements ActionListener, MouseListener {
         cerrarFrameCobrosPagos,
         cerrarConfig,
         modificarConfig,
-        Salir
+        Salir,
+        mostrarFrameProforma,
+        btnAñadirArticuloPedido,
+        btnQuitarArticuloPedido
     }
 
     public void iniciarMain() {
@@ -183,6 +197,11 @@ public class Controlador implements ActionListener, MouseListener {
         this.v.rad_Pedido_Proveedor.addActionListener(this);
         this.v.btn_Pedido_HacerPedido.setActionCommand("hacerPedido");
         this.v.btn_Pedido_HacerPedido.addActionListener(this);
+        
+        this.v.btn_Añadir_Articulo_Pedido.setActionCommand("btnAñadirArticuloPedido");
+        this.v.btn_Añadir_Articulo_Pedido.addActionListener(this);
+        this.v.btn_Quitar_Articulo_Pedido.setActionCommand("btnQuitarArticuloPedido");
+        this.v.btn_Quitar_Articulo_Pedido.addActionListener(this);
 
         //Listeners frame Gastos
         this.v.btn_Gastos_Salir.setActionCommand("cerrarFrameGastos");
@@ -197,11 +216,23 @@ public class Controlador implements ActionListener, MouseListener {
         this.v.btn_DatosEmpresa_Salir.addActionListener(this);
         this.v.btn_DatosEmpresa_Modificar.setActionCommand("modificarConfig");
         this.v.btn_DatosEmpresa_Modificar.addActionListener(this);
-
+        
+        //Listeners Frame Proforma
+        this.v.btn_Pedido_VerProforma.setActionCommand("mostrarFrameProforma");
+        this.v.btn_Pedido_VerProforma.addActionListener(this);
+        
+      
+        
         //Mouse Listeners Tablas
         this.v.tbl_Tabla_Modificar_Articulo.addMouseListener(this);
         this.v.tbl_Tabla_Modificar_Cliente.addMouseListener(this);
         this.v.tbl_Tabla_Modificar_Proveedor.addMouseListener(this);
+        this.v.tbl_Pedido_Cliente_Busqueda.addMouseListener(this);
+        this.v.tbl_Pedido_Proveedor_Busqueda.addMouseListener(this);
+        this.v.tbl_Pedido_Articulos.addMouseListener(this);
+        this.v.tbl_Pedido_ArticulosPedidos.addMouseListener(this);
+        
+        
     }
 
     @Override
@@ -446,8 +477,27 @@ public class Controlador implements ActionListener, MouseListener {
             case Salir:
                 System.exit(WIDTH);
                 break;
-                //Updates:  
-
+            //Tablas Pedidos
+            case btnAñadirArticuloPedido:
+                
+              this.v.tbl_Pedido_ArticulosPedidos.setModel(m.insertarRow(art_Codigo, art_Nombre, art_Precio, art_Cantidad,(DefaultTableModel)this.v.tbl_Pedido_ArticulosPedidos.getModel()));
+              m.borrarRow((DefaultTableModel)this.v.tbl_Pedido_Articulos.getModel(), this.v.tbl_Pedido_Articulos.getSelectedRow());
+                
+                break;
+            case btnQuitarArticuloPedido:
+                
+                this.v.tbl_Pedido_Articulos.setModel(m.insertarRow(art_Codigo, art_Nombre, art_Precio, art_Cantidad,(DefaultTableModel)this.v.tbl_Pedido_Articulos.getModel()));
+                m.borrarRow((DefaultTableModel)this.v.tbl_Pedido_ArticulosPedidos.getModel(), this.v.tbl_Pedido_ArticulosPedidos.getSelectedRow());
+                
+                break;
+            //Proforma
+            case mostrarFrameProforma:
+                this.v.Frame_Proforma.setVisible(true);
+                this.v.Frame_Proforma.setSize(700,400);
+                this.v.Frame_Proforma.setLocationRelativeTo(v);
+                break;
+            //Factura
+            
         }
     }
 
@@ -457,7 +507,12 @@ public class Controlador implements ActionListener, MouseListener {
         fila_Articulo = this.v.tbl_Tabla_Modificar_Articulo.getSelectedRow();
         fila_Cliente = this.v.tbl_Tabla_Modificar_Cliente.getSelectedRow();
         fila_Proveedor = this.v.tbl_Tabla_Modificar_Proveedor.getSelectedRow();
-
+        fila_Cliente_Pedido = this.v.tbl_Pedido_Cliente_Busqueda.getSelectedRow();
+        fila_Proveedor_Pedido = this.v.tbl_Pedido_Proveedor_Busqueda.getSelectedRow();
+        
+        fila_Articulos = this.v.tbl_Pedido_Articulos.getSelectedRow();
+        fila_ArticulosPedidos = this.v.tbl_Pedido_ArticulosPedidos.getSelectedRow();
+        
         if (fila_Articulo >= 0) {
             System.out.println("Estas en Tab ==Modificar Articulo");
             this.v.eti_Modificar_Articulo_ID.setText("" + v.tbl_Tabla_Modificar_Articulo.getValueAt(fila_Articulo, 0));
@@ -480,6 +535,34 @@ public class Controlador implements ActionListener, MouseListener {
             this.v.txt_Modificar_Proveedor_DSocial.setText("" + v.tbl_Tabla_Modificar_Proveedor.getValueAt(fila_Proveedor, 1));
             this.v.txt_Modificar_Proveedor_Telefono.setText("" + v.tbl_Tabla_Modificar_Proveedor.getValueAt(fila_Proveedor, 2));
             this.v.txt_Modificar_Proveedor_Correo.setText("" + v.tbl_Tabla_Modificar_Proveedor.getValueAt(fila_Proveedor, 3));
+        }
+        if(fila_Cliente_Pedido>=0){
+            System.out.println("Estas en Tab ==Tabla Cliente Pedido");
+            this.v.eti_Pedido_Cliente_Dni.setText(""+v.tbl_Pedido_Cliente_Busqueda.getValueAt(fila_Cliente_Pedido, 0));
+            this.v.eti_Pedido_Cliente_Nombre.setText(""+v.tbl_Pedido_Cliente_Busqueda.getValueAt(fila_Cliente_Pedido, 1));
+            this.v.eti_Pedido_Cliente_Apellidos.setText(""+v.tbl_Pedido_Cliente_Busqueda.getValueAt(fila_Cliente_Pedido, 2));
+            this.v.eti_Pedido_Cliente_Domicilio.setText(""+v.tbl_Pedido_Cliente_Busqueda.getValueAt(fila_Cliente_Pedido, 3));
+            this.v.eti_Pedido_Cliente_Correo.setText(""+v.tbl_Pedido_Cliente_Busqueda.getValueAt(fila_Cliente_Pedido, 4));
+            this.v.eti_Pedido_Cliente_Telefono.setText(""+v.tbl_Pedido_Cliente_Busqueda.getValueAt(fila_Cliente_Pedido, 5));
+        }
+        if(fila_Proveedor_Pedido>=0){
+            System.out.println("Estas en Tab == Tabla Proveedor Pedido");
+            this.v.eti_Pedido_Proveedor_CIF.setText(""+v.tbl_Pedido_Proveedor_Busqueda.getValueAt(fila_Proveedor_Pedido, 0));
+            this.v.eti_Pedido_Proveedor_DSocial.setText(""+v.tbl_Pedido_Proveedor_Busqueda.getValueAt(fila_Proveedor_Pedido, 1));
+        }
+        if(fila_Articulos>=0){
+            art_Codigo = (int) this.v.tbl_Pedido_Articulos.getValueAt(fila_Articulos, 0);
+            art_Nombre = this.v.tbl_Pedido_Articulos.getValueAt(fila_Articulos, 1).toString();
+            art_Precio = (double) this.v.tbl_Pedido_Articulos.getValueAt(fila_Articulos, 2);
+            art_Cantidad = (int) this.v.tbl_Pedido_Articulos.getValueAt(fila_Articulos, 3);
+            System.out.println(""+art_Codigo+" "+art_Nombre+" "+art_Precio+" "+art_Cantidad);
+        }
+        if(fila_ArticulosPedidos>=0){
+            art_Codigo = (int) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(fila_ArticulosPedidos, 0);
+            art_Nombre = this.v.tbl_Pedido_ArticulosPedidos.getValueAt(fila_ArticulosPedidos, 1).toString();
+            art_Precio = (double) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(fila_ArticulosPedidos, 2);
+            art_Cantidad = (int) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(fila_ArticulosPedidos, 3);
+            System.out.println(""+art_Codigo+" "+art_Nombre+" "+art_Precio+" "+art_Cantidad);
         }
     }
 
