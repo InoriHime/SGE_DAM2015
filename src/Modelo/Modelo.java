@@ -594,6 +594,7 @@ public class Modelo extends Conexion {
                         columns.add(rs.getString(4));
                     }
                     dtm.setColumnIdentifiers(columns);
+                    cont++;
                     break;
                 case "documento":
                     rs=dbmd.getColumns(null, null, table, null);
@@ -605,6 +606,7 @@ public class Modelo extends Conexion {
                         cont++;
                     }
                     dtm.setColumnIdentifiers(columns);
+                    cont++;
                     break;
                 case "cobro":
                     rs=dbmd.getColumns(null, null, table, null);
@@ -749,7 +751,9 @@ public class Modelo extends Conexion {
 //            proveedores
 //            pedidos
 //            articulo_pedido
+//            cobro
             
+            int cont=0;
             
             
             it=arrayList.iterator();
@@ -817,6 +821,18 @@ public class Modelo extends Conexion {
                         row.add(a.getCantidad());
                         dtm.addRow(row);
                     }
+            }else if(tipo.equals("cobros"))
+            {
+                rs=dbmd.getColumns(null, null, "cobro", null);
+                while(rs.next())
+                {
+                    if(cont==0){columns.add("CODIGO_COBRO");}
+                    else if(cont==1){columns.add("CODIGO_DOCUMENTO");}
+                    else if(cont==2){columns.add("DNI_CLIENTE_DOCUMENTO");}
+                    else{columns.add(rs.getString(4));}
+                    cont++;
+                }
+                dtm.setColumnIdentifiers(columns);
             }
             
         }

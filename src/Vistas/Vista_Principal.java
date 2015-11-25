@@ -1818,7 +1818,7 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         btn_Cobros_Pagos_Salir.setText("Salir");
 
-        cbox_CobrosPagos_MesAno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbox_CobrosPagos_MesAno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ENERO/2015", "FEBRERO/2015", "MARZO/2015", "ABRIL/2015", "MAYO/2015", "JUNIO/2015", "JULIO/2015", "AGOSTO/105", "SEPTIEMBRE/2015", "OCTUBRE/2015", "NOVIEMBRE/2015", "DICIEMBRE/2015" }));
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);

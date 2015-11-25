@@ -3238,11 +3238,19 @@
             <Component class="javax.swing.JComboBox" name="cbox_CobrosPagos_MesAno">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="12">
+                    <StringItem index="0" value="ENERO/2015"/>
+                    <StringItem index="1" value="FEBRERO/2015"/>
+                    <StringItem index="2" value="MARZO/2015"/>
+                    <StringItem index="3" value="ABRIL/2015"/>
+                    <StringItem index="4" value="MAYO/2015"/>
+                    <StringItem index="5" value="JUNIO/2015"/>
+                    <StringItem index="6" value="JULIO/2015"/>
+                    <StringItem index="7" value="AGOSTO/105"/>
+                    <StringItem index="8" value="SEPTIEMBRE/2015"/>
+                    <StringItem index="9" value="OCTUBRE/2015"/>
+                    <StringItem index="10" value="NOVIEMBRE/2015"/>
+                    <StringItem index="11" value="DICIEMBRE/2015"/>
                   </StringArray>
                 </Property>
               </Properties>
