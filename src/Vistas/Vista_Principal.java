@@ -214,7 +214,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         jScrollPane12 = new javax.swing.JScrollPane();
         tbl_CobrosPagos = new javax.swing.JTable();
         btn_Cobros_Pagos_Salir = new javax.swing.JButton();
-        cbox_CobrosPagos_MesAno = new javax.swing.JComboBox();
         Frame_DatosEmpresa = new javax.swing.JFrame();
         jPanel11 = new javax.swing.JPanel();
         jLabel61 = new javax.swing.JLabel();
@@ -303,7 +302,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         Menu_Nuevo_Pedido = new javax.swing.JMenuItem();
         Menu_Empresa = new javax.swing.JMenu();
-        Menu_Empresa_Gastos = new javax.swing.JMenuItem();
         Menu_Empresa_Cobros_Pagos = new javax.swing.JMenuItem();
         Menu_Configuracion = new javax.swing.JMenu();
         Menu_Confi_Ver = new javax.swing.JMenuItem();
@@ -1818,8 +1816,6 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         btn_Cobros_Pagos_Salir.setText("Salir");
 
-        cbox_CobrosPagos_MesAno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ENERO/2015", "FEBRERO/2015", "MARZO/2015", "ABRIL/2015", "MAYO/2015", "JUNIO/2015", "JULIO/2015", "AGOSTO/105", "SEPTIEMBRE/2015", "OCTUBRE/2015", "NOVIEMBRE/2015", "DICIEMBRE/2015" }));
-
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -1833,19 +1829,13 @@ public class Vista_Principal extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_Cobros_Pagos_Salir)))
                 .addContainerGap())
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(267, 267, 267)
-                .addComponent(cbox_CobrosPagos_MesAno, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addComponent(jLabel60)
-                .addGap(18, 18, 18)
-                .addComponent(cbox_CobrosPagos_MesAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Cobros_Pagos_Salir)
                 .addContainerGap())
@@ -2581,9 +2571,6 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         Menu_Empresa.setText("Empresa");
 
-        Menu_Empresa_Gastos.setText("Gastos de Empresa");
-        Menu_Empresa.add(Menu_Empresa_Gastos);
-
         Menu_Empresa_Cobros_Pagos.setText("Cobros y pagos");
         Menu_Empresa.add(Menu_Empresa_Cobros_Pagos);
 
@@ -2634,7 +2621,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JMenu Menu_Configuracion;
     public javax.swing.JMenu Menu_Empresa;
     public javax.swing.JMenuItem Menu_Empresa_Cobros_Pagos;
-    public javax.swing.JMenuItem Menu_Empresa_Gastos;
     public javax.swing.JMenu Menu_Nuevo;
     public javax.swing.JMenuItem Menu_Nuevo_Articulo;
     public javax.swing.JMenuItem Menu_Nuevo_Cliente;
@@ -2679,7 +2665,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JButton btn_principal_clientes;
     public javax.swing.JButton btn_principal_pedidos;
     public javax.swing.JButton btn_principal_proveedores;
-    public javax.swing.JComboBox cbox_CobrosPagos_MesAno;
     public javax.swing.JComboBox cbox_Gastos_MesAno;
     public javax.swing.JLabel eti_DatosEmpresa_Correo;
     public javax.swing.JLabel eti_DatosEmpresa_Direccion;

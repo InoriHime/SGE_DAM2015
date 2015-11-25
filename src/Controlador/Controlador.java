@@ -46,7 +46,7 @@ public class Controlador implements ActionListener, MouseListener {
     int art_Cantidad;
 
     int row;
-String now;
+    String now;
     public Controlador(Vista_Principal vista) {
         this.v = vista;
     }
@@ -140,8 +140,8 @@ String now;
         this.v.Menu_Nuevo_Pedido.setActionCommand("mostrarFramePedido");
         this.v.Menu_Nuevo_Pedido.addActionListener(this);
         //Menu empresa
-        this.v.Menu_Empresa_Gastos.setActionCommand("mostrarFrameGastos");
-        this.v.Menu_Empresa_Gastos.addActionListener(this);
+//        this.v.Menu_Empresa_Gastos.setActionCommand("mostrarFrameGastos");
+//        this.v.Menu_Empresa_Gastos.addActionListener(this);
         this.v.Menu_Empresa_Cobros_Pagos.setActionCommand("mostrarFrameCobrosPagos");
         this.v.Menu_Empresa_Cobros_Pagos.addActionListener(this);
         //Menu configuracion
@@ -219,8 +219,8 @@ String now;
         //Listeners frame Gastos
         this.v.btn_Gastos_Salir.setActionCommand("cerrarFrameGastos");
         this.v.btn_Gastos_Salir.addActionListener(this);
-        this.v.cbox_CobrosPagos_MesAno.setActionCommand("cambiarFechaCobros");
-        this.v.cbox_CobrosPagos_MesAno.addActionListener(this);
+//        this.v.cbox_CobrosPagos_MesAno.setActionCommand("cambiarFechaCobros");
+//        this.v.cbox_CobrosPagos_MesAno.addActionListener(this);
         
         //Listeners frame CobrosPagos
         this.v.btn_Cobros_Pagos_Salir.setActionCommand("cerrarFrameCobrosPagos");
@@ -334,6 +334,7 @@ String now;
                 this.v.Frame_CobrosPagos.setVisible(true);
                 this.v.Frame_CobrosPagos.setSize(700, 400);
                 this.v.Frame_CobrosPagos.setLocationRelativeTo(v);
+                this.v.tbl_CobrosPagos.setModel(m.getTableModel("cobro"));
                 break;
             case mostrarFrameConfig:
                 this.v.Frame_DatosEmpresa.setVisible(true);
@@ -485,16 +486,16 @@ String now;
             case cerrarFrameGastos:
                 this.v.Frame_Gastos.setVisible(false);
                 break;
-
-            case cambiarFechaCobros:
-                this.v.tbl_CobrosPagos.setModel(this.m.getTableModelByArrayList(m.getCobroByFecha("%/"+this.v.cbox_CobrosPagos_MesAno.getSelectedItem().toString()), "cobros"));
-                break;
                 
 //Menu CobrosPagos-----------------------------------------------------------------------------------------------------------------                
 
             case cerrarFrameCobrosPagos:
                 this.v.Frame_CobrosPagos.setVisible(false);
                 break;
+//            case cambiarFechaCobros:
+////                this.v.tbl_CobrosPagos.setModel(m.getTableModel("cobro"));
+//                this.v.tbl_CobrosPagos.setModel(this.m.getTableModelByArrayList(m.getCobroByFecha("%/"+this.v.cbox_CobrosPagos_MesAno.getSelectedItem().toString()), "cobros"));
+//                break;
 
 //Menu Configuracion Ver datos Empresa---------------------------------------------------------------------------------------------------                
 
@@ -627,6 +628,7 @@ String now;
                     
                     boolean insertado = false;
 
+                    ArrayList<ArticuloPedido> arrayList=new ArrayList<ArticuloPedido>();
                     
                 if (this.v.rad_Pedido_Cliente.isSelected() && JOptionPane.showConfirmDialog(null, "¿Estas seguro de realizar el pedido?") == 0) {
                     
@@ -641,7 +643,8 @@ String now;
                         
                         int cod_articulo = (int) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 0);
                         int cantidad = (int) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 3);
-                        m.insertArticuloPedido(cod_articulo, codigo, cantidad);    
+                        m.insertArticuloPedido(cod_articulo, codigo, cantidad);
+                        arrayList.add(m.getArticuloPedido(cod_articulo, codigo));
                     }
                     
                     
@@ -657,7 +660,7 @@ String now;
                         generatePDF g = new generatePDF();
                         double suma = Double.parseDouble(this.v.eti_Factura_Total.getText());
                         if (this.v.rad_Pedido_Cliente.isSelected()) {
-                            g.generatePDFFactura(this.v.jFileChooser.getSelectedFile().getAbsolutePath(), m.getClienteByDni(this.v.eti_Factura_Cliente_Dni.getText()), null ,suma);
+                            g.generatePDFFactura(this.v.jFileChooser.getSelectedFile().getAbsolutePath(), m.getClienteByDni(this.v.eti_Factura_Cliente_Dni.getText()), arrayList , suma);
                         }
                     }
                     this.v.Frame_Factura.setVisible(false);
@@ -941,7 +944,7 @@ String now;
                 mes = "DICIEMBRE";
                 break;
         }
-        return null;
+        return mes;
     }
 
 }

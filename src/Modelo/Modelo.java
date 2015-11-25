@@ -422,7 +422,7 @@ public class Modelo extends Conexion {
     public ArrayList<Cobro> getCobroByFecha(String fecha)
     {
         Criteria criteria = getSession().createCriteria(Cobro.class);
-        ArrayList<Cobro> c = (ArrayList<Cobro>) criteria.add(Restrictions.like("titulo", fecha)).list();
+        ArrayList<Cobro> c = (ArrayList<Cobro>) criteria.add(Restrictions.like("fecha", fecha)).list();
         return c;
     }
     
@@ -594,7 +594,6 @@ public class Modelo extends Conexion {
                         columns.add(rs.getString(4));
                     }
                     dtm.setColumnIdentifiers(columns);
-                    cont++;
                     break;
                 case "documento":
                     rs=dbmd.getColumns(null, null, table, null);
@@ -606,7 +605,6 @@ public class Modelo extends Conexion {
                         cont++;
                     }
                     dtm.setColumnIdentifiers(columns);
-                    cont++;
                     break;
                 case "cobro":
                     rs=dbmd.getColumns(null, null, table, null);
@@ -616,19 +614,25 @@ public class Modelo extends Conexion {
                         else if(cont==1){columns.add("CODIGO_DOCUMENTO");}
                         else if(cont==2){columns.add("DNI_CLIENTE_DOCUMENTO");}
                         else{columns.add(rs.getString(4));}
+                        cont++;
                     }
                     dtm.setColumnIdentifiers(columns);
                     break;
                 case "articulo_pedido":
-                    rs=dbmd.getColumns(null, null, table, null);
-                    while(rs.next())
-                    {
-                        if(cont==0){columns.add("CODIGO_ARTICULO");}
-                        else if(cont==1){columns.add("NOMBRE_ARTICULO");}
-                        else if(cont==2){columns.add("CODIGO_DOCUMENTO");}
-                        else if(cont==3){columns.add("DNI_CLIENTE_DOCUMENTO");}
-                        else{columns.add(rs.getString(4));}
-                    }
+//                    rs=dbmd.getColumns(null, null, table, null);
+//                    while(rs.next())
+//                    {
+                        for(int i=0;i<5;i++)
+                        {
+                            if(cont==0){columns.add("CODIGO_ARTICULO");}
+                            else if(cont==1){columns.add("NOMBRE_ARTICULO");}
+                            else if(cont==2){columns.add("CODIGO_DOCUMENTO");}
+                            else if(cont==3){columns.add("DNI_CLIENTE_DOCUMENTO");}
+                            else{columns.add("CANTIDAD");}
+//                            else{columns.add(rs.getString(4));}
+                            cont++;
+                        }
+//                    }
                     dtm.setColumnIdentifiers(columns);
                     break;
             }
