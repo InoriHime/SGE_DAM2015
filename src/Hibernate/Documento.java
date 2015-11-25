@@ -44,6 +44,10 @@ public class Documento  implements java.io.Serializable {
        this.articuloPedidos = articuloPedidos;
        this.cobros = cobros;
     }
+
+    public Documento(Proveedor proveedor, String tipo, String fechaPedido, double base, double iva, double total) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    
     public Integer getCodigo() {
         return this.codigo;

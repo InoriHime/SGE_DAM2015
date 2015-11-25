@@ -15,8 +15,14 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import Atxy2k.CustomTextField.RestrictedTextField;
+import Hibernate.ArticuloPedido;
+import Hibernate.Documento;
+import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
 import java.awt.Toolkit;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -40,7 +46,7 @@ public class Controlador implements ActionListener, MouseListener {
     int art_Cantidad;
 
     int row;
-
+String now;
     public Controlador(Vista_Principal vista) {
         this.v = vista;
     }
@@ -83,6 +89,7 @@ public class Controlador implements ActionListener, MouseListener {
         radioPedidoProveedor,
         cerrarFrameGastos,
         cerrarFrameCobrosPagos,
+        cambiarFechaCobros,
         cerrarConfig,
         modificarConfig,
         Salir,
@@ -96,12 +103,13 @@ public class Controlador implements ActionListener, MouseListener {
 
     public void iniciarMain() {
         try {
-            UIManager.setLookAndFeel(new NimbusLookAndFeel());
+            UIManager.setLookAndFeel(new WindowsLookAndFeel());
             SwingUtilities.updateComponentTreeUI(v);
             this.v.setLocationRelativeTo(null);
             v.setVisible(true);
         } catch (UnsupportedLookAndFeelException ex) {
         }
+        
         this.v.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/img/stk.jpg")));
         restriccionesTextFields();
         //Cargamos la tabla del menu principal por defecto
@@ -211,7 +219,9 @@ public class Controlador implements ActionListener, MouseListener {
         //Listeners frame Gastos
         this.v.btn_Gastos_Salir.setActionCommand("cerrarFrameGastos");
         this.v.btn_Gastos_Salir.addActionListener(this);
-
+        this.v.cbox_CobrosPagos_MesAno.setActionCommand("cambiarFechaCobros");
+        this.v.cbox_CobrosPagos_MesAno.addActionListener(this);
+        
         //Listeners frame CobrosPagos
         this.v.btn_Cobros_Pagos_Salir.setActionCommand("cerrarFrameCobrosPagos");
         this.v.btn_Cobros_Pagos_Salir.addActionListener(this);
@@ -283,6 +293,7 @@ public class Controlador implements ActionListener, MouseListener {
                         break;
                 }
                 break;
+                
 //MenuBar------------------------------------------------------------------------------------------------------------------------                
            
             case mostrarFrameArticulo:
@@ -453,9 +464,11 @@ public class Controlador implements ActionListener, MouseListener {
                     Clean();
                 }
                 break;
+
             case buscarTablaEliminarArticulo:
                 this.v.tbl_Eliminar_Articulo.setModel(m.getTableModelByArrayList(m.getArticulosByQuestion(this.v.txt_Modificar_Articulo_Buscar.getText().toString()), "articulos"));
                 break;
+
             case eliminarArticulo:
                 if (JOptionPane.showConfirmDialog(this.v.Frame_Articulo, "¿Desea eliminar el Articulo:" + this.v.tbl_Eliminar_Articulo.getValueAt(this.v.tbl_Eliminar_Articulo.getSelectedRow(), 0).toString() + "?") == 0) {
                     m.deleteArticulo(Integer.parseInt(this.v.tbl_Eliminar_Articulo.getValueAt(this.v.tbl_Eliminar_Articulo.getSelectedRow(), 0).toString()));
@@ -473,14 +486,18 @@ public class Controlador implements ActionListener, MouseListener {
                 this.v.Frame_Gastos.setVisible(false);
                 break;
 
+            case cambiarFechaCobros:
+                this.v.tbl_CobrosPagos.setModel(this.m.getTableModelByArrayList(m.getCobroByFecha("%/"+this.v.cbox_CobrosPagos_MesAno.getSelectedItem().toString()), "cobros"));
+                break;
+                
 //Menu CobrosPagos-----------------------------------------------------------------------------------------------------------------                
-            
+
             case cerrarFrameCobrosPagos:
                 this.v.Frame_CobrosPagos.setVisible(false);
                 break;
 
 //Menu Configuracion Ver datos Empresa---------------------------------------------------------------------------------------------------                
-            
+
             case cerrarConfig:
                 this.v.Frame_DatosEmpresa.setVisible(false);
                 break;
@@ -591,9 +608,9 @@ public class Controlador implements ActionListener, MouseListener {
                     i -= 1;
                 }
                 this.v.tbl_Factura.setModel(m.rellenarProforma((DefaultTableModel) this.v.tbl_Factura.getModel(), (DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel()));
-                this.v.eti_Factura_Base.setText("" + m.getSumaBase((DefaultTableModel) this.v.tbl_Factura.getModel()) + "€");
-                this.v.eti_Factura_IVA.setText("" + m.getSumaIva((DefaultTableModel) this.v.tbl_Factura.getModel()) + "€");
-                this.v.eti_Factura_Total.setText("" + m.getSumaTotal((DefaultTableModel) this.v.tbl_Factura.getModel()) + "€");
+                this.v.eti_Factura_Base.setText("" + m.getSumaBase((DefaultTableModel) this.v.tbl_Factura.getModel()) + "");
+                this.v.eti_Factura_IVA.setText("" + m.getSumaIva((DefaultTableModel) this.v.tbl_Factura.getModel()) + "");
+                this.v.eti_Factura_Total.setText("" + m.getSumaTotal((DefaultTableModel) this.v.tbl_Factura.getModel()) + "");
                 break;
 
             case cancelarFactura:
@@ -601,15 +618,50 @@ public class Controlador implements ActionListener, MouseListener {
                 this.v.Frame_Pedido.setVisible(true);
                 break;
             case confirmarFactura:
+                    Calendar fecha = Calendar.getInstance();
+                    now= fecha.get(Calendar.DAY_OF_WEEK)+"/"+fecha.get(Calendar.MONTH)+"/"+fecha.get(Calendar.YEAR);
+                    System.out.println(""+now);
+                    
+                    double base = Double.parseDouble(this.v.eti_Factura_Base.getText());
+                    double iva = Double.parseDouble(this.v.eti_Factura_IVA.getText());
+                    
+                    boolean insertado = false;
 
-                int result = this.v.jFileChooser.showSaveDialog(this.v.jFileChooser);
-                if (result == this.v.jFileChooser.APPROVE_OPTION) {
-                    generatePDF g = new generatePDF();
-                    //Pasar en el segundo parámetro el objeto de tipo cliente o proveedor, segun y caso y como tercer parámetro un arrayList de los articulos que
-                    //se están pidiendo
-                    g.generatePDFFactura(this.v.jFileChooser.getSelectedFile().getAbsolutePath(), null, null);
+                    
+                if (this.v.rad_Pedido_Cliente.isSelected() && JOptionPane.showConfirmDialog(null, "¿Estas seguro de realizar el pedido?") == 0) {
+                    
+                    m.insertDocumentoCliente(m.getClienteByDni(this.v.eti_Factura_Cliente_Dni.getText()), "Cliente", now, base, iva, (base + iva));
+                    Iterator it = m.getDocumentos().iterator();
+                    int codigo =0;
+                    while(it.hasNext()){
+                        Documento d= (Documento) it.next();
+                        codigo = d.getCodigo();
+                    }
+                    for(int i=0;i<this.v.tbl_Pedido_ArticulosPedidos.getRowCount();i++){
+                        
+                        int cod_articulo = (int) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 0);
+                        int cantidad = (int) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 3);
+                        m.insertArticuloPedido(cod_articulo, codigo, cantidad);    
+                    }
+                    
+                    
+                    insertado = true;
+                } else if (this.v.rad_Pedido_Proveedor.isSelected() && JOptionPane.showConfirmDialog(null, "¿Estas seguro de realizar el pedido?") == 0) {
+                    m.insertDocumentoProveedor(m.getProveedorByCif(this.v.eti_Factura_Proveedor_Cif.getText()), "Proveedor", now, base, iva, (base + iva));
+                    insertado = true;
                 }
+                if (insertado == true) {
+                    int result = this.v.jFileChooser.showSaveDialog(this.v.jFileChooser);
+                    if (result == this.v.jFileChooser.APPROVE_OPTION) {
 
+                        generatePDF g = new generatePDF();
+                        double suma = Double.parseDouble(this.v.eti_Factura_Total.getText());
+                        if (this.v.rad_Pedido_Cliente.isSelected()) {
+                            g.generatePDFFactura(this.v.jFileChooser.getSelectedFile().getAbsolutePath(), m.getClienteByDni(this.v.eti_Factura_Cliente_Dni.getText()), null ,suma);
+                        }
+                    }
+                    this.v.Frame_Factura.setVisible(false);
+                }
                 break;
 
             case cerrarFramePedido:
@@ -845,4 +897,51 @@ public class Controlador implements ActionListener, MouseListener {
         this.v.eti_Factura_Proveedor_Cif.setText(this.v.eti_Pedido_Proveedor_CIF.getText());
         this.v.eti_Factura_Proveedor_DSocial.setText(this.v.eti_Pedido_Proveedor_DSocial.getText());
     }
+    
+//Metodo
+    public String getMonth(int month){
+        String mes= "";
+        
+        switch(month){
+            
+            case 1:
+                mes ="ENERO";
+                break;
+            case 2:
+                mes = "FEBRERO";
+                break;
+            case 3:
+                mes = "MARZO";
+                break;
+            case 4:
+                mes = "ABRIL";
+                break;
+            case 5:
+                mes = "MAYO";
+                break;
+            case 6:
+                mes = "JUNIO";
+                break;
+            case 7:
+                mes = "JULIO";
+                break;
+            case 8:
+                mes = "AGOSTO";
+                break;
+            case 9:
+                mes = "SEPTIEMBRE";
+                break;
+            case 10:
+                mes = "OCTUBRE";
+                break;
+            case 11:
+                mes = "NOVIEMBRE";
+                break;
+            case 12:
+                mes = "DICIEMBRE";
+                break;
+        }
+        return null;
+    }
+
 }

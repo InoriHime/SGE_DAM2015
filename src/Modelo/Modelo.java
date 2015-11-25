@@ -331,13 +331,32 @@ public class Modelo extends Conexion {
         return (ArrayList<Documento>) getSession().createQuery("from Documento").list();
     }
     
-    public void insertDocumento(Cliente cliente, String tipo, String fechaPedido, double base, double iva, double total)
+    public void insertDocumentoCliente(Cliente cliente, String tipo, String fechaPedido, double base, double iva, double total)
     {
         Documento d=new Documento(cliente, tipo, fechaPedido, base, iva, total);
         
         getSession().save(d);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
+        JOptionPane.showMessageDialog(null, "Se ha introducido el Pedido.");
+    }
+    
+//    public void insertDocumentoClienteAux(Documento d){
+//        getSession().save(d);
+//        if(!tx.isActive()){tx=getSession().beginTransaction();}
+//        tx.commit();
+//        JOptionPane.showMessageDialog(null, "Se ha introducido el Pedido.");
+//        
+//    }
+    
+    public void insertDocumentoProveedor(Proveedor proveedor, String tipo, String fechaPedido, double base, double iva, double total)
+    {
+        Documento d=new Documento(proveedor, tipo, fechaPedido, base, iva, total);
+        
+        getSession().save(d);
+        if(!tx.isActive()){tx=getSession().beginTransaction();}
+        tx.commit();
+        JOptionPane.showMessageDialog(null, "Se ha introducido el Pedido.");
     }
     
     public void modifyDocumento(int codigoAntiguo, int codigoNuevo, Cliente cliente, String tipo, String fechaPedido, double base, double iva, double total)

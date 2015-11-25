@@ -31,13 +31,14 @@ import java.util.logging.Logger;
         
 public class generatePDF {
     
-    public void generatePDFFactura(String url, Object cliente_proveedor, ArrayList<ArticuloPedido> articulos)
+    public void generatePDFFactura(String url, Object cliente_proveedor, ArrayList<ArticuloPedido> articulos, double suma)
     {
         try 
         {
             Document documento = new Document();
-            FileOutputStream ficheroPdf = new FileOutputStream("factura.pdf");
+            FileOutputStream ficheroPdf = new FileOutputStream(url+"factura.pdf");
             PdfWriter.getInstance(documento,ficheroPdf).setInitialLeading(20);
+            
             documento.open();
             
             if(cliente_proveedor instanceof Cliente)
@@ -53,7 +54,7 @@ public class generatePDF {
                 documento.add(new Paragraph(""));
                 documento.add(new Paragraph(""));
                 
-                double suma=0;
+             
                 
                 PdfPTable tabla = new PdfPTable(3);
                 Iterator it=articulos.iterator();
@@ -61,9 +62,10 @@ public class generatePDF {
                 {
                     Articulo art=(Articulo) it.next();
                     tabla.addCell(art.getNombre());
-                    tabla.addCell(Double.toString(art.getPrecio()));
-                    tabla.addCell(Integer.toString(art.getCantidad()));
-                    suma=suma+art.getPrecio()*art.getCantidad();
+                    //tabla.addCell(Double.toString(art.getPrecio()));
+                    //tabla.addCell(Integer.toString(art.getCantidad()));
+                   // suma=suma+art.getPrecio()*art.getCantidad();
+                   
                 }
                 documento.add(tabla);
                 
@@ -83,7 +85,7 @@ public class generatePDF {
                 documento.add(new Paragraph(""));
                 documento.add(new Paragraph(""));
                 
-                double suma=0;
+           
                 
                 PdfPTable tabla = new PdfPTable(3);
                 Iterator it=articulos.iterator();
@@ -100,6 +102,8 @@ public class generatePDF {
                 documento.add(new Paragraph(""));
                 documento.add(new Paragraph("TOTAL: "+suma,FontFactory.getFont("arial",25,Font.NORMAL,BaseColor.RED)));
                 documento.close();
+                
+                System.out.println(""+url);
             }
         }
         catch (DocumentException ex) 
