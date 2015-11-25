@@ -19,8 +19,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
 import org.hibernate.engine.spi.SessionFactoryImplementor;
 
@@ -396,6 +398,13 @@ public class Modelo extends Conexion {
     public Cobro getCobroByCodigo(int codigo)
     {
         return (Cobro) getSession().get(Cobro.class, codigo);
+    }
+    
+    public ArrayList<Cobro> getCobroByFecha(String fecha)
+    {
+        Criteria criteria = getSession().createCriteria(Cobro.class);
+        ArrayList<Cobro> c = (ArrayList<Cobro>) criteria.add(Restrictions.like("titulo", fecha)).list();
+        return c;
     }
     
     public ArrayList<Cobro> getCobros()
