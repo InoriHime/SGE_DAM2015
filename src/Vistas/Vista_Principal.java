@@ -1329,7 +1329,7 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jLabel28.setForeground(new java.awt.Color(255, 0, 0));
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("Presupuesto");
+        jLabel28.setText("Presupuesto Base");
 
         eti_Presupuesto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         eti_Presupuesto.setForeground(new java.awt.Color(255, 0, 0));
@@ -1349,7 +1349,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_Añadir_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sp_Pedido_SpinnerCantidad)
-                    .addComponent(btn_Quitar_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                    .addComponent(btn_Quitar_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(eti_Presupuesto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1402,7 +1402,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                         .addComponent(rad_Pedido_Cliente)
                         .addGap(46, 46, 46)
                         .addComponent(rad_Pedido_Proveedor)
-                        .addGap(0, 224, Short.MAX_VALUE))
+                        .addGap(0, 237, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

@@ -909,100 +909,102 @@ public class Modelo extends Conexion {
         }
         return dtm;
     }
-
+    //aqui esta el metodo que se encarga de crear un Modelo, en el cual se van a metter los datos(filas) de los articulos en la parte de CLiente
     public DefaultTableModel insertarRowCliente(int codigo, String nombre, double precio, int cantidad, int cantidadTotal, DefaultTableModel t) {
 
         //Sección 1 
         //DefaultTableModel modelo=(DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel(); 
+        //aqui comparamos la cantidad anterior con la cantidad nueva, si es mayor, entonces no deberia de introducirse enel modelo, y entonces devolvera el modelo introducido sin modificar
         if (cantidad > cantidadTotal) {
             JOptionPane.showMessageDialog(null, "Has seleccionado demasiados articulos de " + nombre);
         } else {
-            //Sección 2
+            
+            //creamos un array de objeto llamado Fila
             Object[] fila = new Object[6];
 
-            //Sección 3
+            //le añadimos los datos y creamos el array de objeto con los datos de la tabla ArticulosPedido
             fila[0] = codigo;
             fila[1] = nombre;
             fila[2] = precio;
             fila[3] = cantidad;
-            
-            sumaPresupuesto = sumaPresupuesto+(precio*cantidad);
-            //Sección 4
+            //aqui sumamos los precios en la variable global sumaPresupuesto para luego recojerlo y mostrarlo en la Factura
+            sumaPresupuesto = sumaPresupuesto + (precio * cantidad);
+            //aññadimos finalmente el array de objeto en el objeto Default Model f
             t.addRow(fila);
         }
-        return t;
+        return t;//devolvemos f
 
     }
-    
+    //este modelo es igual , lo unico que cambia es que se utilizara en la seccion de Proveedor, y por tanto no hay q controlar que la cantidad sea mayor a la actual
+    //si hay tiempo añadirlo al metodo anterior
     public DefaultTableModel insertarRowProveedor(int codigo, String nombre, double precio, int cantidad, int cantidadTotal, DefaultTableModel t) {
 
-        //Sección 1 
-        //DefaultTableModel modelo=(DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel(); 
-
-        //Sección 2
+        
         Object[] fila = new Object[6];
 
-        //Sección 3
+        
         fila[0] = codigo;
         fila[1] = nombre;
         fila[2] = precio;
         fila[3] = cantidad;
 
         sumaPresupuesto = sumaPresupuesto+(precio*cantidad);
-        //Sección 4
+        
         t.addRow(fila);
         return t;
 
     }
-    
+    //este metodo es el encargado de modificar las tablas segun la cantidad seleccionada
     public DefaultTableModel borrarRowCliente(DefaultTableModel t, int selectedRow, int cantidad,int cantTotal){
          
  
-         //Sección 2
+         //aqui se coje la fila seleccionada y se le pasa al atributo "a" 
           int a = selectedRow; 
           
-         //Sección 3
+         //si no hay almenos una fila seleccionada
           if (a<0){ 
  
                 JOptionPane.showMessageDialog(null, 
                 "Debe seleccionar una fila de la tabla" ); 
  
-         }
-          if(cantTotal<=cantidad) {
-                   t.removeRow(a); 
-
+         }if(cantTotal<=cantidad) {// controlamos que la cantidad sea menos que la cantidad nueva, sino se venderian articulos que no existen
+             //en ese caso, se enviaria un 0       
+             t.setValueAt(0, a, 3);
+             //de todas formas, en capas superiores se controla que el numero de la cantidad no sea mayor, pero por si las moscas  se controla
             }else{
-              t.setValueAt((cantTotal-cantidad), a, 3);
+              t.setValueAt((cantTotal-cantidad), a, 3);//aqui si todo va bien, se le resta a la cantidad total la cantidad vendida
           }
         
         return t;
     }
     
     public DefaultTableModel borrarRowProveedor(DefaultTableModel t, int selectedRow, int cantidad, int cantTotal)
-    {
+    {//este metodo es igual al anterior , exceptuando que en este caso no resta, sino que suma
         int a = selectedRow; 
           
-        if (a<0)
+        if (a<0)//aqui se controla que se haya seleccionado almenos una fila
         { 
             JOptionPane.showMessageDialog(null, 
             "Debe seleccionar una fila de la tabla" ); 
          }
-         t.setValueAt((cantTotal+cantidad), a, 3);
+         t.setValueAt((cantTotal+cantidad), a, 3);//aqui sumamos la cantidad que tenemos más la cantidad del pedido q se hara al proveedor
         
         return t;
     }
-    
+    //este metodo devuelve la suma del presupuesto que se mostrara en el Frame Presupuesto, SIN iva, eso se mostrara en la Proforma
     public double getSumaPresupuesto(){
         return this.sumaPresupuesto;
     }
-    public void setSumaPresupuesto(int presupuesto){
+    public void setSumaPresupuesto(int presupuesto){ // aqui se le pasa un valor, inicial al atributo sumaPresupuesto
         this.sumaPresupuesto = presupuesto;
     }
-    public DefaultTableModel rellenarProforma(DefaultTableModel tablaProforma, DefaultTableModel tablaArticulos){
+    //este metodo rellena la tabla de la proforma con los datos de la tabla de ArticulosPedidos
+    public DefaultTableModel rellenarProforma(DefaultTableModel tablaProforma, DefaultTableModel tablaArticulos){ // se le pasan los modelos de la tabla proforma(que es el que se devuelve) y la tabla ArticulosPedidos
         Object[] fila = new Object[6];
-        double IVA = Double.parseDouble(LectorProperties.getPropiedad("IVA"));
+        double IVA = Double.parseDouble(LectorProperties.getPropiedad("IVA"));//cojemos el iva del fichero
         IVA = IVA/100;
-        for(int i=0;i<tablaArticulos.getRowCount();i++){
+                
+        for(int i=0;i<tablaArticulos.getRowCount();i++){//recorreomos la tabla, cojemos los datos y lo metemos en el array de objetos Fila
             double primero=Double.parseDouble(String.valueOf(tablaArticulos.getValueAt(i, 2)));
             double segundo=Double.parseDouble(String.valueOf(tablaArticulos.getValueAt(i, 3)));
             fila[0]= tablaArticulos.getValueAt(i, 1);
@@ -1013,34 +1015,38 @@ public class Modelo extends Conexion {
             fila[4]= total*IVA;
             fila[5]= total+(total*IVA);
             
-            tablaProforma.addRow(fila);
+            tablaProforma.addRow(fila);//añadimos la fila al modelo
         }
         
-        return tablaProforma;
+        return tablaProforma;//devolvemos el modelo
     }
+    //aqui sumamos la base de los articulos
     public double getSumaBase(DefaultTableModel t){
         double suma =0;
-        for(int i=0; i<t.getRowCount();i++){
+        for(int i=0; i<t.getRowCount();i++){//recorremos la tabla, y sumamos en un atributo suma
             suma = suma +((double)t.getValueAt(i, 3));
         }
         
         return suma;
     }
+    //aqui sumamos los importes del iva
     public double getSumaIva(DefaultTableModel t){
         double suma =0;
-        for(int i=0; i<t.getRowCount();i++){
-            suma = suma +((double)t.getValueAt(i, 4));
+        for(int i=0; i<t.getRowCount();i++){//recorremos la tabla y cojemos los campos de iva
+            suma = suma +((double)t.getValueAt(i, 4));//los sumamos
         }
         
-        return suma;
+        return suma;//lo devolvemos
     }
+    
+    //aqui sumamos el TOTAl de base y de iva
     public double getSumaTotal(DefaultTableModel t){
         double suma =0;
         for(int i=0; i<t.getRowCount();i++){
-            suma = suma +((double)t.getValueAt(i, 5));
+            suma = suma +((double)t.getValueAt(i, 5));//recorremos la tabla y sumamos en la variable suma
         }
         
-        return suma;
+        return suma;//devolvemod suma
     }
     
 }

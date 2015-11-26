@@ -2049,7 +2049,7 @@
                               <Component id="rad_Pedido_Cliente" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Component id="rad_Pedido_Proveedor" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="224" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="237" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -2160,7 +2160,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btn_Añadir_Articulo_Pedido" alignment="0" max="32767" attributes="0"/>
                               <Component id="sp_Pedido_SpinnerCantidad" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btn_Quitar_Articulo_Pedido" alignment="0" pref="73" max="32767" attributes="0"/>
+                              <Component id="btn_Quitar_Articulo_Pedido" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel28" alignment="0" max="32767" attributes="0"/>
                               <Component id="eti_Presupuesto" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -2305,7 +2305,7 @@
                       <Color blue="0" green="0" red="ff" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Presupuesto"/>
+                    <Property name="text" type="java.lang.String" value="Presupuesto Base"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="eti_Presupuesto">
