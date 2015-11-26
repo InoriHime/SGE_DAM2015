@@ -62,6 +62,7 @@ public class Modelo extends Conexion {
     {
         try 
         {
+            //Inicializamos todos los datos
             tx=getSession().beginTransaction();
             sfi=(SessionFactoryImplementor) getSession().getSessionFactory();
             cp=sfi.getConnectionProvider();
@@ -78,11 +79,13 @@ public class Modelo extends Conexion {
  * ---Cliente Operations---
  */
     
+    //Devuelve el Cliente segun su primaria
     public Cliente getClienteByDni(String dni)
     {
         return (Cliente) getSession().get(Cliente.class, dni);
     }
     
+    //Devuelve los Clientes que corresponden con la consulta
     public ArrayList<Cliente> getClientesByQuestion(String question)
     {
         Query query=getSession().createQuery("from Cliente c where c.dni like :consulta OR c.nombre like :consulta OR c.apellidos like :consulta OR c.domicilio like :consulta OR c.correo like :consulta OR c.telefono like :consulta");
@@ -90,82 +93,90 @@ public class Modelo extends Conexion {
         return list;
     }
     
+    //Devuelve todos los Clientes
     public ArrayList<Cliente> getClientes()
     {
         return (ArrayList<Cliente>) getSession().createQuery("from Cliente").list();
     }
     
+    //Inserta un Cliente
     public void insertCliente(String dni, String nombre, String apellidos, String domicilio, String correo, String telefono)
     {
-        Cliente c=new Cliente(dni, nombre, apellidos, domicilio, correo, telefono);
+        Cliente c=new Cliente(dni, nombre, apellidos, domicilio, correo, telefono);//Creamos el objeto de tipo Cliente con sus respectivos datos
         
-        getSession().save(c);
-        if(!tx.isActive()){tx=getSession().beginTransaction();}
-        tx.commit();
+        getSession().save(c);//Obtenemos la sesion donde lleva la conexion y guardamos el objetos que hemos creado
+        if(!tx.isActive()){tx=getSession().beginTransaction();}//Si el objeto transaction no esta activado lo activamos
+        tx.commit();//Sube los cambios a la Base de Datos
         JOptionPane.showMessageDialog(null, "Cliente Introducido");
     }
     
+    //Modifica un cliente
     public void modifyCliente(String dniAntiguio, String nombre, String apellidos, String domicilio, String correo, String telefono)
     {
-        Cliente c=getClienteByDni(dniAntiguio);
+        Cliente c=getClienteByDni(dniAntiguio);//Obtenemos un cliente mediante el metodo getClienteByDni
         
+        //Modificamos los datos pertinentes
         c.setNombre(nombre);
         c.setApellidos(apellidos);
         c.setDomicilio(domicilio);
         c.setCorreo(correo);
         c.setTelefono(telefono);
         
-        getSession().update(c);
+        getSession().update(c);//Obtenemos la sesion y actualizamos el objeto
         if(!tx.isActive()){tx=getSession().beginTransaction();}
-        tx.commit();
+        tx.commit();//Subimos los cambios a la Base de Datos
         JOptionPane.showMessageDialog(null, "Se ha modificado: "+dniAntiguio+". Satisfactoriamente.");
     }
     
+    //Eliminamos un Cliente
     public void deleteCliente(String dni)
     {
-        Cliente c=getClienteByDni(dni);
+        Cliente c=getClienteByDni(dni);//Obtenemos el Cliente segun su clave primaria(dni)
         
-        getSession().delete(c);
+        getSession().delete(c);//Obtenemos la sesion y borramos el objeto que recogemos
         if(!tx.isActive()){tx=getSession().beginTransaction();}
-        tx.commit();
+        tx.commit();//Subimos los cambios a la Base de Datos
         JOptionPane.showMessageDialog(null, "Se ha eliminado "+dni+" satisfactoriamente.");
     }
     
+    //Eliminamos todos los Clientes
     public void deleteClientes()
     {
         it=getClientes().iterator();
-        while(it.hasNext())
+        while(it.hasNext())//Recorremos todos los Clientes
         {
             Cliente c=(Cliente) it.next();
-            getSession().delete(c);
+            getSession().delete(c);//Borramos cada cliente
         }
         
         if(!tx.isActive()){tx=getSession().beginTransaction();}
-        tx.commit();
+        tx.commit();//Subimos los cambios a la Base de Datos
     }
     
+    //Borramos los Clientes que esten contenidos en el ArrayList
     public void deleteClientes(ArrayList<Cliente> clientes)
     {
         it=clientes.iterator();
-        while(it.hasNext())
+        while(it.hasNext())//Recorremos los clientes que le hemos introducido por parametro
         {
             Cliente c=(Cliente) it.next();
-            getSession().delete(c);
+            getSession().delete(c);//Borramos uno por uno cada Cliente
         }
         
         if(!tx.isActive()){tx=getSession().beginTransaction();}
-        tx.commit();
+        tx.commit();//Subimos los cambios a la Base de Datos
     }
-    
 /**
  * ---Proveedor Operations---
  */
     
+    //Obtenemos un Proveedor segun el cif
     public Proveedor getProveedorByCif(String cif)
     {
         return (Proveedor) getSession().get(Proveedor.class, cif);
     }
     
+    //Obtenemos los objetos de tipo Proveedor que correspondan con la consulta
     public ArrayList<Proveedor> getProveedoresByQuestion(String question)
     {
         Query query=getSession().createQuery("from Proveedor p where p.cif like :consulta OR p.denominacionsocial like :consulta OR p.telefono like :consulta OR p.correo like :consulta");
@@ -173,11 +184,13 @@ public class Modelo extends Conexion {
         return list;
     }
     
+    //Obtenemos todos los Proveedores
     public ArrayList<Proveedor> getProveedores()
     {
         return (ArrayList<Proveedor>) getSession().createQuery("from Proveedor").list();
     }
     
+    //Insertamos un Proveedor
     public void insertProveedor(String cif, String denominacion_social, String telefono, String correo)
     {
         Proveedor p=new Proveedor(cif, denominacion_social, telefono, correo);
@@ -188,6 +201,7 @@ public class Modelo extends Conexion {
         JOptionPane.showMessageDialog(null, "Se ha introducido el Proveedor: "+cif);
     }
     
+    //Modificamos un Proveedor
     public void modifyProveedor(String cifAntiguo, String denominacion_social, String telefono, String correo)
     {
         Proveedor p=getProveedorByCif(cifAntiguo);
@@ -202,6 +216,7 @@ public class Modelo extends Conexion {
         JOptionPane.showMessageDialog(null, "Se ha modificado: "+cifAntiguo+". Satisfactoriamente.");
     }
     
+    //Borramos un Proveedor segun el cif
     public void deleteProveedor(String cif)
     {
         Proveedor p=getProveedorByCif(cif);
@@ -212,6 +227,7 @@ public class Modelo extends Conexion {
         JOptionPane.showMessageDialog(null, "Se ha eliminado el Proveedor: "+cif);
     }
     
+    //Borramos todos los Proveedores
     public void deleteProveedores()
     {
         it=getProveedores().iterator();
@@ -225,6 +241,7 @@ public class Modelo extends Conexion {
         tx.commit();
     }
     
+    //Borramos los Proveedores que contiene el ArrayList
     public void deleteProveedores(ArrayList<Proveedor> proveedores)
     {
         it=proveedores.iterator();
@@ -242,11 +259,13 @@ public class Modelo extends Conexion {
  * ---Articulo Operations---
  */
     
+    //Obtenemos el Articulo segun el codigo
     public Articulo getArticuloByCodigo(int codigo)
     {
         return (Articulo) getSession().get(Articulo.class, codigo);
     }
     
+    //Obtenemos los Articulos segun la consulta
     public ArrayList<Articulo> getArticulosByQuestion(String question)
     {
         Query query=getSession().createQuery("from Articulo a where a.nombre like :consulta");
@@ -254,11 +273,13 @@ public class Modelo extends Conexion {
         return list;
     }
     
+    //Obtenemos todos los Articulos
     public ArrayList<Articulo> getArticulos()
     {
         return (ArrayList<Articulo>) getSession().createQuery("from Articulo").list();
     }
     
+    //Insertamos un Articulo
     public void insertArticulo(String nombre, double precio, int cantidad)
     {
         Articulo a=new Articulo(nombre, precio, cantidad);
@@ -268,6 +289,7 @@ public class Modelo extends Conexion {
         JOptionPane.showMessageDialog(null, "Se ha introducido el Articulo: "+nombre);
     }
     
+    //Modificamos un Articulo
     public void modifyArticulo(int codigoAntiguo, String nombre, double precio, int cantidad)
     {
         Articulo a=getArticuloByCodigo(codigoAntiguo);
@@ -281,6 +303,7 @@ public class Modelo extends Conexion {
         JOptionPane.showMessageDialog(null, "Se ha modificado: "+nombre+". Satisfactoriamente.");
     }
     
+    //Borramos un Articulo segun el codigo
     public void deleteArticulo(int codigo)
     {
         Articulo a=getArticuloByCodigo(codigo);
@@ -291,6 +314,7 @@ public class Modelo extends Conexion {
         JOptionPane.showMessageDialog(null, "Se ha eliminado el Articulo: "+codigo);
     }
     
+    //Borramos todos los Articulos
     public void deleteArticulos()
     {
         it=getArticulos().iterator();
@@ -304,6 +328,7 @@ public class Modelo extends Conexion {
         tx.commit();
     }
     
+    //Borramos todos los Articulos que esten contenidos en el ArrayList
     public void deleteArticulos(ArrayList<Articulo> articulos)
     {
         it=articulos.iterator();
@@ -321,16 +346,19 @@ public class Modelo extends Conexion {
  * ---Documento Operations---
  */
     
+    //Obtenemos un Documento segun el codigo
     public Documento getDocumentoByCodigo(int codigo)
     {
         return (Documento) getSession().get(Documento.class, codigo);
     }
     
+    //Obtenemos todos los Documentos
     public ArrayList<Documento> getDocumentos()
     {
         return (ArrayList<Documento>) getSession().createQuery("from Documento").list();
     }
     
+    //Insertamos un Documento con Cliente
     public void insertDocumentoCliente(Cliente cliente, String tipo, String fechaPedido, double base, double iva, double total)
     {
         Documento d=new Documento(cliente, null, tipo, fechaPedido, base, iva, total);
@@ -349,6 +377,7 @@ public class Modelo extends Conexion {
 //        
 //    }
     
+    //Insertamos un Documento con Proveedor
     public void insertDocumentoProveedor(Proveedor proveedor, String tipo, String fechaPedido, double base, double iva, double total)
     {
         Documento d=new Documento(null ,proveedor, tipo, fechaPedido, base, iva, total);
@@ -359,6 +388,7 @@ public class Modelo extends Conexion {
         JOptionPane.showMessageDialog(null, "Se ha introducido el Pedido.");
     }
     
+    //Modificamos un Documento
     public void modifyDocumento(int codigoAntiguo, int codigoNuevo, Cliente cliente, String tipo, String fechaPedido, double base, double iva, double total)
     {
         Documento d=getDocumentoByCodigo(codigoAntiguo);
@@ -375,6 +405,7 @@ public class Modelo extends Conexion {
         tx.commit();
     }
     
+    //Borramos un Documento segun el codigo
     public void deleteDocumento(int codigo)
     {
         Documento d=getDocumentoByCodigo(codigo);
@@ -384,6 +415,7 @@ public class Modelo extends Conexion {
         tx.commit();
     }
     
+    //Borramos todos los Documentos
     public void deleteDocumentos()
     {
         it=getDocumentos().iterator();
@@ -397,6 +429,7 @@ public class Modelo extends Conexion {
         tx.commit();
     }
     
+    //Borramos todos los Documentos contenidos en el ArrayList
     public void deleteDocumentos(ArrayList<Documento> documentos)
     {
         it=documentos.iterator();
@@ -414,23 +447,28 @@ public class Modelo extends Conexion {
  * ---Cobro Operations---
  */
     
+    //Obtenemos un Cobro segun el codigo
     public Cobro getCobroByCodigo(int codigo)
     {
         return (Cobro) getSession().get(Cobro.class, codigo);
     }
     
+    //Obtenemos un Cobro segun la fecha
     public ArrayList<Cobro> getCobroByFecha(String fecha)
     {
+        //La clase Criteria permite añadir restricciones a la busqueda de objetos en Hibernate
         Criteria criteria = getSession().createCriteria(Cobro.class);
-        ArrayList<Cobro> c = (ArrayList<Cobro>) criteria.add(Restrictions.like("fecha", fecha)).list();
+        ArrayList<Cobro> c = (ArrayList<Cobro>) criteria.add(Restrictions.like("fecha", fecha)).list();//Buscamo segun el atributo "fecha" del objeto cobro cuyo valor sea la variable que le pasamos
         return c;
     }
     
+    //Obtenemos todos los Cobros
     public ArrayList<Cobro> getCobros()
     {
         return (ArrayList<Cobro>) getSession().createQuery("from Cobro").list();
     }
     
+    //Insertamos un Cobro
     public void insertCobro(Documento documento, String formaPago, String fecha, double importe)
     {
         Cobro c=new Cobro(documento, formaPago, fecha, importe);
@@ -441,6 +479,7 @@ public class Modelo extends Conexion {
         JOptionPane.showMessageDialog(null, "Se ha realizado el cobro "+formaPago);
     }
     
+    //Modificamos un Cobro
     public void modifyCobro(int codigoAntiguo, int codigoNuevo, Documento documento, String formaPago, String fecha, double importe)
     {
         Cobro c=getCobroByCodigo(codigoAntiguo);
@@ -455,6 +494,7 @@ public class Modelo extends Conexion {
         tx.commit();
     }
     
+    //Borramos un Cobro segun el codigo
     public void deleteCobro(int codigo)
     {
         Cobro c=getCobroByCodigo(codigo);
@@ -464,6 +504,7 @@ public class Modelo extends Conexion {
         tx.commit();
     }
     
+    //Borramos todos los Cobros
     public void deleteCobros()
     {
         it=getCobros().iterator();
@@ -477,6 +518,7 @@ public class Modelo extends Conexion {
         tx.commit();
     }
     
+    //Borramos todos los Cobros contenidos en el ArrayList
     public void deleteCobros(ArrayList<Cobro> cobros)
     {
         it=cobros.iterator();
@@ -494,17 +536,20 @@ public class Modelo extends Conexion {
  * ---ArticuloPedido Operations---
  */
     
+    //Obtenemos un ArticuloPedido segun sus claves primarias
     public ArticuloPedido getArticuloPedido(int codigoArticulo, int codigoDocumento)
     {
         ArticuloPedidoId api=new ArticuloPedidoId(codigoDocumento, codigoArticulo);
         return (ArticuloPedido) getSession().get(ArticuloPedido.class, api);
     }
     
+    //Obtenemos todos los ArticulosPedidos
     public ArrayList<ArticuloPedido> getArticulosPedidos()
     {
         return (ArrayList<ArticuloPedido>) getSession().createQuery("from ArticuloPedido").list();
     }
     
+    //Insertamos un ArticuloPedido
     public void insertArticuloPedido(int codigoArticulo, int codigoDocumento, int cantidad)
     {
         ArticuloPedidoId api=new ArticuloPedidoId(codigoDocumento, codigoArticulo);
@@ -515,6 +560,7 @@ public class Modelo extends Conexion {
         tx.commit();
     }
     
+    //Borramos un ArticuloPedido segun sus claves primarias
     public void deleteArticuloPedido(int codigoArticulo, int codigoDocumento)
     {
         ArticuloPedido ap=getArticuloPedido(codigoArticulo, codigoDocumento);
@@ -524,6 +570,7 @@ public class Modelo extends Conexion {
         tx.commit();
     }
     
+    //Borramos todos los ArticulosPedidos
     public void deleteArticulosPedidos()
     {
         it=getArticulosPedidos().iterator();
@@ -537,6 +584,7 @@ public class Modelo extends Conexion {
         tx.commit();
     }
     
+    //Borramos todos los ArticulosPedidos contenidos en el ArrayList
     public void deleteArticulosPedidos(ArrayList<ArticuloPedido> articulosPedidos)
     {
         it=articulosPedidos.iterator();
@@ -550,13 +598,14 @@ public class Modelo extends Conexion {
         tx.commit();
     }
     
+    //Nos devuelve el modelo de la tabla que le pedimos
     public DefaultTableModel getTableModel(String table)
     {
         DefaultTableModel dtm=null;
         Vector columns;
         Vector row;
         
-        int cont=0;
+        int cont=0;//Este contador se usara posteriormente para saber en que numero de columna se esta operando
         
         try
         {
@@ -570,15 +619,16 @@ public class Modelo extends Conexion {
             En caso de no hacer falta ya se eliminaran en el futuro
             **/
             
+            //Este switch le da nombre a las columnas de las tablas
             switch(table)
             {
                 case "cliente":
-                    rs=dbmd.getColumns(null, null, table, null);
+                    rs=dbmd.getColumns(null, null, table, null);//Obtenemos un ResultSet a travez del objeto de la clase DataBaseMetaData con todas la columnas de la tabla que le especificamos
                     while(rs.next())
                     {
-                        columns.add(rs.getString(4));
+                        columns.add(rs.getString(4));//Nos devuelve el cuarto valor de ResultSet, que corresponde al nombre de la columna en la Base de Datos
                     }
-                    dtm.setColumnIdentifiers(columns);
+                    dtm.setColumnIdentifiers(columns);//Le asignamos las columnas al modelo de la tabla
                     break;
                 case "proveedor":
                     rs=dbmd.getColumns(null, null, table, null);
@@ -600,6 +650,9 @@ public class Modelo extends Conexion {
                     rs=dbmd.getColumns(null, null, table, null);
                     while(rs.next())
                     {
+                        /**Aqui ayudandonos de la variable cont le asignamos el nombre que nosotros querramos a la columna cuyo numero sea correspondiente al de la variable.
+                         Esto lo hacemos porque no nos interesa que aparezca con los mismos nombres que tienen en la Base de Datos o bien porque añadimos columnas que no existen
+                         en la tabla*/
                         if(cont==1){columns.add("DNI_CLIENTE");}
                         else if(cont==1){columns.add("NOMBRE_Y_APELLIDOS_CLIENTE");}
                         else{columns.add(rs.getString(4));}
@@ -639,14 +692,15 @@ public class Modelo extends Conexion {
                     break;
             }
             
+            //En este switch es donde se insertan las filas de la tabla
             switch(table)
             {
                 case "cliente":
-                    it=getClientes().iterator();
+                    it=getClientes().iterator();//En este caso recogemos todos los Clientes y los recorremos
                     while(it.hasNext())
                     {
                         Cliente c=(Cliente) it.next();
-                        row=new Vector();
+                        row=new Vector();//Dentro del Vector row iran los datos de cada fila
                         
                         row.add(c.getDni());
                         row.add(c.getNombre());
@@ -654,7 +708,7 @@ public class Modelo extends Conexion {
                         row.add(c.getDomicilio());
                         row.add(c.getCorreo());
                         row.add(c.getTelefono());
-                        dtm.addRow(row);
+                        dtm.addRow(row);//Anadimos la fila al modelo de la tabla
                     }
                     break;
                 case "proveedor":
@@ -749,6 +803,8 @@ public class Modelo extends Conexion {
         return dtm;
     }
     
+    //Obtenemos el modelo de la tabla que especificamos de los objetos contenidos del ArrayList que le pasamos.
+    //Los pasos son primos hermanos a los de el metodo getTableModel
     public DefaultTableModel getTableModelByArrayList(ArrayList arrayList, String tipo)
     {
         DefaultTableModel dtm=null;
