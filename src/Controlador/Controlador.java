@@ -525,50 +525,45 @@ public class Controlador implements ActionListener, MouseListener {
 //Pedidos -----------------------------------------------------------------------------------------------------------------------
            
             case btnAñadirArticuloPedido:
-
-                if ((int) this.v.sp_Pedido_SpinnerCantidad.getValue() > 0 && (int) this.v.sp_Pedido_SpinnerCantidad.getValue() <= art_Cantidad) {
-                    this.v.tbl_Pedido_ArticulosPedidos.setModel(m.insertarRow(art_Codigo, art_Nombre, art_Precio, (int) this.v.sp_Pedido_SpinnerCantidad.getValue(), art_Cantidad, (DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel()));
-                    m.borrarRow((DefaultTableModel) this.v.tbl_Pedido_Articulos.getModel(), row, (int) this.v.sp_Pedido_SpinnerCantidad.getValue(), art_Cantidad);
-                    art_Codigo = 0;
-                    art_Nombre = "";
-                    art_Precio = 0;
-                    art_Cantidad = 0;
-                    this.v.eti_Presupuesto.setText("" + m.getSumaPresupuesto() + "€");
+                if(this.v.rad_Pedido_Cliente.isSelected()) {
+                    if ((int) this.v.sp_Pedido_SpinnerCantidad.getValue() > 0 && (int) this.v.sp_Pedido_SpinnerCantidad.getValue() <= art_Cantidad) {
+                        this.v.tbl_Pedido_ArticulosPedidos.setModel(m.insertarRowCliente(art_Codigo, art_Nombre, art_Precio, (int) this.v.sp_Pedido_SpinnerCantidad.getValue(), art_Cantidad, (DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel()));
+                        m.borrarRowCliente((DefaultTableModel) this.v.tbl_Pedido_Articulos.getModel(), row, (int) this.v.sp_Pedido_SpinnerCantidad.getValue(), art_Cantidad);
+                        art_Codigo = 0;
+                        art_Nombre = "";
+                        art_Precio = 0;
+                        art_Cantidad = 0;
+                        this.v.eti_Presupuesto.setText("" + m.getSumaPresupuesto() + "€");
+                    }
+                } else if (this.v.rad_Pedido_Proveedor.isSelected()) {
+                    if ((int) this.v.sp_Pedido_SpinnerCantidad.getValue() > 0 && (int) this.v.sp_Pedido_SpinnerCantidad.getValue() <= art_Cantidad) {
+                        this.v.tbl_Pedido_ArticulosPedidos.setModel(m.insertarRowProveedor(art_Codigo, art_Nombre, art_Precio, (int) this.v.sp_Pedido_SpinnerCantidad.getValue(), art_Cantidad, (DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel()));
+                        m.borrarRowProveedor((DefaultTableModel) this.v.tbl_Pedido_Articulos.getModel(), row, (int) this.v.sp_Pedido_SpinnerCantidad.getValue(), art_Cantidad);
+                        art_Codigo = 0;
+                        art_Nombre = "";
+                        art_Precio = 0;
+                        art_Cantidad = 0;
+                        this.v.eti_Presupuesto.setText("" + m.getSumaPresupuesto() + "€");
+                    }
                 }
                 break;
             case btnQuitarArticuloPedido:
-
-                DefaultTableModel t = (DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel();
-
-                for (int i = 0; i < this.v.tbl_Pedido_ArticulosPedidos.getRowCount(); i++) {
-                    t.removeRow(i);
-                    i -= 1;
-                }
-                DefaultTableModel t2 = (DefaultTableModel) this.v.tbl_Proforma.getModel();
-
-                for (int i = 0; i < this.v.tbl_Proforma.getRowCount(); i++) {
-                    t2.removeRow(i);
-                    i -= 1;
-                }
-                this.v.tbl_Pedido_ArticulosPedidos.setModel(t);
-                this.v.tbl_Pedido_Articulos.setModel(this.m.getTableModel("articulo"));
-
-                this.v.eti_Presupuesto.setText("0");
-                m.setSumaPresupuesto(0);
+                limpiarArticulosPedidos();
                 break;
             case radioPedidoCliente:
                 this.v.pnl_Pedido_ClienteProveedor.removeAll();
                 this.v.pnl_Pedido_ClienteProveedor.add(this.v.pnl_Pedido_Contenedor_Cliente, BorderLayout.CENTER);
                 this.v.pnl_Pedido_ClienteProveedor.revalidate();
                 this.v.pnl_Pedido_ClienteProveedor.repaint();
+                limpiarArticulosPedidos();
                 break;
             case radioPedidoProveedor:
                 this.v.pnl_Pedido_ClienteProveedor.removeAll();
                 this.v.pnl_Pedido_ClienteProveedor.add(this.v.pnl_Pedido_Contenedor_Proveedor, BorderLayout.CENTER);
                 this.v.pnl_Pedido_ClienteProveedor.revalidate();
                 this.v.pnl_Pedido_ClienteProveedor.repaint();
+                limpiarArticulosPedidos();
                 break;
-
             case hacerPedido:
                 if (fila_Cliente_Pedido >= 0 && this.v.tbl_Pedido_ArticulosPedidos.getRowCount() > 0) {
                     if (this.v.rad_Pedido_Cliente.isSelected()) {
@@ -583,9 +578,22 @@ public class Controlador implements ActionListener, MouseListener {
                         this.v.pnl_Factura_ClienteProveedor.repaint();
 
                         rellenarFacturaCliente();
-
                     }
-                } else {
+                } else if(fila_Proveedor_Pedido >= 0 && this.v.tbl_Pedido_ArticulosPedidos.getRowCount() > 0)
+                {
+                    if(this.v.rad_Pedido_Proveedor.isSelected())
+                    {
+                        this.v.Frame_Pedido.setVisible(false);
+                        this.v.Frame_Factura.setVisible(true);
+                        this.v.Frame_Factura.setSize(705, 500);
+                        this.v.Frame_Factura.setLocationRelativeTo(v);
+                        
+                        this.v.pnl_Factura_ClienteProveedor.removeAll();
+                        this.v.pnl_Factura_ClienteProveedor.add(this.v.pnl_Factura_Proveedor, BorderLayout.CENTER);
+                        this.v.pnl_Factura_ClienteProveedor.revalidate();
+                        this.v.pnl_Factura_ClienteProveedor.repaint();
+                    }
+                }else {
                     JOptionPane.showMessageDialog(null, "Tienes que seleccionar algun cliente o un proveedor para poder realizar el pedido.");
                 }
                 if (fila_Proveedor_Pedido >= 0 && this.v.tbl_Pedido_ArticulosPedidos.getRowCount() > 0) {
@@ -645,15 +653,32 @@ public class Controlador implements ActionListener, MouseListener {
                         int cantidad = (int) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 3);
                         m.insertArticuloPedido(cod_articulo, codigo, cantidad);
                         arrayList.add(m.getArticuloPedido(cod_articulo, codigo));
+                        m.modifyArticulo(cod_articulo, this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 1).toString(), (double) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 2), (int) this.v.tbl_Pedido_Articulos.getValueAt(i, 3));
                     }
-                    
-                    
                     insertado = true;
                 } else if (this.v.rad_Pedido_Proveedor.isSelected() && JOptionPane.showConfirmDialog(null, "¿Estas seguro de realizar el pedido?") == 0) {
                     m.insertDocumentoProveedor(m.getProveedorByCif(this.v.eti_Factura_Proveedor_Cif.getText()), "Proveedor", now, base, iva, (base + iva));
+                    
+                    Iterator it = m.getDocumentos().iterator();
+                    int codigo =0;
+                    while(it.hasNext()){
+                        Documento d= (Documento) it.next();
+                        codigo = d.getCodigo();
+                    }
+                    for(int i=0;i<this.v.tbl_Pedido_ArticulosPedidos.getRowCount();i++){
+                        
+                        int cod_articulo = (int) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 0);
+                        int cantidad = (int) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 3);
+                        m.insertArticuloPedido(cod_articulo, codigo, cantidad);
+                        arrayList.add(m.getArticuloPedido(cod_articulo, codigo));
+                        m.modifyArticulo(cod_articulo, this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 1).toString(), (double) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 2), (int) this.v.tbl_Pedido_Articulos.getValueAt(i, 3));
+                    }
+                    
+                    
+                    
                     insertado = true;
                 }
-                if (insertado == true) {
+                if (insertado == true && this.v.rad_Pedido_Cliente.isSelected()) {
                     int result = this.v.jFileChooser.showSaveDialog(this.v.jFileChooser);
                     if (result == this.v.jFileChooser.APPROVE_OPTION) {
 
@@ -666,9 +691,9 @@ public class Controlador implements ActionListener, MouseListener {
                     this.v.Frame_Factura.setVisible(false);
                 }
                 break;
-
             case cerrarFramePedido:
                 this.v.Frame_Pedido.setVisible(false);
+                limpiarArticulosPedidos();
                 break;
 
 //Proforma- - - - - - -   - --- -  - - - -  - --------------------------------------------------------------------------
@@ -901,50 +926,25 @@ public class Controlador implements ActionListener, MouseListener {
         this.v.eti_Factura_Proveedor_DSocial.setText(this.v.eti_Pedido_Proveedor_DSocial.getText());
     }
     
-//Metodo
-    public String getMonth(int month){
-        String mes= "";
-        
-        switch(month){
-            
-            case 1:
-                mes ="ENERO";
-                break;
-            case 2:
-                mes = "FEBRERO";
-                break;
-            case 3:
-                mes = "MARZO";
-                break;
-            case 4:
-                mes = "ABRIL";
-                break;
-            case 5:
-                mes = "MAYO";
-                break;
-            case 6:
-                mes = "JUNIO";
-                break;
-            case 7:
-                mes = "JULIO";
-                break;
-            case 8:
-                mes = "AGOSTO";
-                break;
-            case 9:
-                mes = "SEPTIEMBRE";
-                break;
-            case 10:
-                mes = "OCTUBRE";
-                break;
-            case 11:
-                mes = "NOVIEMBRE";
-                break;
-            case 12:
-                mes = "DICIEMBRE";
-                break;
+    public void limpiarArticulosPedidos()
+    {
+        DefaultTableModel t = (DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel();
+
+        for (int i = 0; i < this.v.tbl_Pedido_ArticulosPedidos.getRowCount(); i++) {
+            t.removeRow(i);
+            i -= 1;
         }
-        return mes;
+        DefaultTableModel t2 = (DefaultTableModel) this.v.tbl_Proforma.getModel();
+
+        for (int i = 0; i < this.v.tbl_Proforma.getRowCount(); i++) {
+            t2.removeRow(i);
+            i -= 1;
+        }
+        this.v.tbl_Pedido_ArticulosPedidos.setModel(t);
+        this.v.tbl_Pedido_Articulos.setModel(this.m.getTableModel("articulo"));
+
+        this.v.eti_Presupuesto.setText("0");
+        m.setSumaPresupuesto(0);
     }
 
 }

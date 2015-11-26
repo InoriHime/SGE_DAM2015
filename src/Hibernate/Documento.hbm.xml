@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 18-nov-2015 17:57:02 by Hibernate Tools 4.3.1 -->
+<!-- Generated 26-nov-2015 9:16:52 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Hibernate.Documento" table="documento" catalog="sge" optimistic-lock="version">
         <id name="codigo" type="java.lang.Integer">
@@ -9,7 +9,10 @@
             <generator class="identity" />
         </id>
         <many-to-one name="cliente" class="Hibernate.Cliente" fetch="select">
-            <column name="DNI_CLIENTE" length="9" not-null="true" />
+            <column name="DNI_CLIENTE" length="9" not-null="false" />
+        </many-to-one>
+        <many-to-one name="proveedor" class="Hibernate.Proveedor" fetch="select">
+            <column name="CIF_PROVEEDOR" length="16" not-null="false" />
         </many-to-one>
         <property name="tipo" type="string">
             <column name="TIPO" length="30" not-null="true" />

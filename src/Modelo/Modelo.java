@@ -333,7 +333,7 @@ public class Modelo extends Conexion {
     
     public void insertDocumentoCliente(Cliente cliente, String tipo, String fechaPedido, double base, double iva, double total)
     {
-        Documento d=new Documento(cliente, tipo, fechaPedido, base, iva, total);
+        Documento d=new Documento(cliente, null, tipo, fechaPedido, base, iva, total);
         
         getSession().save(d);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
@@ -351,7 +351,7 @@ public class Modelo extends Conexion {
     
     public void insertDocumentoProveedor(Proveedor proveedor, String tipo, String fechaPedido, double base, double iva, double total)
     {
-        Documento d=new Documento(proveedor, tipo, fechaPedido, base, iva, total);
+        Documento d=new Documento(null ,proveedor, tipo, fechaPedido, base, iva, total);
         
         getSession().save(d);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
@@ -628,6 +628,7 @@ public class Modelo extends Conexion {
                             else if(cont==1){columns.add("NOMBRE_ARTICULO");}
                             else if(cont==2){columns.add("CODIGO_DOCUMENTO");}
                             else if(cont==3){columns.add("DNI_CLIENTE_DOCUMENTO");}
+                            else if(cont==4){columns.add("CIF_PROVEEDOR_DOCUMENTO");}
                             else{columns.add("CANTIDAD");}
 //                            else{columns.add(rs.getString(4));}
                             cont++;
@@ -727,7 +728,12 @@ public class Modelo extends Conexion {
                         row.add(ap.getArticulo().getCodigo());
                         row.add(ap.getArticulo().getNombre());
                         row.add(ap.getDocumento().getCodigo());
-                        row.add(ap.getDocumento().getCliente().getDni());
+//                        row.add(ap.getDocumento().getCliente().getDni());
+//                        row.add("");
+//                        row.add("");
+                        if(ap.getDocumento().getCliente()==null){row.add("");}else{row.add(ap.getDocumento().getCliente().getDni());}
+                        if(ap.getDocumento().getProveedor()==null){row.add("");}else{row.add(ap.getDocumento().getProveedor().getCif());}
+//                        row.add(ap.getDocumento().getProveedor().getCif());
                         row.add(ap.getCantidad());
                         dtm.addRow(row);
                     }
@@ -847,7 +853,7 @@ public class Modelo extends Conexion {
         return dtm;
     }
 
-    public DefaultTableModel insertarRow(int codigo, String nombre, double precio, int cantidad, int cantidadTotal, DefaultTableModel t) {
+    public DefaultTableModel insertarRowCliente(int codigo, String nombre, double precio, int cantidad, int cantidadTotal, DefaultTableModel t) {
 
         //Sección 1 
         //DefaultTableModel modelo=(DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel(); 
@@ -871,7 +877,28 @@ public class Modelo extends Conexion {
 
     }
     
-    public DefaultTableModel borrarRow(DefaultTableModel t, int selectedRow, int cantidad,int cantTotal){
+    public DefaultTableModel insertarRowProveedor(int codigo, String nombre, double precio, int cantidad, int cantidadTotal, DefaultTableModel t) {
+
+        //Sección 1 
+        //DefaultTableModel modelo=(DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel(); 
+
+        //Sección 2
+        Object[] fila = new Object[6];
+
+        //Sección 3
+        fila[0] = codigo;
+        fila[1] = nombre;
+        fila[2] = precio;
+        fila[3] = cantidad;
+
+        sumaPresupuesto = sumaPresupuesto+(precio*cantidad);
+        //Sección 4
+        t.addRow(fila);
+        return t;
+
+    }
+    
+    public DefaultTableModel borrarRowCliente(DefaultTableModel t, int selectedRow, int cantidad,int cantTotal){
          
  
          //Sección 2
@@ -893,6 +920,21 @@ public class Modelo extends Conexion {
         
         return t;
     }
+    
+    public DefaultTableModel borrarRowProveedor(DefaultTableModel t, int selectedRow, int cantidad, int cantTotal)
+    {
+        int a = selectedRow; 
+          
+        if (a<0)
+        { 
+            JOptionPane.showMessageDialog(null, 
+            "Debe seleccionar una fila de la tabla" ); 
+         }
+         t.setValueAt((cantTotal+cantidad), a, 3);
+        
+        return t;
+    }
+    
     public double getSumaPresupuesto(){
         return this.sumaPresupuesto;
     }
@@ -920,7 +962,7 @@ public class Modelo extends Conexion {
     public double getSumaBase(DefaultTableModel t){
         double suma =0;
         for(int i=0; i<t.getRowCount();i++){
-            suma = suma +((double)t.getValueAt(i, 1));
+            suma = suma +((double)t.getValueAt(i, 3));
         }
         
         return suma;
