@@ -290,9 +290,6 @@ public class Controlador implements ActionListener, MouseListener {
                     case "proveedores":
                         this.v.tbl_Tabla_Principal.setModel(m.getTableModelByArrayList(m.getProveedoresByQuestion(busqueda), "proveedores"));
                         break;
-                    case "pedidos":
-
-                        break;
                 }
                 break;
                 
@@ -359,7 +356,9 @@ public class Controlador implements ActionListener, MouseListener {
                 break;
             case insertarCliente:
                 if (JOptionPane.showConfirmDialog(this.v.Frame_Cliente, "¿Desea Insertar el nuevo Cliente? " + this.v.txt_Crear_Cliente_Dni.getText()) == 0) {
+                    //Insertar Cliente en la Base de datos 
                     m.insertCliente(this.v.txt_Crear_Cliente_Dni.getText(), this.v.txt_Crear_Cliente_Nombre.getText(), this.v.txt_Crear_Cliente_Apellidos.getText(), this.v.txt_Crear_Cliente_Domicilio.getText(), this.v.txt_Crear_Cliente_Correo.getText(), this.v.txt_Crear_Cliente_Telefono.getText());
+                    //Mostramos las correspondientes tablas actualizadas
                     this.tablaMenuPrincipal = "clientes";
                     this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("cliente"));
                     this.v.tbl_Tabla_Modificar_Cliente.setModel(this.m.getTableModel("cliente"));
@@ -368,12 +367,15 @@ public class Controlador implements ActionListener, MouseListener {
                 }
                 break;
             case buscarTablaModificarCliente:
+                //Añadimos el modelo a la tabla segun la busqueda realizada
                 this.v.tbl_Tabla_Modificar_Cliente.setModel(m.getTableModelByArrayList(m.getClientesByQuestion(this.v.txt_Modificar_Cliente_Buscar.getText()), "clientes"));
                 break;
             case modificarCliente:
                 if (JOptionPane.showConfirmDialog(this.v.Frame_Cliente, "¿Desea modificar el cliente: " + this.v.eti_Modificar_Cliente_Dni_antiguo.getText() + " ?") == 0) {
+                    //Modificamos el Cliente
                     m.modifyCliente(this.v.eti_Modificar_Cliente_Dni_antiguo.getText(), this.v.txt_Modificar_Cliente_Nombre.getText(), this.v.txt_Modificar_Cliente_Apellidos.getText(), this.v.txt_Modificar_Cliente_Domicilio.getText(), this.v.txt_Modificar_Cliente_Correo.getText(), this.v.txt_Modificar_Cliente_Telefono.getText());
                     this.tablaMenuPrincipal = "clientes";
+                    //Recargamos las tablas correspondientes actualizadas
                     this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("cliente"));
                     this.v.tbl_Tabla_Modificar_Cliente.setModel(this.m.getTableModel("cliente"));
                     this.v.tbl_Eliminar_Cliente.setModel(this.m.getTableModel("cliente"));
@@ -381,10 +383,12 @@ public class Controlador implements ActionListener, MouseListener {
                 }
                 break;
             case buscarTablaEliminarCliente:
+                //Añadimos el modelo a la tabla segun la busqueda realizada
                 this.v.tbl_Eliminar_Cliente.setModel(m.getTableModelByArrayList(m.getClientesByQuestion(this.v.txt_Modificar_Cliente_Buscar.getText()), "clientes"));
                 break;
             case eliminarCliente:
                 if (JOptionPane.showConfirmDialog(this.v.Frame_Cliente, "¿De verdad desea eliminar " + this.v.tbl_Eliminar_Cliente.getValueAt(this.v.tbl_Eliminar_Cliente.getSelectedRow(), 0).toString() + "?") == 0) {
+                    //Eliminamos el Cliente seleccionado
                     m.deleteCliente(this.v.tbl_Eliminar_Cliente.getValueAt(this.v.tbl_Eliminar_Cliente.getSelectedRow(), 0).toString());
                     this.tablaMenuPrincipal = "clientes";
                     this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("cliente"));
@@ -396,12 +400,15 @@ public class Controlador implements ActionListener, MouseListener {
 //Menu Proveedor-----------------------------------------------------------------------------------------------------------------
            
             case cerrarFrameProveedor:
+                //cerramos y limpiamos el frame y los campos 
                 this.v.Frame_Proveedor.setVisible(false);
                 Clean();
                 break;
             case insertarProveedor:
                 if (JOptionPane.showConfirmDialog(this.v.Frame_Proveedor, "¿Desea insertar el Proveedor?") == 0) {
+                    //Insertamos proveedor
                     m.insertProveedor(this.v.txt_Crear_Proveedor_Cif.getText(), this.v.txt_Crear_Proveedor_DSocial.getText(), this.v.txt_Crear_Proveedor_Telefono.getText(), this.v.txt_Crear_Proveedor_Correo.getText());
+                    //Recargamos el modelo de las tablas ya actualizadas
                     this.tablaMenuPrincipal = "proveedores";
                     this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("proveedor"));
                     this.v.tbl_Tabla_Modificar_Proveedor.setModel(this.m.getTableModel("proveedor"));
@@ -410,11 +417,14 @@ public class Controlador implements ActionListener, MouseListener {
                 }
                 break;
             case buscarTablaModificarProveedor:
+                //Añade el modelo a la tabla segun la busqueda realizada
                 this.v.tbl_Tabla_Modificar_Proveedor.setModel(m.getTableModelByArrayList(m.getProveedoresByQuestion(this.v.txt_Modificar_Proveedor_Buscar.getText()), "proveedores"));
                 break;
             case modificarProveedor:
                 if (JOptionPane.showConfirmDialog(this.v.Frame_Proveedor, "¿Desea modificar el Proveedor: " + this.v.eti_Modificar_Proveedor_CIF.getText() + "?") == 0) {
+                    //Modificamos el Proveedor con los datos de los txt
                     m.modifyProveedor(this.v.eti_Modificar_Proveedor_CIF.getText(), this.v.txt_Modificar_Proveedor_DSocial.getText(), this.v.txt_Modificar_Proveedor_Telefono.getText(), this.v.txt_Modificar_Proveedor_Correo.getText());
+                    //Recargamos las tablas actuaizadas
                     this.tablaMenuPrincipal = "proveedores";
                     this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("proveedor"));
                     this.v.tbl_Tabla_Modificar_Proveedor.setModel(this.m.getTableModel("proveedor"));
@@ -423,11 +433,14 @@ public class Controlador implements ActionListener, MouseListener {
                 }
                 break;
             case buscarTablaEliminarProveedor:
+                //Añadimos el modelo de las tablas segun la busqueda
                 this.v.tbl_Eliminar_Proveedor.setModel(m.getTableModelByArrayList(m.getProveedoresByQuestion(this.v.txt_Modificar_Proveedor_Buscar.getText()), "proveedores"));
                 break;
             case eliminarProveedor:
                 if (JOptionPane.showConfirmDialog(this.v.Frame_Proveedor, "¿Desea eliminar el Proveedor: " + this.v.tbl_Eliminar_Proveedor.getValueAt(this.v.tbl_Eliminar_Proveedor.getSelectedRow(), 0).toString() + "? Si lo elimina se eliminaran los pedidos adheridos a este proveedor.") == 0) {
+                    //Borramos el proveedor seleccionado de la tabla
                     m.deleteProveedor(this.v.tbl_Eliminar_Proveedor.getValueAt(this.v.tbl_Eliminar_Proveedor.getSelectedRow(), 0).toString());
+                    //Actualizamos las tablas con los datos actualizados
                     this.tablaMenuPrincipal = "proveedores";
                     this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("proveedor"));
                     this.v.tbl_Tabla_Modificar_Proveedor.setModel(this.m.getTableModel("proveedor"));
@@ -438,12 +451,15 @@ public class Controlador implements ActionListener, MouseListener {
 //Menu Articulos---------------------------------------------------------------------------------------------------------------------------------------                
             
             case cerrarFrameArticulo:
+                //Cierra el frame y limpia los campos
                 this.v.Frame_Articulo.setVisible(false);
                 Clean();
                 break;
             case insertarArticulo:
                 if (JOptionPane.showConfirmDialog(this.v.Frame_Articulo, "¿Desea introducir el Articulo?") == 0) {
+                    //Insertar articulo cojiendo los campos rellenados (controlarlos)
                     m.insertArticulo(this.v.txt_Crear_Articulo_Nombre.getText(), Double.parseDouble(this.v.txt_Crear_Articulo_Precio.getText()), Integer.parseInt(this.v.spinner_Crear_Articulo_Cantidad.getValue().toString()));
+                    //Actualizamos las tablas con los ultimos cambios
                     this.tablaMenuPrincipal = "articulos";
                     this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
                     this.v.tbl_Tabla_Modificar_Articulo.setModel(this.m.getTableModel("articulo"));
@@ -452,29 +468,37 @@ public class Controlador implements ActionListener, MouseListener {
                 }
                 break;
             case buscarTablaModificarArticulo:
+                //Añadimos el modelo segun la busqueda
                 this.v.tbl_Tabla_Modificar_Articulo.setModel(m.getTableModelByArrayList(m.getArticulosByQuestion(this.v.txt_Modificar_Articulo_Buscar.getText()), "articulos"));
                 break;
             case modificarArticulo:
                 if (JOptionPane.showConfirmDialog(this.v.Frame_Articulo, "¿Desea modificar el Articulo" + this.v.txt_Modificar_Articulo_Nombre.getText() + "?") == 0) {
+                    //Preparamos las variables que nos haran falta para hacer la modificacion
                     double decimal = Double.parseDouble(String.valueOf(this.v.txt_Modificar_Articulo_Precio.getText()));
                     int value = (Integer) this.v.sp_Modificar_Articulo_Spinner.getValue();
                     int id = Integer.parseInt(String.valueOf(this.v.eti_Modificar_Articulo_ID.getText()));
+                    //Modificamos el articulo y le pasamos los valores nuevos
                     m.modifyArticulo(id, this.v.txt_Modificar_Articulo_Nombre.getText(), decimal, value);
                     this.tablaMenuPrincipal = "articulos";
+                    //Actualizamos las tablas de articulos
                     this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
                     this.v.tbl_Tabla_Modificar_Articulo.setModel(this.m.getTableModel("articulo"));
                     this.v.tbl_Eliminar_Articulo.setModel(this.m.getTableModel("articulo"));
+                    //limpiamos campos
                     Clean();
                 }
                 break;
 
             case buscarTablaEliminarArticulo:
+                //Añadir modelo a la tabla segun la busqueda
                 this.v.tbl_Eliminar_Articulo.setModel(m.getTableModelByArrayList(m.getArticulosByQuestion(this.v.txt_Modificar_Articulo_Buscar.getText().toString()), "articulos"));
                 break;
 
             case eliminarArticulo:
                 if (JOptionPane.showConfirmDialog(this.v.Frame_Articulo, "¿Desea eliminar el Articulo:" + this.v.tbl_Eliminar_Articulo.getValueAt(this.v.tbl_Eliminar_Articulo.getSelectedRow(), 0).toString() + "? Si lo hace se eliminaran los Pedidos adheridos a este articulo.") == 0) {
+                    //Eliminamos el articulo seleccionado de la tabla
                     m.deleteArticulo(Integer.parseInt(this.v.tbl_Eliminar_Articulo.getValueAt(this.v.tbl_Eliminar_Articulo.getSelectedRow(), 0).toString()));
+                    //Refrescamos las tablas actualizadas
                     this.tablaMenuPrincipal = "articulos";
                     this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
                     this.v.tbl_Tabla_Modificar_Articulo.setModel(this.m.getTableModel("articulo"));
@@ -486,12 +510,14 @@ public class Controlador implements ActionListener, MouseListener {
 //Menu Gastos---------------------------------------------------------------------------------------------------------------------------------------
             
             case cerrarFrameGastos:
+                // cerramos el frame
                 this.v.Frame_Gastos.setVisible(false);
                 break;
                 
 //Menu CobrosPagos-----------------------------------------------------------------------------------------------------------------                
 
             case cerrarFrameCobrosPagos:
+                //cerramos el frame
                 this.v.Frame_CobrosPagos.setVisible(false);
                 break;
 //            case cambiarFechaCobros:
@@ -502,20 +528,24 @@ public class Controlador implements ActionListener, MouseListener {
 //Menu Configuracion Ver datos Empresa---------------------------------------------------------------------------------------------------                
 
             case cerrarConfig:
+                //cerramos el frame
                 this.v.Frame_DatosEmpresa.setVisible(false);
                 break;
             case modificarConfig:
-
+                //mostramos un ConfirmDialog para preguntarle al usuario si quiere o no hacer la modificacion
                 int resul = JOptionPane.showConfirmDialog(this.v.Frame_DatosEmpresa, "¿Desea modificarlos siguientes campos? \n"
                         + "Nombre: " + this.v.txt_DatosEmpresa_Nombre.getText() + "\n"
                         + "Correo: " + this.v.txt_DatosEmpresa_Correo.getText() + "\n"
                         + "Direccion: " + this.v.txt_DatosEmpresa_Direccion.getText() + "\n"
                         + "IVA: " + this.v.txt_DatosEmpresa_Iva.getText());
+                //segun el resultado se hara o no
                 if (resul == 0) {
+                    //si selecciona SI  entonces se llama a LectorProperties y se le pasan los parametros que se van a insertar en el archivo de configuracion
                     LectorProperties.setPropiedad(this.v.txt_DatosEmpresa_Nombre.getText(),
                             this.v.txt_DatosEmpresa_Correo.getText(),
                             this.v.txt_DatosEmpresa_Direccion.getText(),
                             this.v.txt_DatosEmpresa_Iva.getText());
+                    //Aqui leemos los datos del archivo de configuracion y se le añaden a los labels del frame configuracion
                     this.v.eti_DatosEmpresa_Nombre.setText(LectorProperties.getPropiedad("NOMBRE"));
                     this.v.eti_DatosEmpresa_Correo.setText(LectorProperties.getPropiedad("CORREO"));
                     this.v.eti_DatosEmpresa_Direccion.setText(LectorProperties.getPropiedad("DIRECCION"));
@@ -527,17 +557,24 @@ public class Controlador implements ActionListener, MouseListener {
 //Pedidos -----------------------------------------------------------------------------------------------------------------------
            
             case btnAñadirArticuloPedido:
+                //segun el radio button seleccionado se metera en la parte cliente o proveedor
                 if(this.v.rad_Pedido_Cliente.isSelected()) {
+                    //si es ciente hacemos la verificacion de que la cantidad del spinner es mayor que 0  y a demas la cantidad del spinner es menor o igual a la cantidad de la tabla Articulo
                     if ((int) this.v.sp_Pedido_SpinnerCantidad.getValue() > 0 && (int) this.v.sp_Pedido_SpinnerCantidad.getValue() <= art_Cantidad) {
+                        //aqui le pasamos el modelo a la tabal ArticulosPedidos y llamamos al metodo insertarRowCLiente que lo que hace es añadir la Row seleccionada en la tabla Articulos
                         this.v.tbl_Pedido_ArticulosPedidos.setModel(m.insertarRowCliente(art_Codigo, art_Nombre, art_Precio, (int) this.v.sp_Pedido_SpinnerCantidad.getValue(), art_Cantidad, (DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel()));
+                        //este metodo modifica la tabla Articulo y le cambia la cantidad a a cantidad resutante del traspaso
                         m.borrarRowCliente((DefaultTableModel) this.v.tbl_Pedido_Articulos.getModel(), row, (int) this.v.sp_Pedido_SpinnerCantidad.getValue(), art_Cantidad);
+                        //los atributos que se rellenan de la fila seleccionada de tabla Articulos se resetean a 0 ó a ""
                         art_Codigo = 0;
                         art_Nombre = "";
                         art_Precio = 0;
                         art_Cantidad = 0;
+                        //añadimos el presupuesto total SIN el iva, SOLO la suma del precio BASE
                         this.v.eti_Presupuesto.setText("" + m.getSumaPresupuesto() + "€");
                     }
                 } else if (this.v.rad_Pedido_Proveedor.isSelected()) {
+                    //esto es lo mismo que el anterior pero con proveedor seleccionado Y en lugar de restar la cantidad de la tabla Articulo, se le suma el valor del spinner a la Row Seleccionada de la tabla Articulo. :)
                     if ((int) this.v.sp_Pedido_SpinnerCantidad.getValue() > 0 && (int) this.v.sp_Pedido_SpinnerCantidad.getValue() <= art_Cantidad) {
                         this.v.tbl_Pedido_ArticulosPedidos.setModel(m.insertarRowProveedor(art_Codigo, art_Nombre, art_Precio, (int) this.v.sp_Pedido_SpinnerCantidad.getValue(), art_Cantidad, (DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel()));
                         m.borrarRowProveedor((DefaultTableModel) this.v.tbl_Pedido_Articulos.getModel(), row, (int) this.v.sp_Pedido_SpinnerCantidad.getValue(), art_Cantidad);
@@ -550,16 +587,20 @@ public class Controlador implements ActionListener, MouseListener {
                 }
                 break;
             case btnQuitarArticuloPedido:
+                //esto solo limpia y resetea las tablas, porq estas tablas son solo temporales, no se hace nada en la base de datos
                 limpiarArticulosPedidos();
                 break;
             case radioPedidoCliente:
-                this.v.pnl_Pedido_ClienteProveedor.removeAll();
-                this.v.pnl_Pedido_ClienteProveedor.add(this.v.pnl_Pedido_Contenedor_Cliente, BorderLayout.CENTER);
-                this.v.pnl_Pedido_ClienteProveedor.revalidate();
-                this.v.pnl_Pedido_ClienteProveedor.repaint();
+                //aqui controlamos el valor del radio button y se procedera a mostar un panel de Cliente con sus etiquetas
+                this.v.pnl_Pedido_ClienteProveedor.removeAll();//eliminamos 
+                this.v.pnl_Pedido_ClienteProveedor.add(this.v.pnl_Pedido_Contenedor_Cliente, BorderLayout.CENTER);//insertamo el panel
+                this.v.pnl_Pedido_ClienteProveedor.revalidate();//revalidamos
+                this.v.pnl_Pedido_ClienteProveedor.repaint();//y pintamos
+                //listo, ahora solo limpiamos los valores de las tablas, por si antes se ha hecho algo en proveedor
                 limpiarArticulosPedidos();
                 break;
             case radioPedidoProveedor:
+                //aqui lo mismo que el anteriro solo que el panel que se maneja es el panel de Proveedor
                 this.v.pnl_Pedido_ClienteProveedor.removeAll();
                 this.v.pnl_Pedido_ClienteProveedor.add(this.v.pnl_Pedido_Contenedor_Proveedor, BorderLayout.CENTER);
                 this.v.pnl_Pedido_ClienteProveedor.revalidate();
@@ -567,22 +608,24 @@ public class Controlador implements ActionListener, MouseListener {
                 limpiarArticulosPedidos();
                 break;
             case hacerPedido:
+                //comprobamos que la tabla ArticulosPedidos esta almenos con una fila Y se a seleccionado  un cliente
                 if (fila_Cliente_Pedido >= 0 && this.v.tbl_Pedido_ArticulosPedidos.getRowCount() > 0) {
-                    if (this.v.rad_Pedido_Cliente.isSelected()) {
+                    //si es así entonces se muestra el frame Factura con el panel Cliente porque...
+                    if (this.v.rad_Pedido_Cliente.isSelected()) {//...el radio button Cliente esta seleccionado
                         this.v.Frame_Pedido.setVisible(false);
                         this.v.Frame_Factura.setVisible(true);
                         this.v.Frame_Factura.setSize(705, 500);
                         this.v.Frame_Factura.setLocationRelativeTo(v);
-
+                        //aqui añadimos el panel de cliente con los datos del cliente seleccionado anteriormente
                         this.v.pnl_Factura_ClienteProveedor.removeAll();
                         this.v.pnl_Factura_ClienteProveedor.add(this.v.pnl_Factura_Cliente, BorderLayout.CENTER);
                         this.v.pnl_Factura_ClienteProveedor.revalidate();
                         this.v.pnl_Factura_ClienteProveedor.repaint();
-
-                        rellenarFacturaCliente();
+                        
+                        rellenarFacturaCliente();//aqui es donde se rellena los campos (labels) con los datos de clientes
                     }
-                } else if(fila_Proveedor_Pedido >= 0 && this.v.tbl_Pedido_ArticulosPedidos.getRowCount() > 0)
-                {
+                    //comprobamos que la tabla ArticulosPedidos esta almenos con una fila Y se a seleccionado un Proveedor
+                } else if(fila_Proveedor_Pedido >= 0 && this.v.tbl_Pedido_ArticulosPedidos.getRowCount() > 0){//aqui es exactamente lo mismo que el anterior pero con el panel PRoveedor
                     if(this.v.rad_Pedido_Proveedor.isSelected())
                     {
                         this.v.Frame_Pedido.setVisible(false);
@@ -594,30 +637,19 @@ public class Controlador implements ActionListener, MouseListener {
                         this.v.pnl_Factura_ClienteProveedor.add(this.v.pnl_Factura_Proveedor, BorderLayout.CENTER);
                         this.v.pnl_Factura_ClienteProveedor.revalidate();
                         this.v.pnl_Factura_ClienteProveedor.repaint();
-                    }
-                }else {
-                    JOptionPane.showMessageDialog(null, "Tienes que seleccionar algun cliente o un proveedor para poder realizar el pedido.");
-                }
-                if (fila_Proveedor_Pedido >= 0 && this.v.tbl_Pedido_ArticulosPedidos.getRowCount() > 0) {
-                    if (this.v.rad_Pedido_Proveedor.isSelected()) {
-                        this.v.Frame_Pedido.setVisible(false);
-                        this.v.Frame_Factura.setVisible(true);
-                        this.v.Frame_Factura.setSize(705, 500);
-                        this.v.Frame_Factura.setLocationRelativeTo(v);
-
-                        this.v.pnl_Factura_ClienteProveedor.removeAll();
-                        this.v.pnl_Factura_ClienteProveedor.add(this.v.pnl_Factura_Proveedor, BorderLayout.CENTER);
-                        this.v.pnl_Factura_ClienteProveedor.revalidate();
-                        this.v.pnl_Factura_ClienteProveedor.repaint();
                         rellenarFacturaProveedor();
                     }
+                }else {//si no, se muestra un mensaje de que tienes que seleccionar un cliente o un proveedor
+                    JOptionPane.showMessageDialog(null, "Tienes que seleccionar algun cliente o un proveedor para poder realizar el pedido.");
                 }
+                //Aqui reseteamos las tablas de tbl_Factura
                 DefaultTableModel t4 = (DefaultTableModel) this.v.tbl_Factura.getModel();
 
-                for (int i = 0; i < this.v.tbl_Factura.getRowCount(); i++) {
-                    t4.removeRow(i);
+                for (int i = 0; i < this.v.tbl_Factura.getRowCount(); i++) {//recorremos la tabla
+                    t4.removeRow(i);//y vamos borrando
                     i -= 1;
                 }
+                //pasamos a los labels los datos necesarios y le damos a la tabla Factura el modelo 
                 this.v.tbl_Factura.setModel(m.rellenarProforma((DefaultTableModel) this.v.tbl_Factura.getModel(), (DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel()));
                 this.v.eti_Factura_Base.setText("" + m.getSumaBase((DefaultTableModel) this.v.tbl_Factura.getModel()) + "");
                 this.v.eti_Factura_IVA.setText("" + m.getSumaIva((DefaultTableModel) this.v.tbl_Factura.getModel()) + "");
@@ -627,43 +659,55 @@ public class Controlador implements ActionListener, MouseListener {
 //Factura------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 
             case cancelarFactura:
+                //cerramos el frame Factura y mostramos el de Pedido
                 this.v.Frame_Factura.setVisible(false);
                 this.v.Frame_Pedido.setVisible(true);
                 break;
             case confirmarFactura:
+                //Seleccionamos y preparamos la Fecha de ahora mismo
                     Calendar fecha = Calendar.getInstance();
                     now= fecha.get(Calendar.DAY_OF_WEEK)+"/"+fecha.get(Calendar.MONTH)+"/"+fecha.get(Calendar.YEAR);
-                    System.out.println(""+now);
-                    
+                    System.out.println(""+now);//mostramos para comprobar 
+                    //preparamos los datos de precio base y de dinero de iva
                     double base = Double.parseDouble(this.v.eti_Factura_Base.getText());
                     double iva = Double.parseDouble(this.v.eti_Factura_IVA.getText());
-                    
+                    //creamos un boolean false para posterior mente controlar la creacion del PDF
                     boolean insertado = false;
 
                     ArrayList<ArticuloPedido> arrayList=new ArrayList<ArticuloPedido>();
-                    
+                    //si esta el cliente seleccionado y seleccionamos SI en el ConfirmDialog, entonces se inserta la Factura
                 if (this.v.rad_Pedido_Cliente.isSelected() && JOptionPane.showConfirmDialog(null, "¿Estas seguro de realizar el pedido?") == 0) {
-                    
+                    //insertamos la Factura, que para nosotros es llamado Documento
                     m.insertDocumentoCliente(m.getClienteByDni(this.v.eti_Factura_Cliente_Dni.getText()), "Cliente", now, base, iva, (base + iva));
+                    //hacemos un iterator y recorremos los codigos de Documento para obtener el ultimo Codigo de Documento de la base de datos
                     Iterator it = m.getDocumentos().iterator();
                     int codigo =0;
                     while(it.hasNext()){
                         Documento d= (Documento) it.next();
                         codigo = d.getCodigo();
                     }
+                    //una vez finalice el While obtendremos el ultimo codigo de documento
                     for(int i=0;i<this.v.tbl_Pedido_ArticulosPedidos.getRowCount();i++){
+                        //recorremos la tabla ArticulosPedidos y hacemos las insercciones en la talba articulos-pedidos
                         
+                        //preparamos los atributos que nos haran falta
                         int cod_articulo = (int) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 0);
                         int cantidad = (int) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 3);
+                        //hacemos la inserccion
                         m.insertArticuloPedido(cod_articulo, codigo, cantidad);
+                        //añadimos el Articulo al array list para almacenar los articulos que se van metiendo
                         arrayList.add(m.getArticuloPedido(cod_articulo, codigo));
+                        //modificamos los resultados del pedido, para restarselos a la tabla Articulos de la base de datos
                         m.modifyArticulo(cod_articulo, this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 1).toString(), (double) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 2), (int) this.v.tbl_Pedido_Articulos.getValueAt(i, 3)); 
+                        //realizamos la inseccion del Cobro en la base de datos
                         m.insertCobro(m.getDocumentoByCodigo(codigo), "Inmediata", now, (base+iva));
                     }
+                    //cambiamos la variable insertado a verdadero, para que luego nos pida hacer un PDF
                     insertado = true;
                 } else if (this.v.rad_Pedido_Proveedor.isSelected() && JOptionPane.showConfirmDialog(null, "¿Estas seguro de realizar el pedido?") == 0) {
+                    //Insertamos el Documento segun el proveedor que se a seleccionado anteriormente
                     m.insertDocumentoProveedor(m.getProveedorByCif(this.v.eti_Factura_Proveedor_Cif.getText()), "Proveedor", now, base, iva, (base + iva));
-                    
+                    //recorremos y cojemos en ultimo codigo, como hicimos en Cliente
                     Iterator it = m.getDocumentos().iterator();
                     int codigo =0;
                     while(it.hasNext()){
@@ -671,33 +715,40 @@ public class Controlador implements ActionListener, MouseListener {
                         codigo = d.getCodigo();
                     }
                     for(int i=0;i<this.v.tbl_Pedido_ArticulosPedidos.getRowCount();i++){
-                        
+                        //Recorremos los articulos de la tabla ArticulosPedidos y los vamos metiendo en el array list, igual que antes
                         int cod_articulo = (int) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 0);
                         int cantidad = (int) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 3);
+                        //insertamos en la tabla Articulo-pedido
                         m.insertArticuloPedido(cod_articulo, codigo, cantidad);
+                        //añadimos al array list
                         arrayList.add(m.getArticuloPedido(cod_articulo, codigo));
+                        //y finalmente modificamos en la base de datos, PERO aqui en lugar de restar, sumamos, por que emos pedido ese articulo al proveedor
                         m.modifyArticulo(cod_articulo, this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 1).toString(), (double) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 2), (int) this.v.tbl_Pedido_Articulos.getValueAt(i, 3));
                     
                     }
-                    insertado = true;
+                    
                 }
-                
-                
-                
+                //si la variable insertado es true  y es pedido Cliente seleccionado(el radio button)
                 if (insertado == true && this.v.rad_Pedido_Cliente.isSelected()) {
+                    //entonces procedera a llamar al FileChooser y se buscara la ubicacion y el nombre
                     int result = this.v.jFileChooser.showSaveDialog(this.v.jFileChooser);
+                   //comprobamo el resultado del Filechoser
                     if (result == this.v.jFileChooser.APPROVE_OPTION) {
-
+                        //si se a aceptado se coje el nombre y se crea el PDF
                         generatePDF g = new generatePDF();
                         double suma = Double.parseDouble(this.v.eti_Factura_Total.getText());
+                        
                         if (this.v.rad_Pedido_Cliente.isSelected()) {
+                            //llamamos al metodo de generar PDF y lo creamos
                             g.generatePDFFactura(this.v.jFileChooser.getSelectedFile().getAbsolutePath(), m.getClienteByDni(this.v.eti_Factura_Cliente_Dni.getText()), arrayList , suma);
                         }
                     }
+                    //cerramos el Frame Factura
                     this.v.Frame_Factura.setVisible(false);
                 }
                 break;
             case cerrarFramePedido:
+                //cerramos el Frame Pedido y limpiamos los campos
                 this.v.Frame_Pedido.setVisible(false);
                 limpiarArticulosPedidos();
                 break;
@@ -705,21 +756,28 @@ public class Controlador implements ActionListener, MouseListener {
 //Proforma- - - - - - -   - --- -  - - - -  - --------------------------------------------------------------------------
             
             case mostrarFrameProforma:
+                //Preparamos el Iva cojiendolo del fichero
                 double IVA = Double.parseDouble(LectorProperties.getPropiedad("IVA"));
                 IVA = IVA/100;
+                //mostramos el frame Proforma
                 this.v.Frame_Proforma.setVisible(true);
                 this.v.Frame_Proforma.setSize(700, 600);
                 this.v.Frame_Proforma.setLocationRelativeTo(v);
+                //borramos  los datos de la tabla por si estaba llena de datos antiguos
                 DefaultTableModel t3 = (DefaultTableModel) this.v.tbl_Proforma.getModel();
 
                 for (int i = 0; i < this.v.tbl_Proforma.getRowCount(); i++) {
                     t3.removeRow(i);
                     i -= 1;
                 }
+                
+                //le enviamos el modelo nuevo y cargamos la tabla
                 this.v.tbl_Proforma.setModel(m.rellenarProforma((DefaultTableModel) this.v.tbl_Proforma.getModel(), (DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel()));
+               //enviamos el Total del importe, base + Iva
                 this.v.eti_Proforma_TOTAL.setText("" + (m.getSumaPresupuesto() * IVA+ m.getSumaPresupuesto()));
                 break;
             case salirFrameProforma:
+                //cierra la proforma
                 this.v.Frame_Proforma.setVisible(false);
                 break;
 
