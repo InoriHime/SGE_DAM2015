@@ -438,6 +438,7 @@ public class Modelo extends Conexion {
         getSession().save(c);
         if(!tx.isActive()){tx=getSession().beginTransaction();}
         tx.commit();
+        JOptionPane.showMessageDialog(null, "Se ha realizado el cobro "+formaPago);
     }
     
     public void modifyCobro(int codigoAntiguo, int codigoNuevo, Documento documento, String formaPago, String fecha, double importe)
@@ -943,6 +944,8 @@ public class Modelo extends Conexion {
     }
     public DefaultTableModel rellenarProforma(DefaultTableModel tablaProforma, DefaultTableModel tablaArticulos){
         Object[] fila = new Object[6];
+        double IVA = Double.parseDouble(LectorProperties.getPropiedad("IVA"));
+        IVA = IVA/100;
         for(int i=0;i<tablaArticulos.getRowCount();i++){
             double primero=Double.parseDouble(String.valueOf(tablaArticulos.getValueAt(i, 2)));
             double segundo=Double.parseDouble(String.valueOf(tablaArticulos.getValueAt(i, 3)));
@@ -951,8 +954,8 @@ public class Modelo extends Conexion {
             fila[2]= tablaArticulos.getValueAt(i, 3);
             double total = primero*segundo;
             fila[3]= total;
-            fila[4]= total*0.21;
-            fila[5]= total+(total*0.21);
+            fila[4]= total*IVA;
+            fila[5]= total+(total*IVA);
             
             tablaProforma.addRow(fila);
         }

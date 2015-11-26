@@ -5,10 +5,8 @@
  */
 package Modelo;
 
-import Hibernate.Articulo;
 import Hibernate.ArticuloPedido;
 import Hibernate.Cliente;
-import Hibernate.Proveedor;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -36,75 +34,48 @@ public class generatePDF {
         try 
         {
             Document documento = new Document();
-            FileOutputStream ficheroPdf = new FileOutputStream(url+"factura.pdf");
+            FileOutputStream ficheroPdf = new FileOutputStream(url+"_factura.pdf");
             PdfWriter.getInstance(documento,ficheroPdf).setInitialLeading(20);
             
             documento.open();
             
-            if(cliente_proveedor instanceof Cliente)
-            {
+           
                 Cliente c=(Cliente) cliente_proveedor;
                 
                 documento.add(new Paragraph("FACTURA",FontFactory.getFont("arial",30,Font.BOLD,BaseColor.BLACK)));
-                documento.add(new Paragraph(""));
+                documento.add(new Paragraph(" "));
                 documento.add(new Paragraph("---DATOS--- "));
                 documento.add(new Paragraph("DNI: "+c.getDni(),FontFactory.getFont("arial",25,Font.BOLD,BaseColor.BLACK)));
                 documento.add(new Paragraph("NOMBRE: "+c.getNombre(),FontFactory.getFont("arial",25,Font.BOLD,BaseColor.BLACK)));
                 documento.add(new Paragraph("APELLIDOS: "+c.getApellidos(),FontFactory.getFont("arial",25,Font.BOLD,BaseColor.BLACK)));
-                documento.add(new Paragraph(""));
-                documento.add(new Paragraph(""));
+                documento.add(new Paragraph(" "));
+                documento.add(new Paragraph(" "));
                 
              
-                
+                int cont=0;
                 PdfPTable tabla = new PdfPTable(3);
-                Iterator it=articulos.iterator();
-                while(it.hasNext())
-                {
-                    Articulo art=(Articulo) it.next();
-                    tabla.addCell(art.getNombre());
-                    //tabla.addCell(Double.toString(art.getPrecio()));
-                    //tabla.addCell(Integer.toString(art.getCantidad()));
-                   // suma=suma+art.getPrecio()*art.getCantidad();
-                   
+                Iterator it = articulos.iterator();
+                while (it.hasNext()) {
+                    if (cont == 0) {
+                        tabla.addCell("NOMBRE");
+                        tabla.addCell("PRECIO");
+                        tabla.addCell("CANTIDAD");
+                    }
+                    ArticuloPedido artPed = (ArticuloPedido) it.next();
+                    tabla.addCell(artPed.getArticulo().getNombre());
+                    tabla.addCell(Double.toString(artPed.getArticulo().getPrecio()));
+                    tabla.addCell(Integer.toString(artPed.getCantidad()));
+                    suma = suma + artPed.getArticulo().getPrecio() * artPed.getArticulo().getCantidad();
+                    cont++;
                 }
+
                 documento.add(tabla);
-                
+
                 documento.add(new Paragraph(""));
-                documento.add(new Paragraph("TOTAL: "+suma,FontFactory.getFont("arial",25,Font.NORMAL,BaseColor.RED)));
+                documento.add(new Paragraph("TOTAL: "+suma+" €",FontFactory.getFont("arial",25,Font.NORMAL,BaseColor.RED)));
                 documento.close();
-            }
-            else if(cliente_proveedor instanceof Proveedor)
-            {
-                Proveedor p=(Proveedor) cliente_proveedor;
-                
-                documento.add(new Paragraph("FACTURA",FontFactory.getFont("arial",30,Font.BOLD,BaseColor.BLACK)));
-                documento.add(new Paragraph(""));
-                documento.add(new Paragraph("---DATOS--- "));
-                documento.add(new Paragraph("CIF: "+p.getCif(),FontFactory.getFont("arial",25,Font.BOLD,BaseColor.BLACK)));
-                documento.add(new Paragraph("DENOMINACION: "+p.getDenominacionSocial(),FontFactory.getFont("arial",25,Font.BOLD,BaseColor.BLACK)));
-                documento.add(new Paragraph(""));
-                documento.add(new Paragraph(""));
-                
-           
-                
-                PdfPTable tabla = new PdfPTable(3);
-                Iterator it=articulos.iterator();
-                while(it.hasNext())
-                {
-                    Articulo art=(Articulo) it.next();
-                    tabla.addCell(art.getNombre());
-                    tabla.addCell(Double.toString(art.getPrecio()));
-                    tabla.addCell(Integer.toString(art.getCantidad()));
-                    suma=suma+art.getPrecio()*art.getCantidad();
-                }
-                documento.add(tabla);
-                
-                documento.add(new Paragraph(""));
-                documento.add(new Paragraph("TOTAL: "+suma,FontFactory.getFont("arial",25,Font.NORMAL,BaseColor.RED)));
-                documento.close();
-                
-                System.out.println(""+url);
-            }
+            
+            
         }
         catch (DocumentException ex) 
         {

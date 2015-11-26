@@ -21,7 +21,6 @@ import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -44,7 +43,8 @@ public class Controlador implements ActionListener, MouseListener {
     String art_Nombre;
     double art_Precio;
     int art_Cantidad;
-
+    
+    
     int row;
     String now;
     public Controlador(Vista_Principal vista) {
@@ -110,6 +110,8 @@ public class Controlador implements ActionListener, MouseListener {
         } catch (UnsupportedLookAndFeelException ex) {
         }
         
+        
+
         this.v.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/img/stk.jpg")));
         restriccionesTextFields();
         //Cargamos la tabla del menu principal por defecto
@@ -424,7 +426,7 @@ public class Controlador implements ActionListener, MouseListener {
                 this.v.tbl_Eliminar_Proveedor.setModel(m.getTableModelByArrayList(m.getProveedoresByQuestion(this.v.txt_Modificar_Proveedor_Buscar.getText()), "proveedores"));
                 break;
             case eliminarProveedor:
-                if (JOptionPane.showConfirmDialog(this.v.Frame_Proveedor, "¿Desea eliminar el Proveedor: " + this.v.tbl_Eliminar_Proveedor.getValueAt(this.v.tbl_Eliminar_Proveedor.getSelectedRow(), 0).toString() + "?") == 0) {
+                if (JOptionPane.showConfirmDialog(this.v.Frame_Proveedor, "¿Desea eliminar el Proveedor: " + this.v.tbl_Eliminar_Proveedor.getValueAt(this.v.tbl_Eliminar_Proveedor.getSelectedRow(), 0).toString() + "? Si lo elimina se eliminaran los pedidos adheridos a este proveedor.") == 0) {
                     m.deleteProveedor(this.v.tbl_Eliminar_Proveedor.getValueAt(this.v.tbl_Eliminar_Proveedor.getSelectedRow(), 0).toString());
                     this.tablaMenuPrincipal = "proveedores";
                     this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("proveedor"));
@@ -471,7 +473,7 @@ public class Controlador implements ActionListener, MouseListener {
                 break;
 
             case eliminarArticulo:
-                if (JOptionPane.showConfirmDialog(this.v.Frame_Articulo, "¿Desea eliminar el Articulo:" + this.v.tbl_Eliminar_Articulo.getValueAt(this.v.tbl_Eliminar_Articulo.getSelectedRow(), 0).toString() + "?") == 0) {
+                if (JOptionPane.showConfirmDialog(this.v.Frame_Articulo, "¿Desea eliminar el Articulo:" + this.v.tbl_Eliminar_Articulo.getValueAt(this.v.tbl_Eliminar_Articulo.getSelectedRow(), 0).toString() + "? Si lo hace se eliminaran los Pedidos adheridos a este articulo.") == 0) {
                     m.deleteArticulo(Integer.parseInt(this.v.tbl_Eliminar_Articulo.getValueAt(this.v.tbl_Eliminar_Articulo.getSelectedRow(), 0).toString()));
                     this.tablaMenuPrincipal = "articulos";
                     this.v.tbl_Tabla_Principal.setModel(this.m.getTableModel("articulo"));
@@ -621,7 +623,9 @@ public class Controlador implements ActionListener, MouseListener {
                 this.v.eti_Factura_IVA.setText("" + m.getSumaIva((DefaultTableModel) this.v.tbl_Factura.getModel()) + "");
                 this.v.eti_Factura_Total.setText("" + m.getSumaTotal((DefaultTableModel) this.v.tbl_Factura.getModel()) + "");
                 break;
-
+                
+//Factura------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                
             case cancelarFactura:
                 this.v.Frame_Factura.setVisible(false);
                 this.v.Frame_Pedido.setVisible(true);
@@ -653,7 +657,8 @@ public class Controlador implements ActionListener, MouseListener {
                         int cantidad = (int) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 3);
                         m.insertArticuloPedido(cod_articulo, codigo, cantidad);
                         arrayList.add(m.getArticuloPedido(cod_articulo, codigo));
-                        m.modifyArticulo(cod_articulo, this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 1).toString(), (double) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 2), (int) this.v.tbl_Pedido_Articulos.getValueAt(i, 3));
+                        m.modifyArticulo(cod_articulo, this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 1).toString(), (double) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 2), (int) this.v.tbl_Pedido_Articulos.getValueAt(i, 3)); 
+                        m.insertCobro(m.getDocumentoByCodigo(codigo), "Inmediata", now, (base+iva));
                     }
                     insertado = true;
                 } else if (this.v.rad_Pedido_Proveedor.isSelected() && JOptionPane.showConfirmDialog(null, "¿Estas seguro de realizar el pedido?") == 0) {
@@ -672,12 +677,13 @@ public class Controlador implements ActionListener, MouseListener {
                         m.insertArticuloPedido(cod_articulo, codigo, cantidad);
                         arrayList.add(m.getArticuloPedido(cod_articulo, codigo));
                         m.modifyArticulo(cod_articulo, this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 1).toString(), (double) this.v.tbl_Pedido_ArticulosPedidos.getValueAt(i, 2), (int) this.v.tbl_Pedido_Articulos.getValueAt(i, 3));
+                    
                     }
-                    
-                    
-                    
                     insertado = true;
                 }
+                
+                
+                
                 if (insertado == true && this.v.rad_Pedido_Cliente.isSelected()) {
                     int result = this.v.jFileChooser.showSaveDialog(this.v.jFileChooser);
                     if (result == this.v.jFileChooser.APPROVE_OPTION) {
@@ -699,6 +705,8 @@ public class Controlador implements ActionListener, MouseListener {
 //Proforma- - - - - - -   - --- -  - - - -  - --------------------------------------------------------------------------
             
             case mostrarFrameProforma:
+                double IVA = Double.parseDouble(LectorProperties.getPropiedad("IVA"));
+                IVA = IVA/100;
                 this.v.Frame_Proforma.setVisible(true);
                 this.v.Frame_Proforma.setSize(700, 600);
                 this.v.Frame_Proforma.setLocationRelativeTo(v);
@@ -709,7 +717,7 @@ public class Controlador implements ActionListener, MouseListener {
                     i -= 1;
                 }
                 this.v.tbl_Proforma.setModel(m.rellenarProforma((DefaultTableModel) this.v.tbl_Proforma.getModel(), (DefaultTableModel) this.v.tbl_Pedido_ArticulosPedidos.getModel()));
-                this.v.eti_Proforma_TOTAL.setText("" + (m.getSumaPresupuesto() * 0.21 + m.getSumaPresupuesto()));
+                this.v.eti_Proforma_TOTAL.setText("" + (m.getSumaPresupuesto() * IVA+ m.getSumaPresupuesto()));
                 break;
             case salirFrameProforma:
                 this.v.Frame_Proforma.setVisible(false);
@@ -737,7 +745,7 @@ public class Controlador implements ActionListener, MouseListener {
             System.out.println("Estas en Tab ==Modificar Articulo");
             this.v.eti_Modificar_Articulo_ID.setText("" + v.tbl_Tabla_Modificar_Articulo.getValueAt(fila_Articulo, 0));
             this.v.txt_Modificar_Articulo_Nombre.setText("" + v.tbl_Tabla_Modificar_Articulo.getValueAt(fila_Articulo, 1));
-            this.v.txt_Modificar_Articulo_Precio.setText("" + v.tbl_Tabla_Modificar_Articulo.getValueAt(fila_Articulo, 2));
+           // this.v.txt_Modificar_Articulo_Precio.setText("" + v.tbl_Tabla_Modificar_Articulo.getValueAt(fila_Articulo, 2));
             this.v.sp_Modificar_Articulo_Spinner.setValue(v.tbl_Tabla_Modificar_Articulo.getValueAt(fila_Articulo, 3));
         }
 
@@ -746,11 +754,11 @@ public class Controlador implements ActionListener, MouseListener {
         if (fila_Cliente >= 0) {
             System.out.println("Estas en Tab ==Modificar Cliene");
             this.v.eti_Modificar_Cliente_Dni_antiguo.setText("" + v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 0));
-            this.v.txt_Modificar_Cliente_Nombre.setText("" + v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 1));
-            this.v.txt_Modificar_Cliente_Apellidos.setText("" + v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 2));
+           // this.v.txt_Modificar_Cliente_Nombre.setText("" + v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 1));
+            //this.v.txt_Modificar_Cliente_Apellidos.setText("" + v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 2));
             this.v.txt_Modificar_Cliente_Domicilio.setText("" + v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 3));
             this.v.txt_Modificar_Cliente_Correo.setText("" + v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 4));
-            this.v.txt_Modificar_Cliente_Telefono.setText("" + v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 5));
+            //this.v.txt_Modificar_Cliente_Telefono.setText("" + v.tbl_Tabla_Modificar_Cliente.getValueAt(fila_Cliente, 5));
         }
 
 //Tabla Proveedor Modificar------------------------------------------------------------------------------------------------------------------
@@ -759,7 +767,7 @@ public class Controlador implements ActionListener, MouseListener {
             System.out.println("Estas en Tab ==Modificar Cliene");
             this.v.eti_Modificar_Proveedor_CIF.setText("" + v.tbl_Tabla_Modificar_Proveedor.getValueAt(fila_Proveedor, 0));
             this.v.txt_Modificar_Proveedor_DSocial.setText("" + v.tbl_Tabla_Modificar_Proveedor.getValueAt(fila_Proveedor, 1));
-            this.v.txt_Modificar_Proveedor_Telefono.setText("" + v.tbl_Tabla_Modificar_Proveedor.getValueAt(fila_Proveedor, 2));
+           // this.v.txt_Modificar_Proveedor_Telefono.setText("" + v.tbl_Tabla_Modificar_Proveedor.getValueAt(fila_Proveedor, 2));
             this.v.txt_Modificar_Proveedor_Correo.setText("" + v.tbl_Tabla_Modificar_Proveedor.getValueAt(fila_Proveedor, 3));
         }
 
@@ -868,12 +876,14 @@ public class Controlador implements ActionListener, MouseListener {
     public void restriccionesTextFields() {
         //Restricciones Frame Articulo
         //Crear
-        RestrictedTextField resCrearArticuloPrecio = new RestrictedTextField(this.v.txt_Crear_Articulo_Precio);
-        resCrearArticuloPrecio.setOnlyNums(true);
-        //Modificar
-        RestrictedTextField resModificarArticuloPrecio = new RestrictedTextField(this.v.txt_Modificar_Articulo_Precio);
-        resModificarArticuloPrecio.setOnlyNums(true);
-
+//        RestrictedTextField resCrearArticuloPrecio = new RestrictedTextField(this.v.txt_Crear_Articulo_Precio);
+//        resCrearArticuloPrecio.setOnlyNums(true);
+//        resCrearArticuloPrecio.setAcceptCharacters(".");
+//        //Modificar
+//        RestrictedTextField resModificarArticuloPrecio = new RestrictedTextField(this.v.txt_Modificar_Articulo_Precio);
+//        resModificarArticuloPrecio.setOnlyNums(true);
+//        resModificarArticuloPrecio.setAcceptCharacters(".");
+        
         //Restricciones Frame Cliente
         //Crear
         RestrictedTextField resCrearClienteNombre = new RestrictedTextField(this.v.txt_Crear_Cliente_Nombre);
