@@ -11,17 +11,15 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import Atxy2k.CustomTextField.RestrictedTextField;
 import Hibernate.ArticuloPedido;
 import Hibernate.Documento;
-import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -102,15 +100,9 @@ public class Controlador implements ActionListener, MouseListener {
     }
 
     public void iniciarMain() {
-        try {
-            UIManager.setLookAndFeel(new WindowsLookAndFeel());
-            SwingUtilities.updateComponentTreeUI(v);
-            this.v.setLocationRelativeTo(null);
-            v.setVisible(true);
-        } catch (UnsupportedLookAndFeelException ex) {
-        }
         
-        
+        this.v.setLocationRelativeTo(null);
+        v.setVisible(true);        
 
         this.v.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/img/stk.jpg")));
         restriccionesTextFields();

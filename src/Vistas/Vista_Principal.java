@@ -1,6 +1,5 @@
 package Vistas;
 
-import java.awt.BorderLayout;
 
 /**
  *
