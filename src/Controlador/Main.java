@@ -16,7 +16,7 @@ public class Main {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             
             UIManager.setLookAndFeel("de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel");
-            SwingUtilities.updateComponentTreeUI(v);
+//            SwingUtilities.updateComponentTreeUI(v);
         } catch (Exception e) {
             e.printStackTrace();
         }
