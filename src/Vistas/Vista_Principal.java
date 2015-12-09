@@ -1,5 +1,9 @@
 package Vistas;
 
+import Modelo.LectorTema;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+
 
 /**
  *
@@ -7,9 +11,11 @@ package Vistas;
  */
 public class Vista_Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Vista
-     */
+  static String ALUOXIDE ="de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel";
+  static String BLUELIGHT ="de.javasoft.plaf.synthetica.SyntheticaBlueLightLookAndFeel";
+  static String ORANGEMETALLIC="de.javasoft.plaf.synthetica.SyntheticaOrangeMetallicLookAndFeel";
+  static String MAUVENMETALLIC ="de.javasoft.plaf.synthetica.SyntheticaMauveMetallicLookAndFeel";
+  
     public Vista_Principal() {
         initComponents();
         
@@ -281,6 +287,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         eti_Factura_Proveedor_Cif = new javax.swing.JLabel();
         eti_Factura_Proveedor_DSocial = new javax.swing.JLabel();
         jFileChooser = new javax.swing.JFileChooser();
+        grupoTemas = new javax.swing.ButtonGroup();
         pnl_contenedor = new javax.swing.JPanel();
         jSplitPane1 = new javax.swing.JSplitPane();
         pnl_principal_izquierda = new javax.swing.JPanel();
@@ -304,6 +311,11 @@ public class Vista_Principal extends javax.swing.JFrame {
         Menu_Empresa_Cobros_Pagos = new javax.swing.JMenuItem();
         Menu_Configuracion = new javax.swing.JMenu();
         Menu_Confi_Ver = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();
         jMenu1 = new javax.swing.JMenu();
         Menu_Sesion_Salir = new javax.swing.JMenuItem();
 
@@ -2580,6 +2592,47 @@ public class Vista_Principal extends javax.swing.JFrame {
         Menu_Confi_Ver.setText("Ver datos");
         Menu_Configuracion.add(Menu_Confi_Ver);
 
+        jMenu2.setText("Temas ...");
+
+        grupoTemas.add(jRadioButtonMenuItem1);
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("AluOxide");
+        jRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jRadioButtonMenuItem1);
+
+        grupoTemas.add(jRadioButtonMenuItem2);
+        jRadioButtonMenuItem2.setText("BlueLight");
+        jRadioButtonMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jRadioButtonMenuItem2);
+
+        grupoTemas.add(jRadioButtonMenuItem3);
+        jRadioButtonMenuItem3.setText("OrangeMetallic");
+        jRadioButtonMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jRadioButtonMenuItem3);
+
+        grupoTemas.add(jRadioButtonMenuItem4);
+        jRadioButtonMenuItem4.setText("MauveMetallic");
+        jRadioButtonMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jRadioButtonMenuItem4);
+
+        Menu_Configuracion.add(jMenu2);
+
         Menu_bar.add(Menu_Configuracion);
 
         jMenu1.setText("Sesion");
@@ -2604,6 +2657,58 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem1ActionPerformed
+        try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            
+            UIManager.setLookAndFeel(ALUOXIDE);
+            SwingUtilities.updateComponentTreeUI(this);
+            
+            LectorTema.setPropiedad(ALUOXIDE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed
+
+    private void jRadioButtonMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem2ActionPerformed
+        try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            
+            UIManager.setLookAndFeel(BLUELIGHT);
+            SwingUtilities.updateComponentTreeUI(this);
+            LectorTema.setPropiedad(BLUELIGHT);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem2ActionPerformed
+
+    private void jRadioButtonMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem3ActionPerformed
+        try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            
+            UIManager.setLookAndFeel(ORANGEMETALLIC);
+            SwingUtilities.updateComponentTreeUI(this);
+            LectorTema.setPropiedad(ORANGEMETALLIC);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_jRadioButtonMenuItem3ActionPerformed
+
+    private void jRadioButtonMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem4ActionPerformed
+
+        try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            
+            UIManager.setLookAndFeel(MAUVENMETALLIC);
+            SwingUtilities.updateComponentTreeUI(this);
+            LectorTema.setPropiedad(MAUVENMETALLIC);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jRadioButtonMenuItem4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2696,6 +2801,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JLabel eti_Pedido_Proveedor_DSocial;
     public javax.swing.JLabel eti_Presupuesto;
     public javax.swing.JLabel eti_Proforma_TOTAL;
+    private javax.swing.ButtonGroup grupoTemas;
     public javax.swing.JFileChooser jFileChooser;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
@@ -2784,6 +2890,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel89;
     public javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     public javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel10;
     public javax.swing.JPanel jPanel11;
@@ -2798,6 +2905,10 @@ public class Vista_Principal extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel7;
     public javax.swing.JPanel jPanel8;
     public javax.swing.JPanel jPanel9;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem4;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane10;
     public javax.swing.JScrollPane jScrollPane11;

@@ -1,6 +1,7 @@
 
 package Controlador;
 
+import Modelo.LectorTema;
 import Vistas.Vista_Principal;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -11,12 +12,13 @@ import javax.swing.UIManager;
  */
 public class Main {
     static Vista_Principal v;
+    
     public static void main(String args[]){
         try {
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             
-            UIManager.setLookAndFeel("de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel");
-//            SwingUtilities.updateComponentTreeUI(v);
+            UIManager.setLookAndFeel(LectorTema.getPropiedad("NOMBRE"));
+            SwingUtilities.updateComponentTreeUI(v);
         } catch (Exception e) {
             e.printStackTrace();
         }
